@@ -1,4 +1,5 @@
-package controller;//package org.example;
+package controller;
+//package org.example;
 
 public class LogInController {
 }

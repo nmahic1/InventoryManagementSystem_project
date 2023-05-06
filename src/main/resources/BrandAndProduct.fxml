@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="70.0" prefWidth="600.0" style="-fx-background-color: #ef8f00;" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="12.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" style="-fx-background-color: #ef8f00;" text="Brand and Category" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="182.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="87.0" style="-fx-background-color: #ef8f00;" text="Product" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="270.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="132.0" style="-fx-background-color: #ef8f00;" text="Cash Register" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="402.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="86.0" style="-fx-background-color: #ef8f00;" text="LogOut" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="330.0" prefWidth="587.0" style="-fx-background-color: #544d50;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="499.0" layoutY="-72.0" prefHeight="400.0" prefWidth="102.0">
+               <children>
+                  <ImageView fitHeight="106.0" fitWidth="102.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../ImageIMS/istockphoto-1138644570-612x612.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="299.0" fitWidth="103.0" layoutY="101.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../ImageIMS/Capture.PNG" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <TableView layoutX="251.0" layoutY="14.0" prefHeight="301.0" prefWidth="227.0" style="-fx-background-color: #a8a3a0;">
+              <columns>
+                <TableColumn prefWidth="75.0" text="ID" />
+                <TableColumn prefWidth="75.0" text="Brand" />
+                  <TableColumn prefWidth="75.0" text="Category" />
+              </columns>
+            </TableView>
+            <TextField layoutX="103.0" layoutY="124.0" prefHeight="26.0" prefWidth="120.0" />
+            <Label layoutX="22.0" layoutY="102.0" text="Brand" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="22.0" layoutY="137.0" text="Category" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="103.0" layoutY="89.0" prefHeight="26.0" prefWidth="120.0" />
+            <Button layoutX="28.0" layoutY="222.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Add" textFill="WHITE" />
+            <Button layoutX="94.0" layoutY="222.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Delete" textFill="WHITE" />
+            <Button layoutX="163.0" layoutY="222.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Update" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

@@ -17,7 +17,8 @@ public class Javafx extends Application {
         Scene scene = new Scene(new StackPane(l), 640, 480);
         stage.setScene(scene);
         stage.show();*/
-        Parent root = FXMLLoader.load(getClass().getResource("/GUI.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/LogIn.fxml"));
+       // Parent root = FXMLLoader.load(getClass().getResource("/BrandAndProduct.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
