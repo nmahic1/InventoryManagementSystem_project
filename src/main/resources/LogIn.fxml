@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LogInController">
    <top>
       <AnchorPane prefHeight="128.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -30,8 +29,8 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="255.0" layoutY="65.0" prefHeight="26.0" prefWidth="199.0" />
-            <TextField layoutX="255.0" layoutY="106.0" prefHeight="26.0" prefWidth="200.0" />
+            <TextField fx:id="usernameField" layoutX="255.0" layoutY="65.0" prefHeight="26.0" prefWidth="199.0" />
+            <TextField fx:id="passwordField" layoutX="255.0" layoutY="106.0" prefHeight="26.0" prefWidth="200.0" />
             <Label layoutX="161.0" layoutY="105.0" text="Password" textAlignment="JUSTIFY" textFill="#a49989">
                <font>
                   <Font size="18.0" />
@@ -42,7 +41,13 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button layoutX="258.0" layoutY="152.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #a49989;" text="LogIn" textFill="#3e3c3c" />
+            <Button fx:id="loginButton" layoutX="258.0" layoutY="152.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #a49989;" text="LogIn" textFill="#3e3c3c" />
+            <Label layoutX="260.0" layoutY="186.0" textAlignment="JUSTIFY" textFill="#a39889">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="errorLabel" layoutX="221.0" layoutY="190.0" prefHeight="18.0" prefWidth="239.0" text="" textAlignment="JUSTIFY" textFill="RED" />
          </children>
       </AnchorPane>
    </center>
