@@ -1,76 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BrandAndProductController">
    <top>
-      <AnchorPane prefHeight="70.0" prefWidth="600.0" style="-fx-background-color: #ef8f00;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: #ef8f00;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="12.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" style="-fx-background-color: #ef8f00;" text="Brand and Category" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button layoutX="182.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="87.0" style="-fx-background-color: #ef8f00;" text="Product" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button layoutX="270.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="132.0" style="-fx-background-color: #ef8f00;" text="Cash Register" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button layoutX="402.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="86.0" style="-fx-background-color: #ef8f00;" text="LogOut" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
+            <MenuBar layoutX="80.0" layoutY="10.0" style="-fx-background-color: #ef8f00;">
+              <menus>
+                <Menu fx:id="brandAndProduct" mnemonicParsing="false" text="Brand and Category">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu fx:id="product" mnemonicParsing="false" text="Product">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu fx:id="cashRegister" mnemonicParsing="false" text="CashRegister">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+                  <Menu fx:id="logOut" onAction="#logout" mnemonicParsing="false" text="LogOut">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                     </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+
          </children>
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane prefHeight="330.0" prefWidth="587.0" style="-fx-background-color: #544d50;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="358.0" prefWidth="602.0" style="-fx-background-color: #544d50;" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane layoutX="499.0" layoutY="-72.0" prefHeight="400.0" prefWidth="102.0">
                <children>
-                  <ImageView fitHeight="106.0" fitWidth="102.0" pickOnBounds="true">
+                  <ImageView fitHeight="79.0" fitWidth="78.0" layoutX="24.0" layoutY="27.0" pickOnBounds="true">
                      <image>
                         <Image url="@../../ImageIMS/istockphoto-1138644570-612x612.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="299.0" fitWidth="103.0" layoutY="101.0" pickOnBounds="true">
+                  <ImageView fitHeight="322.0" fitWidth="79.0" layoutX="24.0" layoutY="105.0" pickOnBounds="true">
                      <image>
                         <Image url="@../../ImageIMS/Capture.PNG" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <TableView layoutX="251.0" layoutY="14.0" prefHeight="301.0" prefWidth="227.0" style="-fx-background-color: #a8a3a0;">
+            <TableView fx:id="tableView" layoutX="260.0" layoutY="16.0" prefHeight="324.0" prefWidth="226.0" style="-fx-background-color: #a8a3a0;">
               <columns>
-                <TableColumn prefWidth="75.0" text="ID" />
-                <TableColumn prefWidth="75.0" text="Brand" />
-                  <TableColumn prefWidth="75.0" text="Category" />
+                <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="dataColumnBrand" prefWidth="75.0" text="Category" />
+                  <TableColumn fx:id="dataColumnCategory" prefWidth="75.0" text="Brand" />
               </columns>
             </TableView>
-            <TextField layoutX="103.0" layoutY="124.0" prefHeight="26.0" prefWidth="120.0" />
-            <Label layoutX="22.0" layoutY="102.0" text="Brand" textFill="WHITE">
+            <TextField fx:id="brand" layoutX="95.0" layoutY="109.0" prefHeight="26.0" prefWidth="144.0" />
+            <Label layoutX="29.0" layoutY="78.0" text="Brand" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="22.0" layoutY="137.0" text="Category" textFill="WHITE">
+            <Label layoutX="28.0" layoutY="112.0" text="Category" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="103.0" layoutY="89.0" prefHeight="26.0" prefWidth="120.0" />
-            <Button layoutX="28.0" layoutY="222.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Add" textFill="WHITE" />
-            <Button layoutX="94.0" layoutY="222.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Delete" textFill="WHITE" />
-            <Button layoutX="163.0" layoutY="222.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Update" textFill="WHITE" />
+            <TextField fx:id="category" layoutX="95.0" layoutY="75.0" prefHeight="26.0" prefWidth="144.0" />
+            <Button layoutX="37.0" layoutY="178.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" onAction="#addData" text="Add" textFill="WHITE" />
+            <Button layoutX="109.0" layoutY="178.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Delete" textFill="WHITE" />
+            <Button layoutX="183.0" layoutY="178.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Update" textFill="WHITE" />
          </children>
       </AnchorPane>
    </center>

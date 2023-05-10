@@ -1,7 +1,6 @@
 package controller;
 //package org.example;
 
-//public class LogInController {}
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -35,7 +34,7 @@ public class LogInController {
         String password = passwordField.getText();
 
         // Provjera korisničkog imena i lozinke
-        if (username.equals("nmahic1") && password.equals("Sifra1!")) {
+        if (username.equals("nmahic1") && password.equals("12345")) {
             try {
                 // Učitavanje FXML datoteke drugog prozora
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/BrandAndProduct.fxml"));
