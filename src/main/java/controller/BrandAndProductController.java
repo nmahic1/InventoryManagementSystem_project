@@ -4,18 +4,23 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
-import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
+import java.awt.*;
+//import java.awt.Button;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.util.Optional;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 
-    public class BrandAndProductController {
+public class BrandAndProductController {
 
         @FXML
         private Menu brandAndProduct;
@@ -29,6 +34,7 @@ import javafx.scene.control.TextField;
         @FXML
         private Menu logOut;
 
+        //tabela,i dodavanje elemenata
         @FXML
         private TextField brand;
 
@@ -51,6 +57,43 @@ import javafx.scene.control.TextField;
 
         private ObservableList<Data> dataListBrandCategory = FXCollections.observableArrayList();
 
+        //dugme za delete u update
+        @FXML
+        private Button deleteButton;
+
+        @FXML
+        private Button updateButton;
+
+    //meni
+    @FXML
+    void handlebrandAndProduct(ActionEvent event) {
+        // Code to handle open menu item
+    }
+
+    @FXML
+    void handleproduct(ActionEvent event) {
+        // Code to handle save menu item
+    }
+
+    @FXML
+    void handlecashRegister(ActionEvent event) {
+        // Code to handle exit menu item
+    }
+
+    public void logout(javafx.event.ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/LogIn.fxml"));
+        Parent root = loader.load();
+
+        // Otvaranje nove scene s drugim prozorom
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    //tabela i dodavanje elemenata
         public void addData(javafx.event.ActionEvent actionEvent) {
 
             idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -66,7 +109,7 @@ import javafx.scene.control.TextField;
             category.clear();
         }
 
-        public class Data {
+    public class Data {
             private int id;
             private String brand;
             private String category;
@@ -102,32 +145,56 @@ import javafx.scene.control.TextField;
             }
         }
 
+        //delete i update dugme
         @FXML
-        void handlebrandAndProduct(ActionEvent event) {
-            // Code to handle open menu item
+        void deleteData(javafx.event.ActionEvent event) {
+            int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
+            if (selectedIndex >= 0) {
+                tableView.getItems().remove(selectedIndex);
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                //prozor za ispisivanje poruke
+                alert.setTitle("No Selection");
+                alert.setHeaderText("No Data Selected");
+                alert.setContentText("Please select a data in the table.");
+                alert.showAndWait();
+            }
         }
 
         @FXML
-        void handleproduct(ActionEvent event) {
-            // Code to handle save menu item
-        }
+        void updateData(javafx.event.ActionEvent event) {
 
-        @FXML
-        void handlecashRegister(ActionEvent event) {
-            // Code to handle exit menu item
-        }
+            int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
+            if (selectedIndex >= 0) {
+                Data selectedData = tableView.getSelectionModel().getSelectedItem();
+                TextInputDialog brandDialog = new TextInputDialog(selectedData.getBrand());
 
-        public void logout(javafx.event.ActionEvent actionEvent) throws IOException {
+                //prozor za ispisivanje poruke
+                brandDialog.setTitle("Update Data");
+                brandDialog.setHeaderText("Update selected data");
+                brandDialog.setContentText("Enter brand name:");
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/LogIn.fxml"));
-                Parent root = loader.load();
+                TextInputDialog categoryDialog = new TextInputDialog(selectedData.getCategory());
+                //prozor za ispisivanje poruke
+                categoryDialog.setTitle("Update Data");
+                categoryDialog.setHeaderText("Update selected data");
+                categoryDialog.setContentText("Enter category name:");
 
-                // Otvaranje nove scene s drugim prozorom
-                Scene scene = new Scene(root);
-                Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.show();
-
+                Optional<String> brandResult = brandDialog.showAndWait();
+                Optional<String> categoryResult = categoryDialog.showAndWait();
+                if (brandResult.isPresent() && categoryResult.isPresent()) {
+                    selectedData.setBrand(brandResult.get());
+                    selectedData.setCategory(categoryResult.get());
+                    tableView.refresh();
+                }
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                //prozor za ispisivanje poruke
+                alert.setTitle("No Selection");
+                alert.setHeaderText("No Data Selected");
+                alert.setContentText("Please select a data in the table.");
+                alert.showAndWait();
+            }
         }
     }
 

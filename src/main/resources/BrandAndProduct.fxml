@@ -83,8 +83,8 @@
             </Label>
             <TextField fx:id="category" layoutX="95.0" layoutY="75.0" prefHeight="26.0" prefWidth="144.0" />
             <Button layoutX="37.0" layoutY="178.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" onAction="#addData" text="Add" textFill="WHITE" />
-            <Button layoutX="109.0" layoutY="178.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Delete" textFill="WHITE" />
-            <Button layoutX="183.0" layoutY="178.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Update" textFill="WHITE" />
+            <Button fx:id="deleteButton" layoutX="109.0" layoutY="178.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" onAction="#deleteData" text="Delete" textFill="WHITE" />
+            <Button fx:id="updateButton" layoutX="183.0" layoutY="178.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" onAction="#updateData" text="Update" textFill="WHITE" />
          </children>
       </AnchorPane>
    </center>
