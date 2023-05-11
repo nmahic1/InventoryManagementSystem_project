@@ -65,19 +65,31 @@ public class BrandAndProductController {
         private Button updateButton;
 
     //meni
-    @FXML
-    void handlebrandAndProduct(ActionEvent event) {
-        // Code to handle open menu item
-    }
 
     @FXML
-    void handleproduct(ActionEvent event) {
+    void handleproduct(javafx.event.ActionEvent event) throws IOException {
         // Code to handle save menu item
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Product.fxml"));
+        Parent root = loader.load();
+
+        // Otvaranje nove scene s drugim prozorom
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    void handlecashRegister(ActionEvent event) {
+    void handlecashRegister(javafx.event.ActionEvent event) throws IOException {
         // Code to handle exit menu item
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/CashRegister.fxml"));
+        Parent root = loader.load();
+
+        // Otvaranje nove scene s drugim prozorom
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void logout(javafx.event.ActionEvent actionEvent) throws IOException {
