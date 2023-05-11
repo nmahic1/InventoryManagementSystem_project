@@ -1,42 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductController">
    <top>
-      <AnchorPane prefHeight="70.0" prefWidth="600.0" style="-fx-background-color: #ef8f00;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: #ef8f00;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="13.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" style="-fx-background-color: #ef8f00;" text="Brand and Category" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button layoutX="182.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="87.0" style="-fx-background-color: #ef8f00;" text="Product" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button layoutX="270.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="132.0" style="-fx-background-color: #ef8f00;" text="Cash Register" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button layoutX="402.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="86.0" style="-fx-background-color: #ef8f00;" text="LogOut" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
+            <MenuBar layoutX="80.0" layoutY="10.0" style="-fx-background-color: #ef8f00;">
+               <menus>
+                  <Menu fx:id="brandAndProduct" mnemonicParsing="false" text="Brand and Category">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="product" mnemonicParsing="false" text="Product">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="cashRegister" mnemonicParsing="false" text="CashRegister">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="logOut" onAction="#logout" mnemonicParsing="false" text="LogOut">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
          </children>
       </AnchorPane>
    </top>
@@ -45,14 +52,14 @@
          <children>
             <AnchorPane layoutX="499.0" layoutY="-72.0" prefHeight="400.0" prefWidth="102.0">
                <children>
-                  <ImageView fitHeight="106.0" fitWidth="102.0" pickOnBounds="true">
+                  <ImageView fitHeight="79.0" fitWidth="78.0" layoutX="24.0" layoutY="27.0" pickOnBounds="true">
                      <image>
-                        <Image url="@istockphoto-1138644570-612x612.jpg" />
+                        <Image url="@../../ImageIMS/istockphoto-1138644570-612x612.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="299.0" fitWidth="103.0" layoutY="101.0" pickOnBounds="true">
+                  <ImageView fitHeight="322.0" fitWidth="79.0" layoutX="24.0" layoutY="105.0" pickOnBounds="true">
                      <image>
-                        <Image url="@Capture1.PNG" />
+                        <Image url="@../../ImageIMS/Capture1.PNG" />
                      </image>
                   </ImageView>
                </children>
@@ -62,29 +69,30 @@
             <Button layoutX="95.0" layoutY="283.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Delete" textFill="WHITE" />
             <Button layoutX="158.0" layoutY="283.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Update" textFill="WHITE" />
             <TextField layoutX="394.0" layoutY="82.0" prefHeight="26.0" prefWidth="89.0" />
-            <TextField layoutX="394.0" layoutY="47.0" prefHeight="26.0" prefWidth="89.0" style="-fx-background-color: #544d50;" />
+            <!--<TextField layoutX="394.0" layoutY="60.0" prefHeight="26.0" prefWidth="89.0" />-->
+            <TextField layoutX="394.0" layoutY="47.0" prefHeight="26.0" prefWidth="89.0"  />
             <TextField layoutX="394.0" layoutY="152.0" prefHeight="26.0" prefWidth="90.0" />
-            <Label layoutX="315.0" layoutY="25.0" text="Product" textFill="WHITE">
+            <Label layoutX="315.0" layoutY="20.0" text="Product" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="312.0" layoutY="59.0" text="Quantity" textFill="WHITE">
+            <Label layoutX="314.0" layoutY="54.0" text="Quantity" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="314.0" layoutY="94.0" text="Cost Price" textFill="WHITE">
+            <Label layoutX="314.0" layoutY="89.0" text="Cost Price" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="314.0" layoutY="129.0" text="Retail Price" textFill="WHITE">
+            <Label layoutX="314.0" layoutY="124.0" text="Retail Price" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="314.0" layoutY="164.0" text="Barcode" textFill="WHITE">
+            <Label layoutX="314.0" layoutY="159.0" text="Barcode" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
