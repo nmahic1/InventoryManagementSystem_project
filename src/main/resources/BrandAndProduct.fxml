@@ -18,24 +18,24 @@
    <top>
       <AnchorPane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: #ef8f00;" BorderPane.alignment="CENTER">
          <children>
-            <MenuBar layoutX="80.0" layoutY="10.0" style="-fx-background-color: #ef8f00;">
+            <MenuBar fx:id="menuBar" layoutX="80.0" layoutY="10.0" style="-fx-background-color: #ef8f00;">
               <menus>
                 <Menu fx:id="brandAndProduct" mnemonicParsing="false" text="Brand and Category">
                   <items>
                     <MenuItem mnemonicParsing="false" text="Close" />
                   </items>
                 </Menu>
-                <Menu fx:id="product" mnemonicParsing="false" text="Product">
+                <Menu fx:id="product" mnemonicParsing="false" onAction="#handleproduct" text="Product">
                   <items>
                     <MenuItem mnemonicParsing="false" text="Delete" />
                   </items>
                 </Menu>
-                <Menu fx:id="cashRegister" mnemonicParsing="false" text="CashRegister">
+                <Menu fx:id="cashRegister" mnemonicParsing="false" onAction="#handlecashRegister" text="CashRegister">
                   <items>
                     <MenuItem mnemonicParsing="false" text="About" />
                   </items>
                 </Menu>
-                  <Menu fx:id="logOut" onAction="#logout" mnemonicParsing="false" text="LogOut">
+                  <Menu fx:id="logOut" mnemonicParsing="false" onAction="#logout" text="LogOut">
                      <items>
                         <MenuItem mnemonicParsing="false" text="About" />
                      </items>

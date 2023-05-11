@@ -10,10 +10,9 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
+import javafx.event.ActionEvent;
 import java.awt.*;
 //import java.awt.Button;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -68,7 +67,7 @@ public class BrandAndProductController {
     //meni
 
     @FXML
-    void handleproduct(javafx.event.ActionEvent event) throws IOException {
+    void handleproduct(ActionEvent event) throws IOException {
         // Code to handle save menu item
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Product.fxml"));
         Parent root = loader.load();
@@ -81,7 +80,7 @@ public class BrandAndProductController {
     }
 
     @FXML
-    void handlecashRegister(javafx.event.ActionEvent event) throws IOException {
+    void handlecashRegister(ActionEvent event) throws IOException {
         // Code to handle exit menu item
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/CashRegister.fxml"));
         Parent root = loader.load();
@@ -93,7 +92,9 @@ public class BrandAndProductController {
         stage.show();
     }
 
-    public void logout(javafx.event.ActionEvent actionEvent) throws IOException {
+
+    @FXML
+    void logout(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/LogIn.fxml"));
         Parent root = loader.load();
