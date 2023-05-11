@@ -6,13 +6,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Menu;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class ProductController {
@@ -45,6 +43,9 @@ public class ProductController {
     private TextField barcode;
 
     @FXML
+    private TextArea descriptionTextArea;
+
+    @FXML
     private TableView<ProductController.Data> tableView;
 
     @FXML
@@ -65,6 +66,10 @@ public class ProductController {
     @FXML
     private TableColumn<ProductController.Data, String> dataColumnBarCode;
 
+    @FXML
+    private TableColumn<ProductController.Data, String> dataColumnDescription;
+
+
     private int id = 0;
 
     private ObservableList<ProductController.Data> dataListProduct = FXCollections.observableArrayList();
@@ -83,7 +88,7 @@ public class ProductController {
 
     }
 
-    public void addData(javafx.event.ActionEvent actionEvent) {
+    public void addData(ActionEvent actionEvent) {
 
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         dataColumnProduct.setCellValueFactory(new PropertyValueFactory<>("product"));
@@ -91,20 +96,28 @@ public class ProductController {
         dataColumnCostPrice.setCellValueFactory(new PropertyValueFactory<>("cost price"));
         dataColumnRetailPrice.setCellValueFactory(new PropertyValueFactory<>("retail price"));
         dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("bar code"));
+        dataColumnDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        tableView.getColumns().add(dataColumnDescription);
+
 
         String dataP = product1.getText();
         String dataQ = quantity.getText();
         String dataCP = costprice.getText();
         String dataRP = retailprice.getText();
         int dataBC = Integer.parseInt(barcode.getText());
+        String dataD = descriptionTextArea.getText();
         id++;
-        dataListProduct.add(new ProductController.Data(id, dataP, dataQ, dataCP,dataRP, dataBC));
+        dataListProduct.add(new ProductController.Data(id, dataP, dataQ, dataCP, dataRP, dataBC, dataD));
+        tableView.setItems(dataListProduct);
+        id++;
+        dataListProduct.add(new ProductController.Data(id, dataP, dataQ, dataCP,dataRP, dataBC, dataD));
         tableView.setItems(dataListProduct);
         product1.clear();
         quantity.clear();
         costprice.clear();
         retailprice.clear();
         barcode.clear();
+        descriptionTextArea.clear();
     }
 
     public class Data {
@@ -115,13 +128,16 @@ public class ProductController {
         private String retailprice;
         private int barcode;
 
-        public Data(int id, String product1, String quantity,String costprice, String retailprice, int barcode ) {
+        String descriptionTextArea;
+
+        public Data(int id, String product1, String quantity,String costprice, String retailprice, int barcode, String descriptionTextArea ) {
             this.id = id;
             this.product1 = product1;
             this.quantity = quantity;
             this.costprice = costprice;
             this.retailprice = retailprice;
             this.barcode = barcode;
+            this.descriptionTextArea=descriptionTextArea;
         }
 
         public int getId() {
@@ -152,6 +168,10 @@ public class ProductController {
             return barcode;
         }
 
+        public String getDescriptionTextArea() {
+            return descriptionTextArea;
+        }
+
 
         public void setProduct1(String data) {
             this.product1 = data;
@@ -172,5 +192,10 @@ public class ProductController {
         public void setBarcode(int data) {
             this.barcode = data;
         }
+
+        public void setDescriptionTextArea(String data) {
+            this.descriptionTextArea = data;
+        }
+
     }
 }
