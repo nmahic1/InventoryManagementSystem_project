@@ -100,12 +100,12 @@
             <TextField layoutX="394.0" layoutY="13.0" prefHeight="26.0" prefWidth="88.0" />
             <TableView layoutX="14.0" layoutY="14.0" prefHeight="238.0" prefWidth="220.0" style="-fx-background-color: #a8a3a0;">
               <columns>
-                <TableColumn prefWidth="75.0" text="ID" />
-                <TableColumn prefWidth="75.0" text="Product" />
-                  <TableColumn prefWidth="75.0" text="Quantity" />
-                  <TableColumn prefWidth="75.0" text="Cost Price" />
-                  <TableColumn prefWidth="75.0" text="Retail Price" />
-                  <TableColumn prefWidth="75.0" text="Barcode" />
+                <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="dataColumnProduct" prefWidth="75.0" text="Product" />
+                  <TableColumn fx:id="dataColumnQuantity" prefWidth="75.0" text="Quantity" />
+                  <TableColumn fx:id="dataColumnCostPrice" prefWidth="75.0" text="Cost Price" />
+                  <TableColumn fx:id="dataColumnRetailPrice" prefWidth="75.0" text="Retail Price" />
+                  <TableColumn fx:id="dataColumnBarCode" prefWidth="75.0" text="Barcode" />
                   <TableColumn prefWidth="75.0" text="Brand" />
                   <TableColumn prefWidth="75.0" text="Category" />
                   <TableColumn prefWidth="75.0" text="Description" />

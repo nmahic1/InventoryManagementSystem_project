@@ -15,6 +15,7 @@ import java.awt.*;
 //import java.awt.Button;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 import javafx.collections.FXCollections;
@@ -208,5 +209,6 @@ public class BrandAndProductController {
                 alert.showAndWait();
             }
         }
-    }
+
+}
 
