@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.util.List;
 
 public class ProductController {
 
@@ -88,7 +89,7 @@ public class ProductController {
 
     }
 
-    public void addData(ActionEvent actionEvent) {
+    public void addData(javafx.event.ActionEvent actionEvent) {
 
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         dataColumnProduct.setCellValueFactory(new PropertyValueFactory<>("product"));
@@ -97,8 +98,7 @@ public class ProductController {
         dataColumnRetailPrice.setCellValueFactory(new PropertyValueFactory<>("retail price"));
         dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("bar code"));
         dataColumnDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-        tableView.getColumns().add(dataColumnDescription);
-
+        //tableView.getColumns().add(dataColumnDescription);
 
         String dataP = product1.getText();
         String dataQ = quantity.getText();
@@ -109,16 +109,16 @@ public class ProductController {
         id++;
         dataListProduct.add(new ProductController.Data(id, dataP, dataQ, dataCP, dataRP, dataBC, dataD));
         tableView.setItems(dataListProduct);
-        id++;
-        dataListProduct.add(new ProductController.Data(id, dataP, dataQ, dataCP,dataRP, dataBC, dataD));
-        tableView.setItems(dataListProduct);
         product1.clear();
         quantity.clear();
         costprice.clear();
         retailprice.clear();
         barcode.clear();
         descriptionTextArea.clear();
+        tableView.refresh();
     }
+
+
 
     public class Data {
         private int id;
@@ -198,4 +198,19 @@ public class ProductController {
         }
 
     }
+   /* public void populateComboBoxes() throws IOException {
+        // Dohvaćanje instance ProductAndBrandController-a
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ProductAndBrand.fxml"));
+        Parent root = loader.load();
+        BrandAndProductController.Data controller = loader.getController();
+
+        // Dohvaćanje podataka i postavljanje modela za ComboBox-e
+        String brands = controller.getBrand();
+        brandComboBox.getItems().addAll(brands);
+
+        String categories = controller.getCategory();
+        categoryComboBox.getItems().addAll(categories);
+    }
+    */
+
 }
