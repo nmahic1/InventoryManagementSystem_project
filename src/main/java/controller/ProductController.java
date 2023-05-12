@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.util.List;
+
 
 public class ProductController {
 
@@ -76,8 +76,35 @@ public class ProductController {
     private ObservableList<ProductController.Data> dataListProduct = FXCollections.observableArrayList();
 
 
-    public void logout(javafx.event.ActionEvent actionEvent) throws IOException {
+    @FXML
+    void handleBrandAndProduct(javafx.event.ActionEvent actionEvent) throws IOException{
+        // Code to handle save menu item
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/BrandAndProduct.fxml"));
+        Parent root = loader.load();
 
+        // Otvaranje nove scene s drugim prozorom
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void handlecashRegister(javafx.event.ActionEvent actionEvent) throws IOException{
+        // Code to handle exit menu item
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/CashRegister.fxml"));
+        Parent root = loader.load();
+
+        // Otvaranje nove scene s drugim prozorom
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        //isto
+    }
+
+    @FXML
+    void logout(javafx.event.ActionEvent actionEvent) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/LogIn.fxml"));
         Parent root = loader.load();
 
@@ -86,9 +113,7 @@ public class ProductController {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
-
     }
-
     public void addData(javafx.event.ActionEvent actionEvent) {
 
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -117,8 +142,6 @@ public class ProductController {
         descriptionTextArea.clear();
         tableView.refresh();
     }
-
-
 
     public class Data {
         private int id;

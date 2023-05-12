@@ -64,7 +64,7 @@
             </AnchorPane>
             <Button layoutX="435.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Add" textFill="WHITE" />
             <Button layoutX="435.0" layoutY="58.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Delete" textFill="WHITE" />
-            <Button fx:id="payinvoice" layoutX="407.0" layoutY="291.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" onAction="#PayInvoiceBitton" text="Pay Invoice" textFill="WHITE" />
+            <Button fx:id="payinvoice" layoutX="407.0" layoutY="291.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" onAction="#PayInvoiceButton" text="Pay Invoice" textFill="WHITE" />
             <TextField layoutX="214.0" layoutY="24.0" prefHeight="26.0" prefWidth="86.0" />
             <TextField layoutX="315.0" layoutY="24.0" prefHeight="26.0" prefWidth="54.0" />
             <TextField layoutX="14.0" layoutY="23.0" prefHeight="26.0" prefWidth="74.0" />

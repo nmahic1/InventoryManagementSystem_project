@@ -6,24 +6,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
-import javafx.event.ActionEvent;
-import java.awt.*;
-//import java.awt.Button;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
+import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.stage.Stage;
 
 public class BrandAndProductController {
 
-        @FXML
+       @FXML
         private Menu brandAndProduct;
 
         @FXML
@@ -34,6 +29,8 @@ public class BrandAndProductController {
 
         @FXML
         private Menu logOut;
+
+
 
         //tabela,i dodavanje elemenata
         @FXML
@@ -66,9 +63,8 @@ public class BrandAndProductController {
         private Button updateButton;
 
     //meni
-
     @FXML
-    void handleproduct(ActionEvent event) throws IOException {
+    void handleProduct(javafx.event.ActionEvent actionEvent) throws IOException{
         // Code to handle save menu item
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Product.fxml"));
         Parent root = loader.load();
@@ -81,7 +77,7 @@ public class BrandAndProductController {
     }
 
     @FXML
-    void handlecashRegister(ActionEvent event) throws IOException {
+    void handlecashRegister(javafx.event.ActionEvent actionEvent) throws IOException{
         // Code to handle exit menu item
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/CashRegister.fxml"));
         Parent root = loader.load();
@@ -94,10 +90,8 @@ public class BrandAndProductController {
         //isto
     }
 
-
     @FXML
-    void logout(ActionEvent actionEvent) throws IOException {
-
+    void logout(javafx.event.ActionEvent actionEvent) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/LogIn.fxml"));
         Parent root = loader.load();
 
@@ -106,7 +100,6 @@ public class BrandAndProductController {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
-
     }
 
     //tabela i dodavanje elemenata
@@ -124,6 +117,9 @@ public class BrandAndProductController {
             brand.clear();
             category.clear();
         }
+
+
+
 
     public class Data {
             private int id;

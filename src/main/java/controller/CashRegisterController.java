@@ -15,7 +15,7 @@ public class CashRegisterController {
     public Button payinvoice;
 
 
-    public void PayInvoiceBitton(ActionEvent actionEvent) throws IOException {
+    public void PayInvoiceButton(ActionEvent actionEvent) throws IOException {
         // Code to handle save menu item
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Invoice.fxml"));
         Parent root = loader.load();

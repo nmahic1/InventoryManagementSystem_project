@@ -22,7 +22,7 @@
          <children>
             <MenuBar layoutX="80.0" layoutY="10.0" style="-fx-background-color: #ef8f00;">
                <menus>
-                  <Menu fx:id="brandAndProduct" mnemonicParsing="false" text="Brand and Category">
+                  <Menu fx:id="brandAndProduct" mnemonicParsing="false" onAction="#handleBrandAndProduct" text="Brand and Category">
                      <items>
                         <MenuItem mnemonicParsing="false" text="Close" />
                      </items>
@@ -32,7 +32,7 @@
                         <MenuItem mnemonicParsing="false" text="Delete" />
                      </items>
                   </Menu>
-                  <Menu fx:id="cashRegister" mnemonicParsing="false" text="CashRegister">
+                  <Menu fx:id="cashRegister" mnemonicParsing="false" onAction="#handlecashRegister" text="CashRegister">
                      <items>
                         <MenuItem mnemonicParsing="false" text="About" />
                      </items>
