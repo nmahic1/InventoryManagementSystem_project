@@ -11,10 +11,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
 
 public class ProductController {
 
+    public Button deleteButton;
+    public Button updateButton;
     @FXML
     private Menu brandAndProduct;
 
@@ -250,5 +253,21 @@ public class ProductController {
         categoryComboBox.getItems().addAll(categories);
     }
     */
+
+    @FXML
+    void deleteData(javafx.event.ActionEvent event) {
+        int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            tableView.getItems().remove(selectedIndex);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            //prozor za ispisivanje poruke
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Data Selected");
+            alert.setContentText("Please select a data in the table.");
+            alert.showAndWait();
+        }
+    }
+
 
 }

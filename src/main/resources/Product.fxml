@@ -66,8 +66,8 @@
             </AnchorPane>
             <TextField layoutX="394.0" layoutY="117.0" prefHeight="26.0" prefWidth="90.0" />
             <Button layoutX="33.0" layoutY="283.0" mnemonicParsing="false" onAction="#addData" style="-fx-background-color: #ef8f00;" text="Add" textFill="WHITE" />
-            <Button layoutX="95.0" layoutY="283.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Delete" textFill="WHITE" />
-            <Button layoutX="158.0" layoutY="283.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Update" textFill="WHITE" />
+            <Button fx:id="deleteButton" layoutX="95.0" layoutY="283.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" onAction="#deleteData" text="Delete" textFill="WHITE" />
+            <Button fx:id="updateButton" layoutX="158.0" layoutY="283.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" onAction="#updateData" text="Update" textFill="WHITE" />
             <TextField layoutX="394.0" layoutY="82.0" prefHeight="26.0" prefWidth="89.0" />
             <TextField layoutX="394.0" layoutY="47.0" prefHeight="26.0" prefWidth="89.0" />
             <TextField layoutX="394.0" layoutY="152.0" prefHeight="26.0" prefWidth="90.0" />
