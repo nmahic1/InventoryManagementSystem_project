@@ -10,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 
@@ -20,16 +19,10 @@ public class ProductController {
     private Menu brandAndProduct;
 
     @FXML
-    private Menu product;
-
-    @FXML
     private Menu cashRegister;
 
     @FXML
     private Menu logOut;
-
-    @FXML
-    private TextField product1;
 
     @FXML
     private TextField quantity;
@@ -44,7 +37,7 @@ public class ProductController {
     private TextField barcode;
 
     @FXML
-    private TextArea descriptionTextArea;
+    private TextArea description;
 
     @FXML
     private TableView<ProductController.Data> tableView;
@@ -53,19 +46,16 @@ public class ProductController {
     private TableColumn<ProductController.Data, Integer> idColumn;
 
     @FXML
-    private TableColumn<ProductController.Data, String> dataColumnProduct;
+    private TableColumn<ProductController.Data, Integer> dataColumnQuantity;
 
     @FXML
-    private TableColumn<ProductController.Data, String> dataColumnQuantity;
+    private TableColumn<ProductController.Data, Integer> dataColumnCostPrice;
 
     @FXML
-    private TableColumn<ProductController.Data, String> dataColumnCostPrice;
+    private TableColumn<ProductController.Data, Integer> dataColumnRetailPrice;
 
     @FXML
-    private TableColumn<ProductController.Data, String> dataColumnRetailPrice;
-
-    @FXML
-    private TableColumn<ProductController.Data, String> dataColumnBarCode;
+    private TableColumn<ProductController.Data, Integer> dataColumnBarCode;
 
     @FXML
     private TableColumn<ProductController.Data, String> dataColumnDescription;
@@ -113,10 +103,11 @@ public class ProductController {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
+
     }
     public void addData(javafx.event.ActionEvent actionEvent) {
 
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+       /* idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         dataColumnProduct.setCellValueFactory(new PropertyValueFactory<>("product"));
         dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         dataColumnCostPrice.setCellValueFactory(new PropertyValueFactory<>("cost price"));
@@ -141,26 +132,57 @@ public class ProductController {
         barcode.clear();
         descriptionTextArea.clear();
         tableView.refresh();
+
+        */
+
+            // postavljanje vrijednosti ćelija u tabeli
+            idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+            dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+            dataColumnCostPrice.setCellValueFactory(new PropertyValueFactory<>("costPrice"));
+            dataColumnRetailPrice.setCellValueFactory(new PropertyValueFactory<>("retailPrice"));
+            dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
+            dataColumnDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+
+            // kreiranje novog unosa na osnovu unesenih podataka
+            int dataQ = Integer.parseInt(quantity.getText());
+            int dataCP = Integer.parseInt(costprice.getText());
+            int dataRP = Integer.parseInt(retailprice.getText());
+            int dataBC = Integer.parseInt(barcode.getText());
+            String dataD = description.getText();
+            id++;
+            Data newData = new Data(id, dataQ, dataCP, dataRP, dataBC, dataD);
+
+            // dodavanje novog unosa u listu
+            dataListProduct.add(newData);
+
+            // osvježavanje tabele
+            tableView.refresh();
+
+            // čišćenje unesenih podataka
+            quantity.clear();
+            costprice.clear();
+            retailprice.clear();
+            barcode.clear();
+            description.clear();
+
     }
 
     public class Data {
         private int id;
-        private String product1;
-        private String quantity;
-        private String costprice;
-        private String retailprice;
+        private int quantity;
+        private int costprice;
+        private int retailprice;
         private int barcode;
 
-        String descriptionTextArea;
+        private String description;
 
-        public Data(int id, String product1, String quantity,String costprice, String retailprice, int barcode, String descriptionTextArea ) {
+        public Data(int id, int quantity, int costprice, int retailprice, int barcode, String description ) {
             this.id = id;
-            this.product1 = product1;
             this.quantity = quantity;
             this.costprice = costprice;
             this.retailprice = retailprice;
             this.barcode = barcode;
-            this.descriptionTextArea=descriptionTextArea;
+            this.description=description;
         }
 
         public int getId() {
@@ -171,19 +193,16 @@ public class ProductController {
             this.id = id;
         }
 
-        public String getProduct1() {
-            return product1;
-        }
 
-        public String getQuantity() {
+        public int getQuantity() {
             return quantity;
         }
 
-        public String getCostPrice() {
+        public int getCostPrice() {
             return costprice;
         }
 
-        public String getRetailPrice() {
+        public int getRetailPrice() {
             return retailprice;
         }
 
@@ -191,24 +210,20 @@ public class ProductController {
             return barcode;
         }
 
-        public String getDescriptionTextArea() {
-            return descriptionTextArea;
+        public String getDescription() {
+            return description;
         }
 
 
-        public void setProduct1(String data) {
-            this.product1 = data;
-        }
-
-        public void setQuantity(String data) {
+        public void setQuantity(int data) {
             this.quantity = data;
         }
 
-        public void setCostPrice(String data) {
+        public void setCostPrice(int data) {
             this.costprice = data;
         }
 
-        public void setRetailPrice(String data) {
+        public void setRetailPrice(int data) {
             this.retailprice = data;
         }
 
@@ -216,8 +231,8 @@ public class ProductController {
             this.barcode = data;
         }
 
-        public void setDescriptionTextArea(String data) {
-            this.descriptionTextArea = data;
+        public void setDescription(String data) {
+            this.description = data;
         }
 
     }

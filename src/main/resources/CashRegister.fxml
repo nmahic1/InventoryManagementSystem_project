@@ -2,18 +2,18 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuItem?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CashRegisterController">
    <top>
       <AnchorPane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: #ef8f00;" BorderPane.alignment="CENTER">
@@ -25,12 +25,12 @@
                         <MenuItem mnemonicParsing="false" text="Close" />
                      </items>
                   </Menu>
-                  <Menu fx:id="product" mnemonicParsing="false"  text="Product">
+                  <Menu fx:id="product" mnemonicParsing="false" text="Product">
                      <items>
                         <MenuItem mnemonicParsing="false" text="Delete" />
                      </items>
                   </Menu>
-                  <Menu fx:id="cashRegister" mnemonicParsing="false"  text="CashRegister">
+                  <Menu fx:id="cashRegister" mnemonicParsing="false" text="CashRegister">
                      <items>
                         <MenuItem mnemonicParsing="false" text="About" />
                      </items>
@@ -62,23 +62,12 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <Button layoutX="435.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Add" textFill="WHITE" />
+            <Button layoutX="435.0" layoutY="21.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="49.0" style="-fx-background-color: #ef8f00;" text="Add" textFill="WHITE" />
             <Button layoutX="435.0" layoutY="58.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Delete" textFill="WHITE" />
-            <Button fx:id="payinvoice" layoutX="407.0" layoutY="291.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" onAction="#PayInvoiceButton" text="Pay Invoice" textFill="WHITE" />
-            <TextField layoutX="214.0" layoutY="24.0" prefHeight="26.0" prefWidth="86.0" />
-            <TextField layoutX="315.0" layoutY="24.0" prefHeight="26.0" prefWidth="54.0" />
+            <Button fx:id="payinvoice" layoutX="407.0" layoutY="291.0" mnemonicParsing="false" onAction="#PayInvoiceButton" style="-fx-background-color: #ef8f00;" text="Pay Invoice" textFill="WHITE" />
+            <TextField layoutX="108.0" layoutY="24.0" prefHeight="26.0" prefWidth="54.0" />
             <TextField layoutX="14.0" layoutY="23.0" prefHeight="26.0" prefWidth="74.0" />
-            <Label layoutX="101.0" layoutY="3.0" text="Product" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="315.0" layoutY="3.0" text="Quantity" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="211.0" layoutY="3.0" text=" Price" textFill="WHITE">
+            <Label layoutX="108.0" layoutY="3.0" text="Quantity" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -88,7 +77,6 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="101.0" layoutY="23.0" prefHeight="26.0" prefWidth="98.0" />
             <TextField layoutX="214.0" layoutY="292.0" prefHeight="26.0" prefWidth="86.0" />
             <TextField layoutX="14.0" layoutY="291.0" prefHeight="26.0" prefWidth="74.0" />
             <Label layoutX="101.0" layoutY="271.0" text="Pay" textFill="WHITE">

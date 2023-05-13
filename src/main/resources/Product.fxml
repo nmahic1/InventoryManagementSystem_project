@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,8 +16,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.ComboBox?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductController">
    <top>
       <AnchorPane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: #ef8f00;" BorderPane.alignment="CENTER">
@@ -27,7 +27,7 @@
                         <MenuItem mnemonicParsing="false" text="Close" />
                      </items>
                   </Menu>
-                  <Menu fx:id="product" mnemonicParsing="false" text="Product">
+                  <Menu mnemonicParsing="false" text="Product">
                      <items>
                         <MenuItem mnemonicParsing="false" text="Delete" />
                      </items>
@@ -37,7 +37,7 @@
                         <MenuItem mnemonicParsing="false" text="About" />
                      </items>
                   </Menu>
-                  <Menu fx:id="logOut" onAction="#logout" mnemonicParsing="false" text="LogOut">
+                  <Menu fx:id="logOut" mnemonicParsing="false" onAction="#logout" text="LogOut">
                      <items>
                         <MenuItem mnemonicParsing="false" text="About" />
                      </items>
@@ -65,17 +65,12 @@
                </children>
             </AnchorPane>
             <TextField layoutX="394.0" layoutY="117.0" prefHeight="26.0" prefWidth="90.0" />
-            <Button layoutX="33.0" layoutY="283.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" onAction="#addData" text="Add" textFill="WHITE" />
+            <Button layoutX="33.0" layoutY="283.0" mnemonicParsing="false" onAction="#addData" style="-fx-background-color: #ef8f00;" text="Add" textFill="WHITE" />
             <Button layoutX="95.0" layoutY="283.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Delete" textFill="WHITE" />
             <Button layoutX="158.0" layoutY="283.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Update" textFill="WHITE" />
             <TextField layoutX="394.0" layoutY="82.0" prefHeight="26.0" prefWidth="89.0" />
-            <TextField layoutX="394.0" layoutY="47.0" prefHeight="26.0" prefWidth="89.0"  />
+            <TextField layoutX="394.0" layoutY="47.0" prefHeight="26.0" prefWidth="89.0" />
             <TextField layoutX="394.0" layoutY="152.0" prefHeight="26.0" prefWidth="90.0" />
-            <Label layoutX="315.0" layoutY="20.0" text="Product" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
             <Label layoutX="314.0" layoutY="54.0" text="Quantity" textFill="WHITE">
                <font>
                   <Font size="14.0" />
@@ -96,11 +91,9 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="394.0" layoutY="13.0" prefHeight="26.0" prefWidth="88.0" />
             <TableView layoutX="14.0" layoutY="14.0" prefHeight="238.0" prefWidth="220.0" style="-fx-background-color: #a8a3a0;">
               <columns>
                 <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
-                <TableColumn fx:id="dataColumnProduct" prefWidth="75.0" text="Product" />
                   <TableColumn fx:id="dataColumnQuantity" prefWidth="75.0" text="Quantity" />
                   <TableColumn fx:id="dataColumnCostPrice" prefWidth="75.0" text="Cost Price" />
                   <TableColumn fx:id="dataColumnRetailPrice" prefWidth="75.0" text="Retail Price" />
@@ -116,8 +109,8 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <ComboBox  layoutX="351.0" layoutY="194.0" prefHeight="26.0" prefWidth="130.0" promptText="Brand" style="-fx-background-color: #ef8f00;" />
-            <ComboBox  layoutX="349.0" layoutY="230.0" prefHeight="26.0" prefWidth="132.0" promptText="Category" style="-fx-background-color: #ef8f00;" />
+           <ComboBox layoutX="351.0" layoutY="194.0" prefHeight="26.0" prefWidth="130.0" promptText="Brand" style="-fx-background-color: #ef8f00;" />
+            <ComboBox layoutX="349.0" layoutY="230.0" prefHeight="26.0" prefWidth="132.0" promptText="Category" style="-fx-background-color: #ef8f00;" />
          </children>
       </AnchorPane>
    </center>
