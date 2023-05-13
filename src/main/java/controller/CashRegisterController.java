@@ -25,5 +25,35 @@ public class CashRegisterController {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
+
+       /* double total = calculateTotalPrice();
+        double paidAmount = 50.0; // Ovdje dodati informacije iz polja pay
+        double change = calculateChange(total, paidAmount);
+
+        // Ispisivanje kusura
+        System.out.println("Kusur: " + change); //postaviti da se ispisuje u TextField
+
+        */
     }
+
+   /* public double calculateTotalPrice() {
+        double totalPrice = 0;
+        for (Data data : dataListProduct) {
+        //ovdje moras povezati ovo sa ProductController
+            totalPrice += Double.parseDouble(data.getRetailPrice());
+        }
+        return totalPrice;
+    }
+
+    */
+
+   /* public void calculateChange() {
+        double total = calculateTotalPrice();
+        double paidAmount = Double.parseDouble(paidAmountTextField.getText());
+        double change = calculateChange(total, paidAmount);
+        changeTextField.setText(String.format("%.2f", change));
+        //TextField za ukupnu vrijednost proizvoda nazivate totalPriceTextField, a TextField za iznos koji je kupac dao nazivate paidAmountTextField, a TextField za kusur nazivate changeTextField
+    }
+    */
+
 }
