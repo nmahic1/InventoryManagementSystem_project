@@ -15,42 +15,12 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CashRegisterController">
-   <top>
-      <AnchorPane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: #ef8f00;" BorderPane.alignment="CENTER">
-         <children>
-            <MenuBar fx:id="menuBar" layoutX="80.0" layoutY="10.0" style="-fx-background-color: #ef8f00;">
-               <menus>
-                  <Menu fx:id="brandAndProduct" mnemonicParsing="false" text="Brand and Category">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Close" />
-                     </items>
-                  </Menu>
-                  <Menu fx:id="product" mnemonicParsing="false" text="Product">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Delete" />
-                     </items>
-                  </Menu>
-                  <Menu fx:id="cashRegister" mnemonicParsing="false" text="CashRegister">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
-                     </items>
-                  </Menu>
-                  <Menu fx:id="logOut" mnemonicParsing="false" text="LogOut">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
-                     </items>
-                  </Menu>
-               </menus>
-            </MenuBar>
-         </children>
-      </AnchorPane>
-   </top>
    <center>
       <AnchorPane prefHeight="330.0" prefWidth="587.0" style="-fx-background-color: #544d50;" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane layoutX="499.0" layoutY="-72.0" prefHeight="400.0" prefWidth="102.0">
                <children>
-                  <ImageView fitHeight="86.0" fitWidth="105.0" layoutX="-3.0" layoutY="82.0" pickOnBounds="true">
+                  <ImageView fitHeight="91.0" fitWidth="105.0" layoutX="-3.0" layoutY="77.0" pickOnBounds="true">
                      <image>
                         <Image url="@../../ImageIMS/istockphoto-1138644570-612x612.jpg" />
                      </image>
@@ -62,40 +32,40 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <Button layoutX="435.0" layoutY="21.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="49.0" style="-fx-background-color: #ef8f00;" text="Add" textFill="WHITE" />
-            <Button layoutX="435.0" layoutY="58.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Delete" textFill="WHITE" />
-            <Button fx:id="payinvoice" layoutX="407.0" layoutY="291.0" mnemonicParsing="false" onAction="#PayInvoiceButton" style="-fx-background-color: #ef8f00;" text="Pay Invoice" textFill="WHITE" />
-            <TextField layoutX="108.0" layoutY="24.0" prefHeight="26.0" prefWidth="54.0" />
-            <TextField layoutX="14.0" layoutY="23.0" prefHeight="26.0" prefWidth="74.0" />
-            <Label layoutX="108.0" layoutY="3.0" text="Quantity" textFill="WHITE">
+            <Button layoutX="426.0" layoutY="71.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="49.0" style="-fx-background-color: #ef8f00;" text="Add" textFill="WHITE" />
+            <Button layoutX="426.0" layoutY="108.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Delete" textFill="WHITE" />
+            <Button fx:id="payinvoice" layoutX="398.0" layoutY="341.0" mnemonicParsing="false" onAction="#PayInvoiceButton" style="-fx-background-color: #ef8f00;" text="Pay Invoice" textFill="WHITE" />
+            <TextField layoutX="116.0" layoutY="74.0" prefHeight="26.0" prefWidth="54.0" />
+            <TextField layoutX="22.0" layoutY="73.0" prefHeight="26.0" prefWidth="74.0" />
+            <Label layoutX="116.0" layoutY="53.0" text="Quantity" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="3.0" text="Barcode" textFill="WHITE">
+            <Label layoutX="22.0" layoutY="53.0" text="Barcode" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="214.0" layoutY="292.0" prefHeight="26.0" prefWidth="86.0" />
-            <TextField layoutX="14.0" layoutY="291.0" prefHeight="26.0" prefWidth="74.0" />
-            <Label layoutX="101.0" layoutY="271.0" text="Pay" textFill="WHITE">
+            <TextField layoutX="222.0" layoutY="342.0" prefHeight="26.0" prefWidth="86.0" />
+            <TextField layoutX="22.0" layoutY="341.0" prefHeight="26.0" prefWidth="74.0" />
+            <Label layoutX="109.0" layoutY="321.0" text="Pay" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="214.0" layoutY="269.0" text="Balance" textFill="WHITE">
+            <Label layoutX="222.0" layoutY="319.0" text="Balance" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="17.0" layoutY="271.0" text="Sub Total" textFill="WHITE">
+            <Label layoutX="25.0" layoutY="321.0" text="Sub Total" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="101.0" layoutY="291.0" prefHeight="26.0" prefWidth="98.0" />
-            <TableView layoutX="17.0" layoutY="65.0" prefHeight="200.0" prefWidth="302.0" style="-fx-background-color: #a8a3a0;">
+            <TextField layoutX="109.0" layoutY="341.0" prefHeight="26.0" prefWidth="98.0" />
+            <TableView layoutX="25.0" layoutY="115.0" prefHeight="200.0" prefWidth="302.0" style="-fx-background-color: #a8a3a0;">
               <columns>
                 <TableColumn prefWidth="75.0" text="Code" />
                 <TableColumn prefWidth="75.0" text="Name" />
@@ -103,6 +73,25 @@
                   <TableColumn prefWidth="75.0" text="Price" />
               </columns>
             </TableView>
+            <MenuBar layoutX="22.0" layoutY="14.0" style="-fx-background-color: #ef8f00;">
+              <menus>
+                <Menu fx:id="brandAndProduct" mnemonicParsing="false" onAction="#handlebrandAndCategory" text="Brand and Product">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Go to Brand and Product" />
+                  </items>
+                </Menu>
+                <Menu fx:id="product" mnemonicParsing="false" onAction="#handleProduct" text="Product">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Go to Product" />
+                  </items>
+                </Menu>
+                <Menu fx:id="logOut" mnemonicParsing="false" onAction="#logout" text="Log Out">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Exit" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
          </children>
       </AnchorPane>
    </center>
