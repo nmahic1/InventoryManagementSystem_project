@@ -239,22 +239,9 @@ public class ProductController {
         }
 
     }
-   /* public void populateComboBoxes() throws IOException {
-        // Dohvaćanje instance ProductAndBrandController-a
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ProductAndBrand.fxml"));
-        Parent root = loader.load();
-        BrandAndProductController.Data controller = loader.getController();
 
-        // Dohvaćanje podataka i postavljanje modela za ComboBox-e
-        String brands = controller.getBrand();
-        brandComboBox.getItems().addAll(brands);
 
-        String categories = controller.getCategory();
-        categoryComboBox.getItems().addAll(categories);
-    }
-    */
-
-   /* @FXML
+    @FXML
     void deleteData(javafx.event.ActionEvent event) {
         int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
@@ -268,6 +255,100 @@ public class ProductController {
             alert.showAndWait();
         }
     }
-*/
+
+    @FXML
+    void updateData(javafx.event.ActionEvent event) {
+
+        /*if (selectedIndex >= 0) {
+            ProductController.Data selectedData = tableView.getSelectionModel().getSelectedItem();
+            TextInputDialog brandDialog = new TextInputDialog(selectedData.getQuantity());
+
+            //prozor za ispisivanje poruke
+            brandDialog.setTitle("Update Data");
+            brandDialog.setHeaderText("Update selected data");
+            brandDialog.setContentText("Enter brand name:");
+
+
+            TextInputDialog categoryDialog = new TextInputDialog(selectedData.getCategory());
+            //prozor za ispisivanje poruke
+            categoryDialog.setTitle("Update Data");
+            categoryDialog.setHeaderText("Update selected data");
+            categoryDialog.setContentText("Enter category name:");
+
+            */
+        int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            ProductController.Data selectedData = tableView.getSelectionModel().getSelectedItem();
+            int selectedQuantity = selectedData.getQuantity();
+
+            TextInputDialog quantityDialog = new TextInputDialog(String.valueOf(selectedQuantity));
+
+            //prozor za ispisivanje poruke
+            quantityDialog.setTitle("Update Data");
+            quantityDialog.setHeaderText("Update selected data");
+            quantityDialog.setContentText("Enter quantity:");
+
+            int selectedCostPrice = selectedData.getCostPrice();
+
+            TextInputDialog costPriceDialog = new TextInputDialog(String.valueOf(selectedCostPrice));
+
+            //prozor za ispisivanje poruke
+            costPriceDialog.setTitle("Update Data");
+            costPriceDialog.setHeaderText("Update selected data");
+            costPriceDialog.setContentText("Enter cost price:");
+
+            int selectedRetailPrice = selectedData.getRetailPrice();
+
+            TextInputDialog retailPriceDialog = new TextInputDialog(String.valueOf(selectedRetailPrice));
+
+            //prozor za ispisivanje poruke
+            retailPriceDialog.setTitle("Update Data");
+            retailPriceDialog.setHeaderText("Update selected data");
+            retailPriceDialog.setContentText("Enter cost price:");
+
+            int selectedBarcode = selectedData.getBarcode();
+
+            TextInputDialog BarcodeDialog = new TextInputDialog(String.valueOf(selectedBarcode));
+
+            //prozor za ispisivanje poruke
+            BarcodeDialog.setTitle("Update Data");
+            BarcodeDialog.setHeaderText("Update selected data");
+            BarcodeDialog.setContentText("Enter cost price:");
+
+            TextInputDialog descriptionDialog = new TextInputDialog(selectedData.getDescription());
+            //prozor za ispisivanje poruke
+            descriptionDialog.setTitle("Update Data");
+            descriptionDialog.setHeaderText("Update selected data");
+            descriptionDialog.setContentText("Enter category name:");
+
+            Optional<String> quantityResult = quantityDialog.showAndWait();
+            Optional<String> costPriceResult = costPriceDialog.showAndWait();
+            Optional<String> retailPriceResult = retailPriceDialog.showAndWait();
+            Optional<String> barcodeResult = BarcodeDialog.showAndWait();
+            Optional<String> descriptionResult = descriptionDialog.showAndWait();
+            //Optional<String> brandResult = brandDialog.showAndWait();
+            //Optional<String> categoryResult = categoryDialog.showAndWait();
+
+            if (/*brandResult.isPresent() && categoryResult.isPresent() &&*/ quantityResult.isPresent() && costPriceResult.isPresent()&& retailPriceResult.isPresent() && barcodeResult.isPresent() && descriptionResult.isPresent()) {
+                selectedData.setQuantity(Integer.parseInt(quantityResult.get()));
+                selectedData.setCostPrice(Integer.parseInt(costPriceResult.get()));
+                selectedData.setRetailPrice(Integer.parseInt(retailPriceResult.get()));
+                selectedData.setBarcode(Integer.parseInt(barcodeResult.get()));
+                selectedData.setDescription(descriptionResult.get());
+               // selectedData.setBrand(brandResult.get());
+               // selectedData.setCategory(categoryResult.get());
+                tableView.refresh();
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            //prozor za ispisivanje poruke
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Data Selected");
+            alert.setContentText("Please select a data in the table.");
+            alert.showAndWait();
+        }
+    }
+
+
 
 }
