@@ -83,19 +83,19 @@
             <ComboBox layoutX="349.0" layoutY="275.0" prefHeight="26.0" prefWidth="132.0" promptText="Category" style="-fx-background-color: #ef8f00;" />
             <MenuBar layoutX="22.0" layoutY="14.0" style="-fx-background-color: #ef8f00;">
               <menus>
-                <Menu mnemonicParsing="false" text="Brand and Product">
+                <Menu fx:id="brandAndProduct" mnemonicParsing="false" text="Brand and Product" onAction="#handleBrandAndProduct">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                    <MenuItem mnemonicParsing="false" text="Go to Brand and Product" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Cash Register">
+                <Menu fx:id="cashRegister" mnemonicParsing="false" text="Cash Register" onAction="#handlecashRegister">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
+                    <MenuItem mnemonicParsing="false" text="Go to Cash Register" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Log Out">
+                <Menu fx:id="logOut" mnemonicParsing="false" text="Log Out" onAction="#logout">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
+                    <MenuItem mnemonicParsing="false" text="Exit" />
                   </items>
                 </Menu>
               </menus>
