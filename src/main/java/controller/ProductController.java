@@ -254,7 +254,7 @@ public class ProductController {
     }
     */
 
-    @FXML
+   /* @FXML
     void deleteData(javafx.event.ActionEvent event) {
         int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
@@ -268,6 +268,6 @@ public class ProductController {
             alert.showAndWait();
         }
     }
-
+*/
 
 }

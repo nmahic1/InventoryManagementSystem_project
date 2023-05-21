@@ -50,12 +50,12 @@
          <children>
             <AnchorPane layoutX="499.0" layoutY="-72.0" prefHeight="400.0" prefWidth="102.0">
                <children>
-                  <ImageView fitHeight="79.0" fitWidth="78.0" layoutX="24.0" layoutY="27.0" pickOnBounds="true">
+                  <ImageView fitHeight="86.0" fitWidth="105.0" layoutX="-3.0" layoutY="82.0" pickOnBounds="true">
                      <image>
                         <Image url="@../../ImageIMS/istockphoto-1138644570-612x612.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="322.0" fitWidth="79.0" layoutX="24.0" layoutY="105.0" pickOnBounds="true">
+                  <ImageView fitHeight="328.0" fitWidth="105.0" layoutX="-3.0" layoutY="153.0" pickOnBounds="true">
                      <image>
                         <Image url="@../../ImageIMS/Capture2.PNG" />
                      </image>
