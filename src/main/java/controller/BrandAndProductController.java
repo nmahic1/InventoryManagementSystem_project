@@ -157,7 +157,7 @@ public class BrandAndProductController {
             }
         }
 
-        //delete i update dugme
+        //delete i update dugme u product and brand
         @FXML
         void deleteData(javafx.event.ActionEvent event) {
             int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
