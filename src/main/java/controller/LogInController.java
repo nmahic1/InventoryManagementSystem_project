@@ -194,7 +194,8 @@ public class LogInController {
     }
 
     private boolean isValidCredentials(String username, String password) {
-        return username.equals("nmahic1") && password.equals("12345");
+       // return username.equals("nmahic1") && password.equals("12345");
+        return false;
     }
 
     public void addObserver(LoginObserver observer) {
