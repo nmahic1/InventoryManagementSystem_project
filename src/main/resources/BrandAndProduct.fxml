@@ -54,6 +54,7 @@
                 <Button layoutX="33.0" layoutY="241.0" mnemonicParsing="false" onAction="#addData" style="-fx-background-color: #ef8f00;" text="Add" textFill="WHITE" />
                 <Button fx:id="deleteButton" layoutX="101.0" layoutY="241.0" mnemonicParsing="false" onAction="#deleteData" style="-fx-background-color: #ef8f00;" text="Delete" textFill="WHITE" />
                 <Button fx:id="updateButton" layoutX="179.0" layoutY="241.0" mnemonicParsing="false" onAction="#updateData" style="-fx-background-color: #ef8f00;" text="Update" textFill="WHITE" />
+
                 <MenuBar layoutX="22.0" layoutY="14.0" style="-fx-background-color: #ef8f00;">
                     <menus>
                         <Menu fx:id="product" mnemonicParsing="false" text="Product" onAction="#handleProduct">

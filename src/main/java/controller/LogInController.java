@@ -179,6 +179,7 @@ public class LogInController {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/BrandAndProduct.fxml"));
                 Parent root = loader.load();
 
+
                 // Otvaranje nove scene s drugim prozorom
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();

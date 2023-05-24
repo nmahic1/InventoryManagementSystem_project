@@ -11,10 +11,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.stage.Stage;
+import repository.BrandAndCategoryRepository;
 
 public class BrandAndProductController {
 
@@ -61,6 +63,8 @@ public class BrandAndProductController {
 
         @FXML
         private Button updateButton;
+
+
 
     //meni
     @FXML
