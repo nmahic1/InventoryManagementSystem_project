@@ -10,12 +10,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import service.ProductService;
 
 import java.io.IOException;
 import java.util.Optional;
 
 
 public class ProductController {
+
+   // private ProductService productService;
 
     @FXML
     public Button deleteButton;
@@ -164,7 +167,11 @@ public class ProductController {
 
     }
 
-    public class Data {
+
+
+
+
+    public static class Data {
         private int id;
         private int quantity;
         private int costprice;
@@ -177,18 +184,6 @@ public class ProductController {
 
         private String category;
 
-       /* public Data(int id, int quantity, int costprice, int retailprice, int barcode, String description, String brand, String category) {
-            this.id = id;
-            this.quantity = quantity;
-            this.costprice = costprice;
-            this.retailprice = retailprice;
-            this.barcode = barcode;
-            this.description=description;
-            this.brand = brand;
-            this.category = category;
-        }
-
-        */
 
         public Data(int id, int quantity, int costprice, int retailprice, int barcode, String description, String brand, String category) {
             this.id = id;
@@ -200,6 +195,7 @@ public class ProductController {
             this.brand = brand;
             this.category = category;
         }
+
 
 
         public int getId() {
@@ -266,7 +262,14 @@ public class ProductController {
 
         public void setCategory(String data) { this.category = data;}
 
+
     }
+
+   /* public ProductController() {
+        this.productService = new ProductService();
+    }
+
+    */
 
 
     @FXML
@@ -375,6 +378,7 @@ public class ProductController {
         }
     }
 
+
     //postavljanje odabranog polja iz liste u polje category
     @FXML
     void selectCategory(ActionEvent actionEvent) {
@@ -382,5 +386,123 @@ public class ProductController {
         String selectedCategory = selectedItem.getText();
         category.setText(selectedCategory);
     }
+
+    /*
+    @FXML
+    void addData(ActionEvent actionEvent) {
+        String dataB = brand.getText();
+        int dataQ = Integer.parseInt(quantity.getText());
+        int dataCP = Integer.parseInt(costprice.getText());
+        int dataRP = Integer.parseInt(retailprice.getText());
+        int dataBC = Integer.parseInt(barcode.getText());
+        String dataC = category.getText();
+        String dataD = description.getText();
+        id++;
+
+        ProductController.Data newProduct = new ProductController.Data(id, dataQ, dataCP, dataRP, dataBC, dataD, dataB, dataC);
+        productService.addProduct(newProduct);
+
+        ObservableList<ProductController.Data> allProducts = productService.getAllProducts();
+        tableView.setItems(allProducts);
+
+        quantity.clear();
+        costprice.clear();
+        retailprice.clear();
+        barcode.clear();
+        brand.clear();
+        description.clear();
+    }
+
+    @FXML
+    void updateData(ActionEvent event) {
+        int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            ProductController.Data selectedData = tableView.getSelectionModel().getSelectedItem();
+
+            TextInputDialog brandDialog = new TextInputDialog(selectedData.getBrand());
+            brandDialog.setTitle("Update Brand");
+            brandDialog.setHeaderText(null);
+            brandDialog.setContentText("Enter brand:");
+
+            TextInputDialog categoryDialog = new TextInputDialog(selectedData.getCategory());
+            categoryDialog.setTitle("Update Category");
+            categoryDialog.setHeaderText(null);
+            categoryDialog.setContentText("Enter category:");
+
+            TextInputDialog quantityDialog = new TextInputDialog(String.valueOf(selectedData.getQuantity()));
+            quantityDialog.setTitle("Update Quantity");
+            quantityDialog.setHeaderText(null);
+            quantityDialog.setContentText("Enter quantity:");
+
+            TextInputDialog costPriceDialog = new TextInputDialog(String.valueOf(selectedData.getCostPrice()));
+            costPriceDialog.setTitle("Update Cost Price");
+            costPriceDialog.setHeaderText(null);
+            costPriceDialog.setContentText("Enter cost price:");
+
+            TextInputDialog retailPriceDialog = new TextInputDialog(String.valueOf(selectedData.getRetailPrice()));
+            retailPriceDialog.setTitle("Update Retail Price");
+            retailPriceDialog.setHeaderText(null);
+            retailPriceDialog.setContentText("Enter retail price:");
+
+            TextInputDialog barcodeDialog = new TextInputDialog(String.valueOf(selectedData.getBarcode()));
+            barcodeDialog.setTitle("Update Barcode");
+            barcodeDialog.setHeaderText(null);
+            barcodeDialog.setContentText("Enter barcode:");
+
+            TextInputDialog descriptionDialog = new TextInputDialog(selectedData.getDescription());
+            descriptionDialog.setTitle("Update Description");
+            descriptionDialog.setHeaderText(null);
+            descriptionDialog.setContentText("Enter description:");
+
+            Optional<String> brandResult = brandDialog.showAndWait();
+            Optional<String> categoryResult = categoryDialog.showAndWait();
+            Optional<String> quantityResult = quantityDialog.showAndWait();
+            Optional<String> costPriceResult = costPriceDialog.showAndWait();
+            Optional<String> retailPriceResult = retailPriceDialog.showAndWait();
+            Optional<String> barcodeResult = barcodeDialog.showAndWait();
+            Optional<String> descriptionResult = descriptionDialog.showAndWait();
+
+            if (brandResult.isPresent() && categoryResult.isPresent() && quantityResult.isPresent() && costPriceResult.isPresent() && retailPriceResult.isPresent() && barcodeResult.isPresent() && descriptionResult.isPresent()) {
+                selectedData.setQuantity(Integer.parseInt(quantityResult.get()));
+                selectedData.setCostPrice(Integer.parseInt(costPriceResult.get()));
+                selectedData.setRetailPrice(Integer.parseInt(retailPriceResult.get()));
+                selectedData.setBarcode(Integer.parseInt(barcodeResult.get()));
+                selectedData.setDescription(descriptionResult.get());
+                selectedData.setBrand(brandResult.get());
+                selectedData.setCategory(categoryResult.get());
+
+                productService.updateProduct(selectedData);
+
+                tableView.refresh();
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            //prozor za ispisivanje poruke
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Data Selected");
+            alert.setContentText("Please select a data in the table.");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    void deleteData(ActionEvent event) {
+        int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            ProductController.Data selectedData = tableView.getSelectionModel().getSelectedItem();
+
+            productService.deleteProduct(selectedData);
+
+            tableView.getItems().remove(selectedIndex);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            //prozor za ispisivanje poruke
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Data Selected");
+            alert.setContentText("Please select a data in the table.");
+            alert.showAndWait();
+        }
+    }
+*/
 
 }

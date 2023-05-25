@@ -16,7 +16,7 @@ import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.stage.Stage;
-import repository.BrandAndCategoryRepository;
+
 
 
 public class BrandAndProductController {
