@@ -376,9 +376,10 @@ public class ProductController {
     }
 
     @FXML
-    void selectCategory(javafx.event.ActionEvent actionEvent) {
+    void selectCategory(ActionEvent actionEvent) {
         MenuItem selectedItem = (MenuItem) actionEvent.getSource();
-        String selectCategory = selectedItem.getText();
+        String selectedCategory = selectedItem.getText();
+        category.setText(selectedCategory);
     }
 
 }

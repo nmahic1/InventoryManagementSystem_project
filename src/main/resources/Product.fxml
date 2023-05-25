@@ -114,15 +114,15 @@
             </Label> -->
             <MenuButton fx:id="category" layoutX="358.0" layoutY="273.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="125.0" style="-fx-background-color: #ef8f00;" text="Category">
               <items>
-                <MenuItem mnemonicParsing="false" text="Beverages" />
-                <MenuItem mnemonicParsing="false" text="Bakery" />
-                  <MenuItem mnemonicParsing="false" text="Dairy" />
-                  <MenuItem mnemonicParsing="false" text="Meat" />
-                  <MenuItem mnemonicParsing="false" text="Frozen Foods" />
-                  <MenuItem mnemonicParsing="false" text="Baking Goods" />
-                  <MenuItem mnemonicParsing="false" text="Canned Goods" />
-                  <MenuItem mnemonicParsing="false" text="Fruits" />
-                  <MenuItem mnemonicParsing="false" text="Vegetables" />
+                <MenuItem mnemonicParsing="false" text="Beverages" onAction="#selectCategory" />
+                <MenuItem mnemonicParsing="false" text="Bakery" onAction="#selectCategory" />
+                  <MenuItem mnemonicParsing="false" text="Dairy" onAction="#selectCategory" />
+                  <MenuItem mnemonicParsing="false" text="Meat" onAction="#selectCategory"/>
+                  <MenuItem mnemonicParsing="false" text="Frozen Foods" onAction="#selectCategory"/>
+                  <MenuItem mnemonicParsing="false" text="Baking Goods" onAction="#selectCategory"/>
+                  <MenuItem mnemonicParsing="false" text="Canned Goods" onAction="#selectCategory"/>
+                  <MenuItem mnemonicParsing="false" text="Fruits" onAction="#selectCategory" />
+                  <MenuItem mnemonicParsing="false" text="Vegetables" onAction="#selectCategory"/>
               </items>
             </MenuButton>
 
