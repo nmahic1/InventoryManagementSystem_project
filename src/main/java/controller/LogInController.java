@@ -151,7 +151,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LogInController {
-    private List<LoginObserver> observers = new ArrayList<>();
+   // private List<LoginObserver> observers = new ArrayList<>();
 
     @FXML
     private TextField usernameField;
@@ -165,7 +165,16 @@ public class LogInController {
     @FXML
     private Button loginButton;
 
-    @FXML
+    public void login(ActionEvent e){
+        if(usernameField.getText().isBlank()==false && passwordField.getText().isBlank()==false){
+            errorLabel.setText("try again");
+
+        }else{
+            errorLabel.setText("Please enter username and password");
+        }
+    }
+
+   /* @FXML
     void login(ActionEvent event) {
         String username = usernameField.getText();
         String password = passwordField.getText();
@@ -219,9 +228,13 @@ class InvalidCredentialsException extends Exception {
     public InvalidCredentialsException(String message) {
         super(message);
     }
+
+    */
+
 }
 
+/*
 interface LoginObserver {
     void onLoginSuccess();
 }
-
+*/
