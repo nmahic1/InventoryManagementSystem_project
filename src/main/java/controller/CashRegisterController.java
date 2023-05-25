@@ -14,8 +14,8 @@ import java.io.IOException;
 
 public class CashRegisterController {
 
-    @FXML
-    private Menu brandAndProduct;
+   // @FXML
+   // private Menu brandAndProduct;
 
     @FXML
     private Menu product;
@@ -39,6 +39,7 @@ public class CashRegisterController {
         stage.show();
     }
 
+    /*
     @FXML
     void handlebrandAndCategory(javafx.event.ActionEvent actionEvent) throws IOException{
         // Code to handle exit menu item
@@ -53,6 +54,7 @@ public class CashRegisterController {
         //isto
     }
 
+     */
     @FXML
     void logout(javafx.event.ActionEvent actionEvent) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/LogIn.fxml"));

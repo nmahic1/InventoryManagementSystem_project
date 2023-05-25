@@ -18,8 +18,9 @@ public class ProductController {
 
     public Button deleteButton;
     public Button updateButton;
-    @FXML
-    private Menu brandAndProduct;
+
+   // @FXML
+   // private Menu brandAndProduct;
 
     @FXML
     private Menu cashRegister;
@@ -29,6 +30,9 @@ public class ProductController {
 
     @FXML
     private TextField quantity;
+
+    @FXML
+    private TextField brand;
 
     @FXML
     private TextField costprice;
@@ -61,6 +65,9 @@ public class ProductController {
     private TableColumn<ProductController.Data, Integer> dataColumnBarCode;
 
     @FXML
+    private TableColumn<BrandAndProductController.Data, String> dataColumnBrand;
+
+    @FXML
     private TableColumn<ProductController.Data, String> dataColumnDescription;
 
 
@@ -68,7 +75,7 @@ public class ProductController {
 
     private ObservableList<ProductController.Data> dataListProduct = FXCollections.observableArrayList();
 
-
+    /*
     @FXML
     void handleBrandAndProduct(javafx.event.ActionEvent actionEvent) throws IOException{
         // Code to handle save menu item
@@ -82,6 +89,8 @@ public class ProductController {
         stage.show();
     }
 
+
+     */
     @FXML
     void handlecashRegister(javafx.event.ActionEvent actionEvent) throws IOException{
         // Code to handle exit menu item
@@ -110,33 +119,6 @@ public class ProductController {
     }
     public void addData(javafx.event.ActionEvent actionEvent) {
 
-       /* idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        dataColumnProduct.setCellValueFactory(new PropertyValueFactory<>("product"));
-        dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        dataColumnCostPrice.setCellValueFactory(new PropertyValueFactory<>("cost price"));
-        dataColumnRetailPrice.setCellValueFactory(new PropertyValueFactory<>("retail price"));
-        dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("bar code"));
-        dataColumnDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-        //tableView.getColumns().add(dataColumnDescription);
-
-        String dataP = product1.getText();
-        String dataQ = quantity.getText();
-        String dataCP = costprice.getText();
-        String dataRP = retailprice.getText();
-        int dataBC = Integer.parseInt(barcode.getText());
-        String dataD = descriptionTextArea.getText();
-        id++;
-        dataListProduct.add(new ProductController.Data(id, dataP, dataQ, dataCP, dataRP, dataBC, dataD));
-        tableView.setItems(dataListProduct);
-        product1.clear();
-        quantity.clear();
-        costprice.clear();
-        retailprice.clear();
-        barcode.clear();
-        descriptionTextArea.clear();
-        tableView.refresh();
-
-        */
 
             // postavljanje vrijednosti ćelija u tabeli
             idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -144,28 +126,26 @@ public class ProductController {
             dataColumnCostPrice.setCellValueFactory(new PropertyValueFactory<>("costPrice"));
             dataColumnRetailPrice.setCellValueFactory(new PropertyValueFactory<>("retailPrice"));
             dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
+             dataColumnBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
             dataColumnDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
 
             // kreiranje novog unosa na osnovu unesenih podataka
+            String dataB = brand.getText();
             int dataQ = Integer.parseInt(quantity.getText());
             int dataCP = Integer.parseInt(costprice.getText());
             int dataRP = Integer.parseInt(retailprice.getText());
             int dataBC = Integer.parseInt(barcode.getText());
             String dataD = description.getText();
             id++;
-            Data newData = new Data(id, dataQ, dataCP, dataRP, dataBC, dataD);
-
-            // dodavanje novog unosa u listu
-            dataListProduct.add(newData);
-
-            // osvježavanje tabele
-            tableView.refresh();
+           dataListProduct.add(new ProductController.Data(id, dataQ, dataCP, dataRP, dataBC, dataD, dataB));
+            tableView.setItems(dataListProduct);
 
             // čišćenje unesenih podataka
             quantity.clear();
             costprice.clear();
             retailprice.clear();
             barcode.clear();
+            brand.clear();
             description.clear();
 
     }
@@ -179,13 +159,16 @@ public class ProductController {
 
         private String description;
 
-        public Data(int id, int quantity, int costprice, int retailprice, int barcode, String description ) {
+        private String brand;
+
+        public Data(int id, int quantity, int costprice, int retailprice, int barcode, String description, String brand) {
             this.id = id;
             this.quantity = quantity;
             this.costprice = costprice;
             this.retailprice = retailprice;
             this.barcode = barcode;
             this.description=description;
+            this.brand = brand;
         }
 
         public int getId() {
@@ -238,48 +221,31 @@ public class ProductController {
             this.description = data;
         }
 
-    }
-
-
-    @FXML
-    void deleteData(javafx.event.ActionEvent event) {
-        int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
-        if (selectedIndex >= 0) {
-            tableView.getItems().remove(selectedIndex);
-        } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            //prozor za ispisivanje poruke
-            alert.setTitle("No Selection");
-            alert.setHeaderText("No Data Selected");
-            alert.setContentText("Please select a data in the table.");
-            alert.showAndWait();
+        public String getBrand() {
+            return brand;
         }
+
+        public void setBrand(String data) {
+            this.brand = data;
+        }
+
     }
+
 
     @FXML
     void updateData(javafx.event.ActionEvent event) {
 
-        /*if (selectedIndex >= 0) {
+        int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
             ProductController.Data selectedData = tableView.getSelectionModel().getSelectedItem();
-            TextInputDialog brandDialog = new TextInputDialog(selectedData.getQuantity());
+            int selectedQuantity = selectedData.getQuantity();
+
+            TextInputDialog brandDialog = new TextInputDialog(selectedData.getBrand());
 
             //prozor za ispisivanje poruke
             brandDialog.setTitle("Update Data");
             brandDialog.setHeaderText("Update selected data");
             brandDialog.setContentText("Enter brand name:");
-
-
-            TextInputDialog categoryDialog = new TextInputDialog(selectedData.getCategory());
-            //prozor za ispisivanje poruke
-            categoryDialog.setTitle("Update Data");
-            categoryDialog.setHeaderText("Update selected data");
-            categoryDialog.setContentText("Enter category name:");
-
-            */
-        int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
-        if (selectedIndex >= 0) {
-            ProductController.Data selectedData = tableView.getSelectionModel().getSelectedItem();
-            int selectedQuantity = selectedData.getQuantity();
 
             TextInputDialog quantityDialog = new TextInputDialog(String.valueOf(selectedQuantity));
 
@@ -326,16 +292,17 @@ public class ProductController {
             Optional<String> retailPriceResult = retailPriceDialog.showAndWait();
             Optional<String> barcodeResult = BarcodeDialog.showAndWait();
             Optional<String> descriptionResult = descriptionDialog.showAndWait();
-            //Optional<String> brandResult = brandDialog.showAndWait();
+            Optional<String> brandResult = brandDialog.showAndWait();
             //Optional<String> categoryResult = categoryDialog.showAndWait();
 
-            if (/*brandResult.isPresent() && categoryResult.isPresent() &&*/ quantityResult.isPresent() && costPriceResult.isPresent()&& retailPriceResult.isPresent() && barcodeResult.isPresent() && descriptionResult.isPresent()) {
+
+            if (brandResult.isPresent() /*&& categoryResult.isPresent()*/ && quantityResult.isPresent() && costPriceResult.isPresent()&& retailPriceResult.isPresent() && barcodeResult.isPresent() && descriptionResult.isPresent()) {
                 selectedData.setQuantity(Integer.parseInt(quantityResult.get()));
                 selectedData.setCostPrice(Integer.parseInt(costPriceResult.get()));
                 selectedData.setRetailPrice(Integer.parseInt(retailPriceResult.get()));
                 selectedData.setBarcode(Integer.parseInt(barcodeResult.get()));
                 selectedData.setDescription(descriptionResult.get());
-               // selectedData.setBrand(brandResult.get());
+                selectedData.setBrand(brandResult.get());
                // selectedData.setCategory(categoryResult.get());
                 tableView.refresh();
             }
@@ -349,6 +316,20 @@ public class ProductController {
         }
     }
 
+    @FXML
+    void deleteData(javafx.event.ActionEvent event) {
+        int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            tableView.getItems().remove(selectedIndex);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            //prozor za ispisivanje poruke
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Data Selected");
+            alert.setContentText("Please select a data in the table.");
+            alert.showAndWait();
+        }
+    }
 
 
 }

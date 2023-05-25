@@ -75,11 +75,12 @@
             </TableView>
             <MenuBar layoutX="22.0" layoutY="14.0" style="-fx-background-color: #ef8f00;">
               <menus>
-                <Menu fx:id="brandAndProduct" mnemonicParsing="false" onAction="#handlebrandAndCategory" text="Brand and Product">
+              <!--  <Menu fx:id="brandAndProduct" mnemonicParsing="false" onAction="#handlebrandAndCategory" text="Brand and Product">
                   <items>
                     <MenuItem mnemonicParsing="false" text="Go to Brand and Product" />
                   </items>
                 </Menu>
+                -->
                 <Menu fx:id="product" mnemonicParsing="false" onAction="#handleProduct" text="Product">
                   <items>
                     <MenuItem mnemonicParsing="false" text="Go to Product" />

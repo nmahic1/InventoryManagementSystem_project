@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -35,9 +35,9 @@
                </children>
             </AnchorPane>
             <TextField layoutX="394.0" layoutY="162.0" prefHeight="26.0" prefWidth="90.0" />
-            <Button layoutX="33.0" layoutY="328.0" mnemonicParsing="false" onAction="#addData" style="-fx-background-color: #ef8f00;" text="Add" textFill="WHITE" />
-            <Button fx:id="deleteButton" layoutX="95.0" layoutY="328.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Delete" textFill="WHITE" />
-            <Button fx:id="updateButton" layoutX="158.0" layoutY="328.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Update" textFill="WHITE" />
+            <Button layoutX="33.0" layoutY="328.0" mnemonicParsing="false" onAction="#addData" style="-fx-background-color: #ef8f00;"  text="Add" textFill="WHITE" />
+            <Button fx:id="deleteButton" layoutX="95.0" layoutY="328.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" onAction="#deleteData" text="Delete" textFill="WHITE" />
+            <Button fx:id="updateButton" layoutX="158.0" layoutY="328.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" onAction="#updateData" text="Update" textFill="WHITE" />
             <TextField layoutX="394.0" layoutY="127.0" prefHeight="26.0" prefWidth="89.0" />
             <TextField layoutX="394.0" layoutY="92.0" prefHeight="26.0" prefWidth="89.0" />
             <TextField layoutX="394.0" layoutY="197.0" prefHeight="26.0" prefWidth="90.0" />
@@ -79,27 +79,46 @@
                   <Font size="14.0" />
                </font>
             </Label>
-           <ComboBox layoutX="351.0" layoutY="239.0" prefHeight="26.0" prefWidth="130.0" promptText="Brand" style="-fx-background-color: #ef8f00;" />
-            <ComboBox layoutX="349.0" layoutY="275.0" prefHeight="26.0" prefWidth="132.0" promptText="Category" style="-fx-background-color: #ef8f00;" />
             <MenuBar layoutX="22.0" layoutY="14.0" style="-fx-background-color: #ef8f00;">
               <menus>
-                <Menu fx:id="brandAndProduct" mnemonicParsing="false" text="Brand and Product" onAction="#handleBrandAndProduct">
+               <!-- <Menu fx:id="brandAndProduct" mnemonicParsing="false" onAction="#handleBrandAndProduct" text="Brand and Product">
                   <items>
                     <MenuItem mnemonicParsing="false" text="Go to Brand and Product" />
                   </items>
+        
                 </Menu>
-                <Menu fx:id="cashRegister" mnemonicParsing="false" text="Cash Register" onAction="#handlecashRegister">
+                -->
+                <Menu fx:id="cashRegister" mnemonicParsing="false" onAction="#handlecashRegister" text="Cash Register">
                   <items>
                     <MenuItem mnemonicParsing="false" text="Go to Cash Register" />
                   </items>
                 </Menu>
-                <Menu fx:id="logOut" mnemonicParsing="false" text="Log Out" onAction="#logout">
+                <Menu fx:id="logOut" mnemonicParsing="false" onAction="#logout" text="Log Out">
                   <items>
                     <MenuItem mnemonicParsing="false" text="Exit" />
                   </items>
                 </Menu>
               </menus>
             </MenuBar>
+            <Label layoutX="314.0" layoutY="238.0" text="Brand" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="393.0" layoutY="233.0" prefHeight="26.0" prefWidth="90.0" />
+            <MenuButton layoutX="358.0" layoutY="273.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="125.0" style="-fx-background-color: #ef8f00;" text="Category">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Beverages" />
+                <MenuItem mnemonicParsing="false" text="Bakery" />
+                  <MenuItem mnemonicParsing="false" text="Dairy" />
+                  <MenuItem mnemonicParsing="false" text="Meat" />
+                  <MenuItem mnemonicParsing="false" text="Frozen Foods" />
+                  <MenuItem mnemonicParsing="false" text="Baking Goods" />
+                  <MenuItem mnemonicParsing="false" text="Canned Goods" />
+                  <MenuItem mnemonicParsing="false" text="Fruits" />
+                  <MenuItem mnemonicParsing="false" text="Vegetables" />
+              </items>
+            </MenuButton>
          </children>
       </AnchorPane>
    </center>

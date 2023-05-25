@@ -18,6 +18,7 @@ import javafx.collections.ObservableList;
 import javafx.stage.Stage;
 import repository.BrandAndCategoryRepository;
 
+
 public class BrandAndProductController {
 
        @FXML

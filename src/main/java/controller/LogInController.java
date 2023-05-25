@@ -176,7 +176,7 @@ public class LogInController {
                 notifyObservers();
 
                 // Učitavanje FXML datoteke drugog prozora
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/BrandAndProduct.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Product.fxml"));
                 Parent root = loader.load();
 
 
