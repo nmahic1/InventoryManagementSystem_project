@@ -32,11 +32,11 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <Button layoutX="426.0" layoutY="71.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="49.0" style="-fx-background-color: #ef8f00;" text="Add" textFill="WHITE" />
-            <Button layoutX="426.0" layoutY="108.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Delete" textFill="WHITE" />
+            <Button fx:id="addButton" onAction="#addData" layoutX="426.0" layoutY="71.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="49.0" style="-fx-background-color: #ef8f00;" text="Add" textFill="WHITE" />
+            <Button fx:id="deleteButton" onAction="#deleteData" layoutX="426.0" layoutY="108.0" mnemonicParsing="false" style="-fx-background-color: #ef8f00;" text="Delete" textFill="WHITE" />
             <Button fx:id="payinvoice" layoutX="398.0" layoutY="341.0" mnemonicParsing="false" onAction="#PayInvoiceButton" style="-fx-background-color: #ef8f00;" text="Pay Invoice" textFill="WHITE" />
-            <TextField layoutX="116.0" layoutY="74.0" prefHeight="26.0" prefWidth="54.0" />
-            <TextField layoutX="22.0" layoutY="73.0" prefHeight="26.0" prefWidth="74.0" />
+            <TextField fx:id="quantity" layoutX="116.0" layoutY="74.0" prefHeight="26.0" prefWidth="54.0" />
+            <TextField fx:id="barcode" layoutX="22.0" layoutY="73.0" prefHeight="26.0" prefWidth="74.0" />
             <Label layoutX="116.0" layoutY="53.0" text="Quantity" textFill="WHITE">
                <font>
                   <Font size="14.0" />
@@ -65,11 +65,11 @@
                </font>
             </Label>
             <TextField layoutX="109.0" layoutY="341.0" prefHeight="26.0" prefWidth="98.0" />
-            <TableView layoutX="25.0" layoutY="115.0" prefHeight="200.0" prefWidth="302.0" style="-fx-background-color: #a8a3a0;">
+            <TableView fx:id="tableView" layoutX="25.0" layoutY="115.0" prefHeight="200.0" prefWidth="302.0" style="-fx-background-color: #a8a3a0;">
               <columns>
-                <TableColumn prefWidth="75.0" text="Code" />
-                <TableColumn prefWidth="75.0" text="Name" />
-                  <TableColumn prefWidth="75.0" text="Quantity" />
+                <TableColumn fx:id="dataColumnBarCode" prefWidth="75.0" text="Code" />
+                <TableColumn  prefWidth="75.0" text="Name" />
+                  <TableColumn fx:id="dataColumnQuantity" prefWidth="75.0" text="Quantity" />
                   <TableColumn prefWidth="75.0" text="Price" />
               </columns>
             </TableView>
