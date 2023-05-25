@@ -147,11 +147,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.sql.Connection;
+import repository.LoginDBConnectionRepository;
+import java.sql.Statement;
+
 public class LogInController {
-   // private List<LoginObserver> observers = new ArrayList<>();
+    private List<LoginObserver> observers = new ArrayList<>();
 
     @FXML
     private TextField usernameField;
@@ -165,16 +171,60 @@ public class LogInController {
     @FXML
     private Button loginButton;
 
-    public void login(ActionEvent e){
+    /*
+    public void login(ActionEvent e) throws IOException {
         if(usernameField.getText().isBlank()==false && passwordField.getText().isBlank()==false){
-            errorLabel.setText("try again");
+          //  errorLabel.setText("try again");
+            validateLogin();
+
 
         }else{
             errorLabel.setText("Please enter username and password");
         }
+
     }
 
-   /* @FXML
+    public void validateLogin(){
+        LoginDBConnectionRepository connectNow = new LoginDBConnectionRepository();
+        Connection connectDB = connectNow.getConnection();
+
+        String verifyLogin ="SELECT count(1) FROM useraccounts WHERE username = '" + usernameField.getText() + "' AND passwordl = '" + passwordField.getText() + "'";
+
+        try{
+            Statement  statement = connectDB.createStatement();
+            ResultSet queryResult = statement.executeQuery(verifyLogin);
+
+            while(queryResult.next()){
+                if(queryResult.getInt( 1 )==1){
+                    errorLabel.setText("Welcome!");
+
+                    // Učitavanje FXML datoteke drugog prozora
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/Product.fxml"));
+                    Parent root = loader.load();
+
+
+                    // Otvaranje nove scene s drugim prozorom
+                    Scene scene = new Scene(root);
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.show();
+
+                }
+                else{
+                    errorLabel.setText("Invalid login!");
+                }
+            }
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+
+     */
+    @FXML
     void login(ActionEvent event) {
         String username = usernameField.getText();
         String password = passwordField.getText();
@@ -229,12 +279,12 @@ class InvalidCredentialsException extends Exception {
         super(message);
     }
 
-    */
+
 
 }
 
-/*
+
 interface LoginObserver {
     void onLoginSuccess();
 }
-*/
+

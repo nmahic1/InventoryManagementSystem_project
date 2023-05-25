@@ -7,9 +7,9 @@ public class LoginDBConnectionRepository {
 
     public Connection getConnection(){
         String databaseName ="ims";
-        String databaseUser ="";
-        String databasePassword ="";
-        String url="jdbc:mysql://localhost/" + databaseName;
+        String databaseUser ="root";
+        String databasePassword ="12345";
+        String url="jdbc:mysql://localhost:3306/ims?useSSL=false&" + databaseName;
 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
