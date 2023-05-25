@@ -2,6 +2,7 @@ package controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,8 +17,10 @@ import java.util.Optional;
 
 public class ProductController {
 
+    @FXML
     public Button deleteButton;
-    public Button updateButton;
+   @FXML
+   public Button updateButton;
 
    // @FXML
    // private Menu brandAndProduct;
@@ -33,6 +36,9 @@ public class ProductController {
 
     @FXML
     private TextField brand;
+
+    @FXML
+    private MenuButton category;
 
     @FXML
     private TextField costprice;
@@ -65,7 +71,10 @@ public class ProductController {
     private TableColumn<ProductController.Data, Integer> dataColumnBarCode;
 
     @FXML
-    private TableColumn<BrandAndProductController.Data, String> dataColumnBrand;
+    private TableColumn<ProductController.Data, String> dataColumnBrand;
+
+    @FXML
+    private TableColumn<ProductController.Data, String> dataColumnCategory;
 
     @FXML
     private TableColumn<ProductController.Data, String> dataColumnDescription;
@@ -117,7 +126,8 @@ public class ProductController {
         stage.show();
 
     }
-    public void addData(javafx.event.ActionEvent actionEvent) {
+    @FXML
+     void addData(ActionEvent actionEvent) {
 
 
             // postavljanje vrijednosti ćelija u tabeli
@@ -127,7 +137,9 @@ public class ProductController {
             dataColumnRetailPrice.setCellValueFactory(new PropertyValueFactory<>("retailPrice"));
             dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
              dataColumnBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
+             dataColumnCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
             dataColumnDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+
 
             // kreiranje novog unosa na osnovu unesenih podataka
             String dataB = brand.getText();
@@ -135,9 +147,10 @@ public class ProductController {
             int dataCP = Integer.parseInt(costprice.getText());
             int dataRP = Integer.parseInt(retailprice.getText());
             int dataBC = Integer.parseInt(barcode.getText());
+            String dataC = category.getText();
             String dataD = description.getText();
             id++;
-           dataListProduct.add(new ProductController.Data(id, dataQ, dataCP, dataRP, dataBC, dataD, dataB));
+           dataListProduct.add(new Data(id, dataQ, dataCP, dataRP, dataBC, dataD, dataB, dataC));
             tableView.setItems(dataListProduct);
 
             // čišćenje unesenih podataka
@@ -147,6 +160,7 @@ public class ProductController {
             barcode.clear();
             brand.clear();
             description.clear();
+            //category.clear();
 
     }
 
@@ -161,7 +175,9 @@ public class ProductController {
 
         private String brand;
 
-        public Data(int id, int quantity, int costprice, int retailprice, int barcode, String description, String brand) {
+        private String category;
+
+       /* public Data(int id, int quantity, int costprice, int retailprice, int barcode, String description, String brand, String category) {
             this.id = id;
             this.quantity = quantity;
             this.costprice = costprice;
@@ -169,7 +185,22 @@ public class ProductController {
             this.barcode = barcode;
             this.description=description;
             this.brand = brand;
+            this.category = category;
         }
+
+        */
+
+        public Data(int id, int quantity, int costprice, int retailprice, int barcode, String description, String brand, String category) {
+            this.id = id;
+            this.quantity = quantity;
+            this.costprice = costprice;
+            this.retailprice = retailprice;
+            this.barcode = barcode;
+            this.description = description;
+            this.brand = brand;
+            this.category = category;
+        }
+
 
         public int getId() {
             return id;
@@ -229,6 +260,12 @@ public class ProductController {
             this.brand = data;
         }
 
+        public String getCategory() {
+            return category;
+        }
+
+        public void setCategory(String data) { this.category = data;}
+
     }
 
 
@@ -246,6 +283,13 @@ public class ProductController {
             brandDialog.setTitle("Update Data");
             brandDialog.setHeaderText("Update selected data");
             brandDialog.setContentText("Enter brand name:");
+
+            TextInputDialog categoryDialog = new TextInputDialog(selectedData.getCategory());
+
+            //prozor za ispisivanje poruke
+            categoryDialog.setTitle("Update Data");
+            categoryDialog.setHeaderText("Update selected data");
+            categoryDialog.setContentText("Enter brand name:");
 
             TextInputDialog quantityDialog = new TextInputDialog(String.valueOf(selectedQuantity));
 
@@ -293,17 +337,17 @@ public class ProductController {
             Optional<String> barcodeResult = BarcodeDialog.showAndWait();
             Optional<String> descriptionResult = descriptionDialog.showAndWait();
             Optional<String> brandResult = brandDialog.showAndWait();
-            //Optional<String> categoryResult = categoryDialog.showAndWait();
+            Optional<String> categoryResult = categoryDialog.showAndWait();
 
 
-            if (brandResult.isPresent() /*&& categoryResult.isPresent()*/ && quantityResult.isPresent() && costPriceResult.isPresent()&& retailPriceResult.isPresent() && barcodeResult.isPresent() && descriptionResult.isPresent()) {
+            if (brandResult.isPresent() && categoryResult.isPresent() && quantityResult.isPresent() && costPriceResult.isPresent()&& retailPriceResult.isPresent() && barcodeResult.isPresent() && descriptionResult.isPresent()) {
                 selectedData.setQuantity(Integer.parseInt(quantityResult.get()));
                 selectedData.setCostPrice(Integer.parseInt(costPriceResult.get()));
                 selectedData.setRetailPrice(Integer.parseInt(retailPriceResult.get()));
                 selectedData.setBarcode(Integer.parseInt(barcodeResult.get()));
                 selectedData.setDescription(descriptionResult.get());
                 selectedData.setBrand(brandResult.get());
-               // selectedData.setCategory(categoryResult.get());
+                selectedData.setCategory(categoryResult.get());
                 tableView.refresh();
             }
         } else {
@@ -331,5 +375,10 @@ public class ProductController {
         }
     }
 
+    @FXML
+    void selectCategory(javafx.event.ActionEvent actionEvent) {
+        MenuItem selectedItem = (MenuItem) actionEvent.getSource();
+        String selectCategory = selectedItem.getText();
+    }
 
 }
