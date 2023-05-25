@@ -375,6 +375,7 @@ public class ProductController {
         }
     }
 
+    //postavljanje odabranog polja iz liste u polje category
     @FXML
     void selectCategory(ActionEvent actionEvent) {
         MenuItem selectedItem = (MenuItem) actionEvent.getSource();
