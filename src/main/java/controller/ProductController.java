@@ -210,10 +210,6 @@ public class ProductController {
 
     }
 
- /*   public ProductController() {
-        this.ProductService = new ProductService();
-    }
-*/
 
     /*
     @FXML
