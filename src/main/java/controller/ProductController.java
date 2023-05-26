@@ -372,6 +372,16 @@ public class ProductController {
 
     @FXML
     void addData(ActionEvent actionEvent) {
+
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        dataColumnCostPrice.setCellValueFactory(new PropertyValueFactory<>("costPrice"));
+        dataColumnRetailPrice.setCellValueFactory(new PropertyValueFactory<>("retailPrice"));
+        dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
+        dataColumnBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
+        dataColumnCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
+        dataColumnDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+
         String dataB = brand.getText();
         int dataQ = Integer.parseInt(quantity.getText());
         int dataCP = Integer.parseInt(costprice.getText());
@@ -387,12 +397,14 @@ public class ProductController {
         ObservableList<ProductController.Data> allProducts = ProductService.getAllProducts();
         tableView.setItems(allProducts);
 
+
         quantity.clear();
         costprice.clear();
         retailprice.clear();
         barcode.clear();
         brand.clear();
         description.clear();
+        //category.clear();
     }
 
     @FXML

@@ -175,7 +175,7 @@ public class ProductRepository {
 
     public static void updateProduct(ProductController.Data product) {
         try (Connection connection = getConnection()) {
-            String query = "UPDATE product SET brand=?, category=?, costPrice=?, retailPrice=?, quantity=?, barcode=?, description=? WHERE idProduct=?";
+            String query = "UPDATE product SET brand=?, category=?, costPrice=?, retailPrice=?, quantity=?, barcode=?, description=? WHERE id=?";
 
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, product.getBrand());
@@ -196,7 +196,7 @@ public class ProductRepository {
 
     public static void deleteProduct(ProductController.Data product) {
         try (Connection connection = getConnection()) {
-            String query = "DELETE FROM product WHERE idProduct=?";
+            String query = "DELETE FROM product WHERE id=?";
 
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, product.getId());
@@ -217,7 +217,7 @@ public class ProductRepository {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                int id = resultSet.getInt("idProduct");
+                int id = resultSet.getInt("id");
                 String brand = resultSet.getString("brand");
                 String category = resultSet.getString("category");
                 int costPrice = resultSet.getInt("costPrice");
