@@ -89,6 +89,7 @@ public class ProductController {
 
     private ObservableList<ProductController.Data> dataListProduct = FXCollections.observableArrayList();
 
+
     @FXML
     void handlecashRegister(javafx.event.ActionEvent actionEvent) throws IOException{
         // Code to handle exit menu item

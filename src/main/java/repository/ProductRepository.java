@@ -108,4 +108,33 @@ public class ProductRepository {
 
         return productList;
     }
+
+    public ProductController.Data getProductByBarcode(int barcode) {
+        try (Connection connection = getConnection()) {
+            String query = "SELECT * FROM product WHERE barcode = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, barcode);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String brand = resultSet.getString("brand");
+                String category = resultSet.getString("category");
+                int costPrice = resultSet.getInt("costPrice");
+                int retailPrice = resultSet.getInt("retailPrice");
+                int quantity = resultSet.getInt("quantity");
+                String description = resultSet.getString("description");
+
+                return new ProductController.Data(id, brand, category, costPrice, retailPrice, quantity, barcode, description);
+            }
+
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null; // Ako proizvod s traženim bar kodom nije pronađen
+    }
+
 }

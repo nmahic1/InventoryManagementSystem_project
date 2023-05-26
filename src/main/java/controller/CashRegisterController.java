@@ -1,4 +1,6 @@
+
 package controller;
+
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,8 +12,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import service.CashRegisterService;
 
 import java.io.IOException;
+
+
+import service.ProductService;
+
 
 public class CashRegisterController {
     @FXML
@@ -49,7 +56,25 @@ public class CashRegisterController {
     @FXML
     private TableColumn<CashRegisterController.Data, Integer> dataColumnQuantity;
 
+    @FXML
+    private TableColumn<CashRegisterController.Data, Integer> dataColumnRetailPrice;
+
+    @FXML
+    private TableColumn<CashRegisterController.Data, String > dataColumnBrand;
+
     private ObservableList<CashRegisterController.Data> dataListCashRegister = FXCollections.observableArrayList();
+
+    private CashRegisterService cashRegisterService;
+
+    private ProductService productService;
+    private ObservableList<ProductController> productList = FXCollections.observableArrayList();
+
+
+    public CashRegisterController() {
+        cashRegisterService = new CashRegisterService();
+        productService = new ProductService();
+    }
+
 
 
     @FXML
@@ -65,22 +90,7 @@ public class CashRegisterController {
         stage.show();
     }
 
-    /*
-    @FXML
-    void handlebrandAndCategory(javafx.event.ActionEvent actionEvent) throws IOException{
-        // Code to handle exit menu item
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/BrandAndProduct.fxml"));
-        Parent root = loader.load();
 
-        // Otvaranje nove scene s drugim prozorom
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        //isto
-    }
-
-     */
     @FXML
     void logout(javafx.event.ActionEvent actionEvent) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/LogIn.fxml"));
@@ -93,17 +103,22 @@ public class CashRegisterController {
         stage.show();
     }
 
-    public class Data {
+    public static class Data {
 
         private int quantity;
 
         private int barcode;
 
+        private String brand;
 
-        public Data(int quantity,  int barcode) {
+        private int retailprice;
+
+        public Data( int barcode, int quantity ) {
 
             this.quantity = quantity;
             this.barcode = barcode;
+           // this.brand = brand;
+           // this.retailprice = retailprice;
 
         }
 
@@ -127,8 +142,26 @@ public class CashRegisterController {
         }
 
 
+        public String getBrand() {
+            return brand;
+        }
+
+        public void setBrand(String data) {
+            this.brand = data;
+        }
+
+        public int getRetailPrice() {
+            return retailprice;
+        }
+
+        public void setRetailPrice(int data) {
+            this.retailprice = data;
+        }
     }
-    @FXML
+
+
+
+   /* @FXML
     void addData(ActionEvent actionEvent) {
 
 
@@ -140,14 +173,93 @@ public class CashRegisterController {
         int dataQ = Integer.parseInt(quantity.getText());
         int dataBC = Integer.parseInt(barcode.getText());
 
+        cashRegisterService.addData(dataQ,dataBC);
+
         dataListCashRegister.add(new CashRegisterController.Data(dataQ,dataBC));
         tableView.setItems(dataListCashRegister);
 
         // čišćenje unesenih podataka
         quantity.clear();
         barcode.clear();
+    }*/
+
+    /*
+    @FXML
+    void addData(ActionEvent actionEvent) {
+
+
+        int barcode = Integer.parseInt(this.barcode.getText());
+
+        ProductController.Data product = productService.getProductByBarcode(barcode);
+        if (product != null) {
+            int quantity = Integer.parseInt(this.quantity.getText());
+
+            CashRegisterController.Data newData = new CashRegisterController.Data(quantity, barcode);
+            dataListCashRegister.add(newData);
+            tableView.setItems(dataListCashRegister);
+
+            // Set the brand and retail price in the TableView
+            newData.setBrand(product.getBrand());
+            newData.setRetailPrice(product.getRetailPrice());
+
+            // Clear the input fields
+             this.quantity.clear();
+            this.barcode.clear();
+
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Product Not Found");
+            alert.setHeaderText("Product with the barcode " + barcode + " not found.");
+            alert.setContentText("Please enter a valid barcode.");
+            alert.showAndWait();
+        }
     }
 
+     */
+
+
+    @FXML
+    void addData(ActionEvent actionEvent) {
+
+        // postavljanje vrijednosti ćelija u tabeli
+        dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
+        dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("brand"));
+        dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("retailprice"));
+
+        int barcode = Integer.parseInt(this.barcode.getText());
+
+        ProductController.Data product = productService.getProductByBarcode(barcode);
+        if (product != null) {
+            int quantity = Integer.parseInt(this.quantity.getText());
+
+
+            CashRegisterController.Data newData = new CashRegisterController.Data(quantity,barcode);
+
+            // Set the brand and retail price in the new data object
+            newData.setBrand(product.getBrand());
+            newData.setRetailPrice(product.getRetailPrice());
+
+            // Add the new data object to the dataListCashRegister
+            dataListCashRegister.add(newData);
+
+            // Update the TableView
+            tableView.setItems(dataListCashRegister);
+
+            // Clear the input fields
+            this.quantity.clear();
+            this.barcode.clear();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Product Not Found");
+            alert.setHeaderText("Product with the barcode " + barcode + " not found.");
+            alert.setContentText("Please enter a valid barcode.");
+            alert.showAndWait();
+        }
+    }
+
+
+    /*
     @FXML
     void deleteData(javafx.event.ActionEvent event) {
         int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
@@ -163,6 +275,44 @@ public class CashRegisterController {
         }
     }
 
+
+    @FXML
+    void addData(ActionEvent actionEvent) {
+        // Obrada unosa u tabelu i repozitorij
+        int dataQ = Integer.parseInt(quantity.getText());
+        int dataBC = Integer.parseInt(barcode.getText());
+
+        cashRegisterService.addData(dataQ, dataBC);
+
+        // postavljanje vrijednosti ćelija u tabeli
+        dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
+
+        // Ostatak koda za ažuriranje tabele i čišćenje unosa
+
+        // čišćenje unesenih podataka
+        quantity.clear();
+        barcode.clear();
+    }
+*/
+    @FXML
+    void deleteData(javafx.event.ActionEvent event) {
+        // Obrada brisanja iz tabele i repozitorija
+        int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            CashRegisterController.Data selectedData = tableView.getItems().get(selectedIndex);
+            tableView.getItems().remove(selectedIndex);
+            cashRegisterService.removeData(selectedData);
+        } else {
+            // Ostatak koda za prikaz upozorenja ako nije odabrana stavka
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            //prozor za ispisivanje poruke
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Data Selected");
+            alert.setContentText("Please select a data in the table.");
+            alert.showAndWait();
+        }
+    }
 
         public void PayInvoiceButton(ActionEvent actionEvent) throws IOException {
         // Code to handle save menu item

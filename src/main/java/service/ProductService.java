@@ -28,5 +28,10 @@ public class ProductService {
         return  ProductRepository.getAllProducts();
     }
 
+    public ProductController.Data getProductByBarcode(int barcode) {
+        // Implementacija logike za dohvaćanje proizvoda na temelju bar koda
+        // Primjer:
+        return productRepository.getProductByBarcode(barcode);
+    }
 
 }
