@@ -1,3 +1,4 @@
+
 package controller;
 
 import javafx.collections.FXCollections;
@@ -14,6 +15,7 @@ import service.ProductService;
 
 import java.io.IOException;
 import java.util.Optional;
+
 
 
 public class ProductController {
@@ -87,22 +89,6 @@ public class ProductController {
 
     private ObservableList<ProductController.Data> dataListProduct = FXCollections.observableArrayList();
 
-    /*
-    @FXML
-    void handleBrandAndProduct(javafx.event.ActionEvent actionEvent) throws IOException{
-        // Code to handle save menu item
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/BrandAndProduct.fxml"));
-        Parent root = loader.load();
-
-        // Otvaranje nove scene s drugim prozorom
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-
-     */
     @FXML
     void handlecashRegister(javafx.event.ActionEvent actionEvent) throws IOException{
         // Code to handle exit menu item
@@ -129,47 +115,6 @@ public class ProductController {
         stage.show();
 
     }
-    @FXML
-     void addData(ActionEvent actionEvent) {
-
-
-            // postavljanje vrijednosti ćelija u tabeli
-            idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-            dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-            dataColumnCostPrice.setCellValueFactory(new PropertyValueFactory<>("costPrice"));
-            dataColumnRetailPrice.setCellValueFactory(new PropertyValueFactory<>("retailPrice"));
-            dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
-             dataColumnBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
-             dataColumnCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
-            dataColumnDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-
-
-            // kreiranje novog unosa na osnovu unesenih podataka
-            String dataB = brand.getText();
-            int dataQ = Integer.parseInt(quantity.getText());
-            int dataCP = Integer.parseInt(costprice.getText());
-            int dataRP = Integer.parseInt(retailprice.getText());
-            int dataBC = Integer.parseInt(barcode.getText());
-            String dataC = category.getText();
-            String dataD = description.getText();
-            id++;
-           dataListProduct.add(new Data(id, dataQ, dataCP, dataRP, dataBC, dataD, dataB, dataC));
-            tableView.setItems(dataListProduct);
-
-            // čišćenje unesenih podataka
-            quantity.clear();
-            costprice.clear();
-            retailprice.clear();
-            barcode.clear();
-            brand.clear();
-            description.clear();
-            //category.clear();
-
-    }
-
-
-
-
 
     public static class Data {
         private int id;
@@ -185,7 +130,7 @@ public class ProductController {
         private String category;
 
 
-        public Data(int id, int quantity, int costprice, int retailprice, int barcode, String description, String brand, String category) {
+        public Data(int id, String brand, String category,int costprice, int retailprice, int quantity,  int barcode, String description) {
             this.id = id;
             this.quantity = quantity;
             this.costprice = costprice;
@@ -265,12 +210,49 @@ public class ProductController {
 
     }
 
-   /* public ProductController() {
-        this.productService = new ProductService();
+ /*   public ProductController() {
+        this.ProductService = new ProductService();
     }
+*/
 
-    */
+    /*
+    @FXML
+    void addData(ActionEvent actionEvent) {
 
+
+        // postavljanje vrijednosti ćelija u tabeli
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        dataColumnCostPrice.setCellValueFactory(new PropertyValueFactory<>("costPrice"));
+        dataColumnRetailPrice.setCellValueFactory(new PropertyValueFactory<>("retailPrice"));
+        dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
+        dataColumnBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
+        dataColumnCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
+        dataColumnDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+
+
+        // kreiranje novog unosa na osnovu unesenih podataka
+        String dataB = brand.getText();
+        int dataQ = Integer.parseInt(quantity.getText());
+        int dataCP = Integer.parseInt(costprice.getText());
+        int dataRP = Integer.parseInt(retailprice.getText());
+        int dataBC = Integer.parseInt(barcode.getText());
+        String dataC = category.getText();
+        String dataD = description.getText();
+        id++;
+        dataListProduct.add(new Data(id, dataQ, dataCP, dataRP, dataBC, dataD, dataB, dataC));
+        tableView.setItems(dataListProduct);
+
+        // čišćenje unesenih podataka
+        quantity.clear();
+        costprice.clear();
+        retailprice.clear();
+        barcode.clear();
+        brand.clear();
+        description.clear();
+        //category.clear();
+
+    }
 
     @FXML
     void updateData(javafx.event.ActionEvent event) {
@@ -378,7 +360,7 @@ public class ProductController {
         }
     }
 
-
+*/
     //postavljanje odabranog polja iz liste u polje category
     @FXML
     void selectCategory(ActionEvent actionEvent) {
@@ -387,7 +369,7 @@ public class ProductController {
         category.setText(selectedCategory);
     }
 
-    /*
+
     @FXML
     void addData(ActionEvent actionEvent) {
         String dataB = brand.getText();
@@ -399,10 +381,10 @@ public class ProductController {
         String dataD = description.getText();
         id++;
 
-        ProductController.Data newProduct = new ProductController.Data(id, dataQ, dataCP, dataRP, dataBC, dataD, dataB, dataC);
-        productService.addProduct(newProduct);
+        ProductController.Data newProduct = new ProductController.Data(id,dataB, dataC, dataCP, dataRP, dataQ, dataBC, dataD);
+        ProductService.addProduct(newProduct);
 
-        ObservableList<ProductController.Data> allProducts = productService.getAllProducts();
+        ObservableList<ProductController.Data> allProducts = ProductService.getAllProducts();
         tableView.setItems(allProducts);
 
         quantity.clear();
@@ -471,7 +453,7 @@ public class ProductController {
                 selectedData.setBrand(brandResult.get());
                 selectedData.setCategory(categoryResult.get());
 
-                productService.updateProduct(selectedData);
+                ProductService.updateProduct(selectedData);
 
                 tableView.refresh();
             }
@@ -491,7 +473,7 @@ public class ProductController {
         if (selectedIndex >= 0) {
             ProductController.Data selectedData = tableView.getSelectionModel().getSelectedItem();
 
-            productService.deleteProduct(selectedData);
+            ProductService.deleteProduct(selectedData);
 
             tableView.getItems().remove(selectedIndex);
         } else {
@@ -503,6 +485,6 @@ public class ProductController {
             alert.showAndWait();
         }
     }
-*/
+
 
 }
