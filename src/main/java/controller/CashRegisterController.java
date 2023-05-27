@@ -111,7 +111,7 @@ public class CashRegisterController {
 
         private String brand;
 
-        private int retailprice;
+        private int retailPrice;
 
         public Data( int barcode, int quantity ) {
 
@@ -150,12 +150,12 @@ public class CashRegisterController {
             this.brand = data;
         }
 
-        public int getRetailPrice() {
-            return retailprice;
+        public void setRetailPrice(int retailPrice) {
+            this.retailPrice = retailPrice;
         }
 
-        public void setRetailPrice(int data) {
-            this.retailprice = data;
+        public int getRetailPrice() {
+            return retailPrice;
         }
     }
 
@@ -181,12 +181,17 @@ public class CashRegisterController {
         // čišćenje unesenih podataka
         quantity.clear();
         barcode.clear();
-    }*/
+    }
 
-    /*
+   */
+/*
     @FXML
     void addData(ActionEvent actionEvent) {
 
+        dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
+        dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("brand"));
+        dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("retailprice"));
 
         int barcode = Integer.parseInt(this.barcode.getText());
 
@@ -215,9 +220,9 @@ public class CashRegisterController {
         }
     }
 
-     */
+*/
 
-
+/*
     @FXML
     void addData(ActionEvent actionEvent) {
 
@@ -257,7 +262,7 @@ public class CashRegisterController {
             alert.showAndWait();
         }
     }
-
+*/
 
     /*
     @FXML
@@ -295,6 +300,70 @@ public class CashRegisterController {
         barcode.clear();
     }
 */
+
+    @FXML
+    void addData(ActionEvent actionEvent) {
+
+        dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
+        dataColumnBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
+        dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        dataColumnRetailPrice.setCellValueFactory(new PropertyValueFactory<>("retailPrice"));
+      /*
+        int barcode = Integer.parseInt(this.barcode.getText());
+
+        ProductController.Data product = productService.getProductByBarcode(barcode);
+        if (product != null) {
+            int quantity = Integer.parseInt(this.quantity.getText());
+
+            CashRegisterController.Data newData = new CashRegisterController.Data(quantity, barcode);
+            newData.setBrand(product.getBrand());
+            newData.setRetailPrice(product.getRetailPrice());
+
+
+
+
+            dataListCashRegister.add(newData);
+            tableView.setItems(dataListCashRegister);
+
+            this.quantity.clear();
+            this.barcode.clear();
+
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Product Not Found");
+            alert.setHeaderText("Product with the barcode " + barcode + " not found.");
+            alert.setContentText("Please enter a valid barcode.");
+            alert.showAndWait();
+        }
+
+       */
+
+        int barcode = Integer.parseInt(this.barcode.getText());
+        ProductController.Data product = productService.getProductByBarcode(barcode);
+
+        if (product != null) {
+            int quantity = Integer.parseInt(this.quantity.getText());
+            int retailPrice = product.getRetailPrice();
+
+            CashRegisterController.Data newData = new CashRegisterController.Data(quantity, barcode);
+            newData.setBrand(product.getBrand());
+            newData.setRetailPrice(retailPrice);
+
+            dataListCashRegister.add(newData);
+            tableView.setItems(dataListCashRegister);
+
+            this.quantity.clear();
+            this.barcode.clear();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Product Not Found");
+            alert.setHeaderText("Product with the barcode " + barcode + " not found.");
+            alert.setContentText("Please enter a valid barcode.");
+            alert.showAndWait();
+        }
+
+    }
+
     @FXML
     void deleteData(javafx.event.ActionEvent event) {
         // Obrada brisanja iz tabele i repozitorija

@@ -67,9 +67,9 @@
             <TextField layoutX="109.0" layoutY="341.0" prefHeight="26.0" prefWidth="98.0" />
             <TableView  fx:id="tableView" layoutX="25.0" layoutY="115.0" prefHeight="200.0" prefWidth="302.0" style="-fx-background-color: #a8a3a0;">
               <columns>
-                <TableColumn fx:id="dataColumnBarCode" prefWidth="75.0" text="Code" />
+                <TableColumn fx:id="dataColumnQuantity" prefWidth="75.0" text="Code" />
                 <TableColumn  fx:id="dataColumnBrand" prefWidth="75.0" text="Name" />
-                  <TableColumn fx:id="dataColumnQuantity" prefWidth="75.0" text="Quantity" />
+                  <TableColumn  fx:id="dataColumnBarCode" prefWidth="75.0" text="Quantity" />
                   <TableColumn fx:id="dataColumnRetailPrice" prefWidth="75.0" text="Price" />
               </columns>
             </TableView>
