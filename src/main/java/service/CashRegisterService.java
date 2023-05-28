@@ -21,6 +21,7 @@ public class CashRegisterService {
         cashRegisterRepository.removeData(data);
     }
 
+
 }
 
 
