@@ -308,35 +308,7 @@ public class CashRegisterController {
         dataColumnBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
         dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         dataColumnRetailPrice.setCellValueFactory(new PropertyValueFactory<>("retailPrice"));
-      /*
-        int barcode = Integer.parseInt(this.barcode.getText());
 
-        ProductController.Data product = productService.getProductByBarcode(barcode);
-        if (product != null) {
-            int quantity = Integer.parseInt(this.quantity.getText());
-
-            CashRegisterController.Data newData = new CashRegisterController.Data(quantity, barcode);
-            newData.setBrand(product.getBrand());
-            newData.setRetailPrice(product.getRetailPrice());
-
-
-
-
-            dataListCashRegister.add(newData);
-            tableView.setItems(dataListCashRegister);
-
-            this.quantity.clear();
-            this.barcode.clear();
-
-        } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Product Not Found");
-            alert.setHeaderText("Product with the barcode " + barcode + " not found.");
-            alert.setContentText("Please enter a valid barcode.");
-            alert.showAndWait();
-        }
-
-       */
 
         int barcode = Integer.parseInt(this.barcode.getText());
         ProductController.Data product = productService.getProductByBarcode(barcode);
