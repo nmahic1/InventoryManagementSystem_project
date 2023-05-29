@@ -41,6 +41,7 @@ public class CashRegisterController {
     public Button payinvoice;
     @FXML
     private TableView<Data> tableView;
+
     @FXML
     private TableColumn<Data, Integer> dataColumnBarCode;
     @FXML
@@ -60,6 +61,7 @@ public class CashRegisterController {
     public CashRegisterController() {
         cashRegisterService = new CashRegisterService();
         productService = new ProductService();
+
     }
 
     @FXML
