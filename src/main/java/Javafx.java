@@ -11,7 +11,7 @@ public class Javafx extends Application {
     @Override
     public void start(Stage stage) throws Exception{
 
-        Parent root = FXMLLoader.load(getClass().getResource("/LogIn.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/CashRegister.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

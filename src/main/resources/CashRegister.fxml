@@ -47,19 +47,19 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="222.0" layoutY="342.0" prefHeight="26.0" prefWidth="86.0" />
-            <TextField layoutX="22.0" layoutY="341.0" prefHeight="26.0" prefWidth="74.0" />
+            <TextField fx:id="balanceTextField" layoutX="222.0" layoutY="342.0" prefHeight="26.0" prefWidth="86.0" />
+            <TextField fx:id="pay" layoutX="22.0" layoutY="341.0" prefHeight="26.0" prefWidth="74.0" />
             <Label layoutX="109.0" layoutY="321.0" text="Sub Total" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="balanceTextField" layoutX="222.0" layoutY="319.0" text="Balance" textFill="WHITE">
+            <Label  layoutX="222.0" layoutY="319.0" text="Balance" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="pay" layoutX="25.0" layoutY="321.0" text="Pay" textFill="WHITE">
+            <Label  layoutX="25.0" layoutY="321.0" text="Pay" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
