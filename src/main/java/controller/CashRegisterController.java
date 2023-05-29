@@ -21,6 +21,10 @@ import service.ProductService;
 
 
 public class CashRegisterController {
+
+    public Button calculate;
+    @FXML
+    private TextField subtotal;
     @FXML
     public Button deleteButton;
 
@@ -61,6 +65,7 @@ public class CashRegisterController {
 
     @FXML
     private TableColumn<CashRegisterController.Data, String > dataColumnBrand;
+
 
     private ObservableList<CashRegisterController.Data> dataListCashRegister = FXCollections.observableArrayList();
 
@@ -113,12 +118,15 @@ public class CashRegisterController {
 
         private int retailPrice;
 
+        private int price;
+
         public Data( int barcode, int quantity ) {
 
             this.quantity = quantity;
             this.barcode = barcode;
            // this.brand = brand;
            // this.retailprice = retailprice;
+            this.price = 0; // Inicijalno postavljamo cenu na 0
 
         }
 
@@ -135,7 +143,9 @@ public class CashRegisterController {
 
         public void setQuantity(int data) {
             this.quantity = data;
+            updatePrice();
         }
+
 
         public void setBarcode(int data) {
             this.barcode = data;
@@ -157,6 +167,15 @@ public class CashRegisterController {
         public int getRetailPrice() {
             return retailPrice;
         }
+
+        public int getPrice() {
+            return price;
+        }
+
+        private void updatePrice() {
+            this.price = this.retailPrice * this.quantity;
+        }
+
     }
 
 
@@ -214,45 +233,26 @@ public class CashRegisterController {
         }
     }
 
-        public void PayInvoiceButton(ActionEvent actionEvent) throws IOException {
-        // Code to handle save menu item
+    @FXML
+    void calculateSubtotal() {
+        int subtotalPrice = 0;
+        for (Data data : dataListCashRegister) {
+            subtotalPrice += data.getRetailPrice() * data.getQuantity();
+        }
+        subtotal.setText(Integer.toString(subtotalPrice));
+    }
+
+
+    /*
+    public void PayInvoiceButton(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Invoice.fxml"));
         Parent root = loader.load();
 
-        // Otvaranje nove scene s drugim prozorom
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
-
-       /* double total = calculateTotalPrice();
-        double paidAmount = 50.0; // Ovdje dodati informacije iz polja pay
-        double change = calculateChange(total, paidAmount);
-
-        // Ispisivanje kusura
-        System.out.println("Kusur: " + change); //postaviti da se ispisuje u TextField
-
-        */
     }
-
-   /* public double calculateTotalPrice() {
-        double totalPrice = 0;
-        for (Data data : dataListProduct) {
-        //ovdje moras povezati ovo sa ProductController
-            totalPrice += Double.parseDouble(data.getRetailPrice());
-        }
-        return totalPrice;
-    }
-
-    */
-
-   /* public void calculateChange() {
-        double total = calculateTotalPrice();
-        double paidAmount = Double.parseDouble(paidAmountTextField.getText());
-        double change = calculateChange(total, paidAmount);
-        changeTextField.setText(String.format("%.2f", change));
-        //TextField za ukupnu vrijednost proizvoda nazivate totalPriceTextField, a TextField za iznos koji je kupac dao nazivate paidAmountTextField, a TextField za kusur nazivate changeTextField
-    }
-    */
+   */
 
 }
