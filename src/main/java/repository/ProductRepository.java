@@ -109,7 +109,7 @@ public class ProductRepository {
         return productList;
     }
 
-    public ProductController.Data getProductByBarcode(int barcode) {
+    public static ProductController.Data getProductByBarcode(int barcode) {
         try (Connection connection = getConnection()) {
             String query = "SELECT * FROM product WHERE barcode = ?";
             PreparedStatement statement = connection.prepareStatement(query);

@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import repository.ProductRepository;
 import service.CashRegisterService;
 import service.ProductService;
 
@@ -59,8 +60,9 @@ public class CashRegisterController {
     private ObservableList<ProductController> productList = FXCollections.observableArrayList();
 
     public CashRegisterController() {
-        cashRegisterService = new CashRegisterService();
+       cashRegisterService = new CashRegisterService();
         productService = new ProductService();
+
 
     }
 
@@ -152,6 +154,7 @@ public class CashRegisterController {
 
     @FXML
     void addData(ActionEvent actionEvent) {
+
        /* dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
         dataColumnBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
         dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
@@ -170,10 +173,14 @@ public class CashRegisterController {
             newData.setRetailPrice(retailPrice);
             newData.setPrice(price);
 
-            cashRegisterService.addData(quantity, product.getBrand(), barcode, retailPrice);
+            // Dodaj marku u objekt novog podatka
+            newData.setBrand(product.getBrand());
 
             dataListCashRegister.add(newData);
             tableView.setItems(dataListCashRegister);
+
+            // Upisivanje podataka u bazu podataka
+            cashRegisterService.addData(quantity, product.getBrand(), barcode, retailPrice);
 
             this.quantity.clear();
             this.barcode.clear();
@@ -207,9 +214,6 @@ public class CashRegisterController {
 
             dataListCashRegister.add(newData);
             tableView.setItems(dataListCashRegister);
-
-            // Upisivanje podataka u bazu podataka
-            cashRegisterService.addData(quantity, product.getBrand(), barcode, retailPrice);
 
             this.quantity.clear();
             this.barcode.clear();
