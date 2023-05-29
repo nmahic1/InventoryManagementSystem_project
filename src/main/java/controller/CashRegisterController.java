@@ -21,8 +21,12 @@ import service.ProductService;
 
 
 public class CashRegisterController {
-
+     @FXML
     public Button calculate;
+    @FXML
+    public Label pay;
+    @FXML
+    public Label balanceTextField;
     @FXML
     private TextField subtotal;
     @FXML
@@ -65,6 +69,8 @@ public class CashRegisterController {
 
     @FXML
     private TableColumn<CashRegisterController.Data, String > dataColumnBrand;
+    @FXML
+    private TableColumn<CashRegisterController.Data, String > dataColumnPrice;
 
 
     private ObservableList<CashRegisterController.Data> dataListCashRegister = FXCollections.observableArrayList();
@@ -127,6 +133,7 @@ public class CashRegisterController {
            // this.brand = brand;
            // this.retailprice = retailprice;
             this.price = 0; // Inicijalno postavljamo cenu na 0
+            updatePrice();
 
         }
 
@@ -138,12 +145,6 @@ public class CashRegisterController {
 
         public int getBarcode() {
             return barcode;
-        }
-
-
-        public void setQuantity(int data) {
-            this.quantity = data;
-            updatePrice();
         }
 
 
@@ -160,21 +161,35 @@ public class CashRegisterController {
             this.brand = data;
         }
 
-        public void setRetailPrice(int retailPrice) {
-            this.retailPrice = retailPrice;
-        }
+
 
         public int getRetailPrice() {
             return retailPrice;
+        }
+
+        public void setPrice(int price) {
+            this.price = price;
         }
 
         public int getPrice() {
             return price;
         }
 
+
+        public void setQuantity(int quantity) {
+            this.quantity = quantity;
+            updatePrice();
+        }
+
+        public void setRetailPrice(int retailPrice) {
+            this.retailPrice = retailPrice;
+            updatePrice();
+        }
+
         private void updatePrice() {
             this.price = this.retailPrice * this.quantity;
         }
+
 
     }
 
@@ -185,7 +200,8 @@ public class CashRegisterController {
         dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
         dataColumnBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
         dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        dataColumnRetailPrice.setCellValueFactory(new PropertyValueFactory<>("retailPrice"));
+        //dataColumnRetailPrice.setCellValueFactory(new PropertyValueFactory<>("retailPrice"));
+        dataColumnPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
 
 
         int barcode = Integer.parseInt(this.barcode.getText());
@@ -194,10 +210,12 @@ public class CashRegisterController {
         if (product != null) {
             int quantity = Integer.parseInt(this.quantity.getText());
             int retailPrice = product.getRetailPrice();
+            int price = quantity * retailPrice;
 
-            CashRegisterController.Data newData = new CashRegisterController.Data(quantity, barcode);
+            CashRegisterController.Data newData = new CashRegisterController.Data(barcode, quantity);
             newData.setBrand(product.getBrand());
             newData.setRetailPrice(retailPrice);
+            newData.setPrice(price);
 
             dataListCashRegister.add(newData);
             tableView.setItems(dataListCashRegister);
@@ -237,10 +255,21 @@ public class CashRegisterController {
     void calculateSubtotal() {
         int subtotalPrice = 0;
         for (Data data : dataListCashRegister) {
-            subtotalPrice += data.getRetailPrice() * data.getQuantity();
+            subtotalPrice += data.getQuantity() * data.getRetailPrice();
         }
         subtotal.setText(Integer.toString(subtotalPrice));
+
+        // Get the amount entered in the "Pay" TextField
+        int payAmount = Integer.parseInt(pay.getText());
+
+        // Calculate the balance
+        int balance = subtotalPrice - payAmount;
+
+        // Update the "Balance" TextField
+        balanceTextField.setText(Integer.toString(balance));
     }
+
+
 
 
     /*
