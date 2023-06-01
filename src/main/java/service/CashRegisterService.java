@@ -1,9 +1,7 @@
 package service;
-
 import controller.CashRegisterController;
-import controller.ProductController;
 import repository.CashRegisterRepository;
-import repository.ProductRepository;
+
 
 public class CashRegisterService {
     private CashRegisterRepository cashRegisterRepository;

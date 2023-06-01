@@ -11,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import repository.ProductRepository;
 import service.CashRegisterService;
 import service.ProductService;
 
@@ -155,44 +154,6 @@ public class CashRegisterController {
     @FXML
     void addData(ActionEvent actionEvent) {
 
-       /* dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
-        dataColumnBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
-        dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        dataColumnPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
-
-        int barcode = Integer.parseInt(this.barcode.getText());
-        ProductController.Data product = productService.getProductByBarcode(barcode);
-
-        if (product != null) {
-            int quantity = Integer.parseInt(this.quantity.getText());
-            int retailPrice = product.getRetailPrice();
-            int price = quantity * retailPrice;
-
-            Data newData = new Data(barcode, quantity);
-            newData.setBrand(product.getBrand());
-            newData.setRetailPrice(retailPrice);
-            newData.setPrice(price);
-
-            // Dodaj marku u objekt novog podatka
-            newData.setBrand(product.getBrand());
-
-            dataListCashRegister.add(newData);
-            tableView.setItems(dataListCashRegister);
-
-            // Upisivanje podataka u bazu podataka
-            cashRegisterService.addData(quantity, product.getBrand(), barcode, retailPrice);
-
-            this.quantity.clear();
-            this.barcode.clear();
-        } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Product Not Found");
-            alert.setHeaderText("Product with the barcode " + barcode + " not found.");
-            alert.setContentText("Please enter a valid barcode.");
-            alert.showAndWait();
-        }
-
-        */
 
         dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
         dataColumnBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));

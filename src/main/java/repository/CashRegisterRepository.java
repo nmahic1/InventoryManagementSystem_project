@@ -1,6 +1,4 @@
 package repository;
-
-
 import controller.CashRegisterController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
