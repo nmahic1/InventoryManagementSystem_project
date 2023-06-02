@@ -1,14 +1,16 @@
 package controller;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LogInControllerTest {
 
-    @org.junit.Test
+    @Test
     public void login() {
+
     }
 
-    @org.junit.Test
+    @Test
     public void validateLogin() {
     }
 }

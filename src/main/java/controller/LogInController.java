@@ -10,20 +10,19 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-
 import java.io.IOException;
 
 import service.LoginService;
 
 public class LogInController {
     @FXML
-    private TextField usernameField;
+    TextField usernameField;
 
     @FXML
-    private PasswordField passwordField;
+    PasswordField passwordField;
 
     @FXML
-    private Label errorLabel;
+    Label errorLabel;
 
     @FXML
     private Button loginButton;
@@ -52,6 +51,7 @@ public class LogInController {
             // Učitavanje FXML datoteke drugog prozora
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Product.fxml"));
             Parent root = loader.load();
+
 
             // Otvaranje nove scene s drugim prozorom
             Scene scene = new Scene(root);
