@@ -169,6 +169,11 @@ public class CashRegisterController {
             int price = quantity * retailPrice;
 
             Data newData = new Data(barcode, quantity);
+            //DODANO
+
+
+            cashRegisterService.addProduct(newData);
+
             newData.setBrand(product.getBrand());
             newData.setRetailPrice(retailPrice);
             newData.setPrice(price);
@@ -187,6 +192,9 @@ public class CashRegisterController {
         }
     }
 
+
+    //ZAKOMENTIRAN
+    /*
     @FXML
     void deleteData(ActionEvent event) {
         int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
@@ -196,6 +204,30 @@ public class CashRegisterController {
             cashRegisterService.removeData(selectedData);
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Data Selected");
+            alert.setContentText("Please select a data in the table.");
+            alert.showAndWait();
+        }
+    }
+
+     */
+
+    //DODANO
+
+    @FXML
+    void deleteData(ActionEvent event) {
+        int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            Data selectedData = tableView.getSelectionModel().getSelectedItem();
+
+            cashRegisterService.deleteProduct(selectedData);
+            // ProductService.deleteProduct(selectedData);
+
+            tableView.getItems().remove(selectedIndex);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            //prozor za ispisivanje poruke
             alert.setTitle("No Selection");
             alert.setHeaderText("No Data Selected");
             alert.setContentText("Please select a data in the table.");
