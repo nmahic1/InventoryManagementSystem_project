@@ -10,14 +10,42 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+import java.util.Properties;
+
 public class ProductRepository {
-    private static Connection getConnection() throws SQLException {
+   /* private static Connection getConnection() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/ims?useSSL=false";
         String username = "root";
         String password = "12345";
         return DriverManager.getConnection(url, username, password);
     }
 
+
+    */
+
+    private static Properties properties;
+
+    public ProductRepository() {
+        if (properties == null) {
+            properties = new Properties();
+            try (InputStream inputStream = new FileInputStream("config.properties")) {
+                properties.load(inputStream);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private static Connection getConnection() throws SQLException {
+        String url = properties.getProperty("db.url");
+        String username = properties.getProperty("db.username");
+        String password = properties.getProperty("db.password");
+        return DriverManager.getConnection(url, username, password);
+    }
 
    public static void addProduct(ProductController.Data product) {
         try (Connection connection = getConnection()) {
