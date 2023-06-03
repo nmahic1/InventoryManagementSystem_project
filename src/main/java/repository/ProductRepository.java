@@ -28,6 +28,7 @@ public class ProductRepository {
 
     */
 
+    //konfiguracija sa properties
     private static Connection getConnection() {
       /*  Connection databaseLink = null;
         String databaseName = "ims";
