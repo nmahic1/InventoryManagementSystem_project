@@ -36,18 +36,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+
 public class LoginDBConnectionRepository {
 
     private Properties properties;
 
     public LoginDBConnectionRepository() {
         properties = new Properties();
-        try (InputStream inputStream = new FileInputStream("config.properties")) {
+        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("config.properties")) {
             properties.load(inputStream);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     public Connection getConnection() {
        /* Connection databaseLink = null;
         String databaseName = "ims";
