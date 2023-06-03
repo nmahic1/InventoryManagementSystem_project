@@ -19,13 +19,45 @@ import java.util.Properties;
 public class ProductRepository {
 
 
-    private static Connection getConnection() throws SQLException {
+   /* private static Connection getConnection() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/ims?useSSL=false";
         String username = "root";
         String password = "12345";
         return DriverManager.getConnection(url, username, password);
     }
 
+    */
+
+    private static Connection getConnection() {
+      /*  Connection databaseLink = null;
+        String databaseName = "ims";
+        String databaseUser = "root";
+        String databasePassword = "12345";
+        String url = "jdbc:mysql://localhost:3306/ims?useSSL=false&" + databaseName;
+
+
+       */
+
+        Connection databaseLink = null;
+
+        try {
+            Properties properties = new Properties();
+            FileInputStream fis = new FileInputStream("src/main/resources/config.properties");
+            properties.load(fis);
+
+            String databaseName = properties.getProperty("db.name");
+            String databaseUser = properties.getProperty("db.username");
+            String databasePassword = properties.getProperty("db.password");
+            String url = properties.getProperty("db.url");
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            databaseLink = DriverManager.getConnection(url, databaseUser, databasePassword);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return databaseLink;
+    }
 
 /*
     private static Properties properties;
