@@ -39,32 +39,43 @@ import java.util.Properties;
 
 public class LoginDBConnectionRepository {
 
-    private Properties properties;
+
+  /*  private Properties properties;
 
     public LoginDBConnectionRepository() {
         properties = new Properties();
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("config.properties")) {
+        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("src/main/resources/config.properties")) {
             properties.load(inputStream);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public Connection getConnection() {
-       /* Connection databaseLink = null;
+
+   */
+
+    private Connection getConnection() {
+      /*  Connection databaseLink = null;
         String databaseName = "ims";
         String databaseUser = "root";
         String databasePassword = "12345";
         String url = "jdbc:mysql://localhost:3306/ims?useSSL=false&" + databaseName;
 
-        */
+
+       */
+
         Connection databaseLink = null;
-        String databaseName = properties.getProperty("db.name");
-        String databaseUser = properties.getProperty("db.username");
-        String databasePassword = properties.getProperty("db.password");
-        String url = properties.getProperty("db.url");
 
         try {
+            Properties properties = new Properties();
+            FileInputStream fis = new FileInputStream("src/main/resources/config.properties");
+            properties.load(fis);
+
+            String databaseName = properties.getProperty("db.name");
+            String databaseUser = properties.getProperty("db.username");
+            String databasePassword = properties.getProperty("db.password");
+            String url = properties.getProperty("db.url");
+
             Class.forName("com.mysql.cj.jdbc.Driver");
             databaseLink = DriverManager.getConnection(url, databaseUser, databasePassword);
         } catch (Exception e) {
