@@ -31,13 +31,36 @@ package repository;
 
 import java.sql.*;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 public class LoginDBConnectionRepository {
+
+    private Properties properties;
+
+    public LoginDBConnectionRepository() {
+        properties = new Properties();
+        try (InputStream inputStream = new FileInputStream("config.properties")) {
+            properties.load(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public Connection getConnection() {
-        Connection databaseLink = null;
+       /* Connection databaseLink = null;
         String databaseName = "ims";
         String databaseUser = "root";
         String databasePassword = "12345";
         String url = "jdbc:mysql://localhost:3306/ims?useSSL=false&" + databaseName;
+
+        */
+        Connection databaseLink = null;
+        String databaseName = properties.getProperty("db.name");
+        String databaseUser = properties.getProperty("db.username");
+        String databasePassword = properties.getProperty("db.password");
+        String url = properties.getProperty("db.url");
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
