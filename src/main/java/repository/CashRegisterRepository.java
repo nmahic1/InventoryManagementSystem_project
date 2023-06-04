@@ -30,34 +30,6 @@ public class CashRegisterRepository {
     }
 
 
-    /*
-    public void addProduct(CashRegisterController.Data cashregister) {
-        try (Connection connection = getConnection()) {
-            String brand = getProductBrand(cashregister.getBarcode());
-
-            String query = "INSERT INTO cashregister (barcode, quantity, brand, price) VALUES (?, ?, ?, ?)";
-
-            PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, cashregister.getBarcode());
-            statement.setInt(2, cashregister.getQuantity());
-            statement.setString(3, brand);
-            statement.setInt(4, cashregister.getPrice()); // Koristi se cashregister.getPrice() umjesto cashregister.getRetailPrice()
-
-            statement.executeUpdate();
-
-            ResultSet generatedKeys = statement.getGeneratedKeys();
-            if (generatedKeys.next()) {
-                int generatedId = generatedKeys.getInt(1);
-                cashregister.setId(generatedId);
-            }
-
-            statement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-*/
     // Metoda za preuzimanje branda iz tabele product na osnovu barcode-a
     private String getProductBrand(int barcode) {
         String brand = null;
