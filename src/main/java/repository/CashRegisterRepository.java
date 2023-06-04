@@ -29,12 +29,10 @@ public class CashRegisterRepository {
         return databaseLink;
     }
 
-
+   /*
     public void addProduct(CashRegisterController.Data cashregister) {
         try (Connection connection = getConnection()) {
-           // String query = "INSERT INTO cashregister (barcode, quantity, name, price) " +"VALUES (?, ?, ?, ?)";
-            String query = "INSERT INTO cashregister (barcode, quantity, name, price) " +
-                    "SELECT ?, ?, brand, ? FROM product WHERE barcode = ?";
+            String query = "INSERT INTO cashregister (barcode, quantity, brand, price) VALUES (?, ?, ?, ?)";
 
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, cashregister.getBarcode());
@@ -42,8 +40,117 @@ public class CashRegisterRepository {
             statement.setString(3, cashregister.getBrand());
             statement.setInt(4, cashregister.getRetailPrice());
 
+            statement.executeUpdate();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    */
+
+    /*
+    public void addProduct(CashRegisterController.Data cashregister) {
+        try (Connection connection = getConnection()) {
+            String brand = getProductBrand(cashregister.getBarcode());
+
+            String query = "INSERT INTO cashregister (barcode, quantity, brand, price) VALUES (?, ?, ?, ?)";
+
+            PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            statement.setInt(1, cashregister.getBarcode());
+            statement.setInt(2, cashregister.getQuantity());
+            statement.setString(3, brand);
+            statement.setInt(4, cashregister.getRetailPrice());
 
             statement.executeUpdate();
+
+            ResultSet generatedKeys = statement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int generatedId = generatedKeys.getInt(1);
+                cashregister.setId(generatedId);
+            }
+
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+     */
+
+    /*
+    public void addProduct(CashRegisterController.Data cashregister) {
+        try (Connection connection = getConnection()) {
+            String brand = getProductBrand(cashregister.getBarcode());
+
+            String query = "INSERT INTO cashregister (barcode, quantity, brand, price) VALUES (?, ?, ?, ?)";
+
+            PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            statement.setInt(1, cashregister.getBarcode());
+            statement.setInt(2, cashregister.getQuantity());
+            statement.setString(3, brand);
+            statement.setInt(4, cashregister.getPrice()); // Koristi se cashregister.getPrice() umjesto cashregister.getRetailPrice()
+
+            statement.executeUpdate();
+
+            ResultSet generatedKeys = statement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int generatedId = generatedKeys.getInt(1);
+                cashregister.setId(generatedId);
+            }
+
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+*/
+    // Metoda za preuzimanje branda iz tabele product na osnovu barcode-a
+    private String getProductBrand(int barcode) {
+        String brand = null;
+        try (Connection connection = getConnection()) {
+            String query = "SELECT brand FROM product WHERE barcode = ?";
+
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, barcode);
+
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                brand = resultSet.getString("brand");
+            }
+
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return brand;
+    }
+
+    public void addProduct(CashRegisterController.Data cashregister) {
+        try (Connection connection = getConnection()) {
+            String brand = getProductBrand(cashregister.getBarcode());
+            int price = cashregister.getPrice();
+
+            String query = "INSERT INTO cashregister (barcode, quantity, brand, price) VALUES (?, ?, ?, ?)";
+
+            PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            statement.setInt(1, cashregister.getBarcode());
+            statement.setInt(2, cashregister.getQuantity());
+            statement.setString(3, brand);
+            //statement.setInt(4, cashregister.getRetailPrice());
+            statement.setInt(4, cashregister.getPrice());
+
+
+            statement.executeUpdate();
+
+            ResultSet generatedKeys = statement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int generatedId = generatedKeys.getInt(1);
+                cashregister.setId(generatedId);
+            }
+
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
