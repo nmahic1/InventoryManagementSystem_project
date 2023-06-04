@@ -97,7 +97,7 @@ public class CashRegisterController {
         public Data(int barcode, int quantity) {
             this.barcode = barcode;
             this.quantity = quantity;
-            this.price = 0; // Initialize the price to 0
+            //this.price = 0; // Initialize the price to 0
             updatePrice();
         }
 
@@ -151,10 +151,9 @@ public class CashRegisterController {
         }
     }
 
+
     @FXML
     void addData(ActionEvent actionEvent) {
-
-
         dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
         dataColumnBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
         dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
@@ -166,17 +165,14 @@ public class CashRegisterController {
         if (product != null) {
             int quantity = Integer.parseInt(this.quantity.getText());
             int retailPrice = product.getRetailPrice();
-            int price = quantity * retailPrice;
+            int price = retailPrice * quantity;
 
             Data newData = new Data(barcode, quantity);
-            //DODANO
-
-
-            cashRegisterService.addProduct(newData);
-
             newData.setBrand(product.getBrand());
             newData.setRetailPrice(retailPrice);
             newData.setPrice(price);
+
+            cashRegisterService.addProduct(newData);
 
             dataListCashRegister.add(newData);
             tableView.setItems(dataListCashRegister);
@@ -193,7 +189,6 @@ public class CashRegisterController {
     }
 
 
-    //DODANO
 
     @FXML
     void deleteData(ActionEvent event) {
@@ -206,7 +201,6 @@ public class CashRegisterController {
             tableView.getItems().remove(selectedIndex);
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            //prozor za ispisivanje poruke
             alert.setTitle("No Selection");
             alert.setHeaderText("No Data Selected");
             alert.setContentText("Please select a data in the table.");
@@ -230,10 +224,11 @@ public class CashRegisterController {
             payAmount = 0; // Set the pay amount to 0 if it's not a valid number
         }
 
-        int balance = subtotalPrice - payAmount;
+        int balance = payAmount - subtotalPrice;
         int absoluteBalance = Math.abs(balance); // Calculate absolute value
         balanceTextField.setText(Integer.toString(absoluteBalance));
     }
+
 
 
 }
