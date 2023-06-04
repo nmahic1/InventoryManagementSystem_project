@@ -43,7 +43,6 @@ public class CashRegisterRepository {
             if (resultSet.next()) {
                 brand = resultSet.getString("brand");
             }
-
             resultSet.close();
             statement.close();
         } catch (SQLException e) {
@@ -65,7 +64,6 @@ public class CashRegisterRepository {
             statement.setString(3, brand);
             //statement.setInt(4, cashregister.getRetailPrice());
             statement.setInt(4, cashregister.getPrice());
-
 
             statement.executeUpdate();
 
