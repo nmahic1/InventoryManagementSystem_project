@@ -193,26 +193,6 @@ public class CashRegisterController {
     }
 
 
-    //ZAKOMENTIRAN
-    /*
-    @FXML
-    void deleteData(ActionEvent event) {
-        int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
-        if (selectedIndex >= 0) {
-            Data selectedData = tableView.getItems().get(selectedIndex);
-            tableView.getItems().remove(selectedIndex);
-            cashRegisterService.removeData(selectedData);
-        } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("No Selection");
-            alert.setHeaderText("No Data Selected");
-            alert.setContentText("Please select a data in the table.");
-            alert.showAndWait();
-        }
-    }
-
-     */
-
     //DODANO
 
     @FXML
@@ -222,7 +202,6 @@ public class CashRegisterController {
             Data selectedData = tableView.getSelectionModel().getSelectedItem();
 
             cashRegisterService.deleteProduct(selectedData);
-            // ProductService.deleteProduct(selectedData);
 
             tableView.getItems().remove(selectedIndex);
         } else {
