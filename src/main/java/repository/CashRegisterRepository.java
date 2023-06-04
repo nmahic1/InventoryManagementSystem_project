@@ -29,25 +29,6 @@ public class CashRegisterRepository {
         return databaseLink;
     }
 
-   /*
-    public void addProduct(CashRegisterController.Data cashregister) {
-        try (Connection connection = getConnection()) {
-            String query = "INSERT INTO cashregister (barcode, quantity, brand, price) VALUES (?, ?, ?, ?)";
-
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setInt(1, cashregister.getBarcode());
-            statement.setInt(2, cashregister.getQuantity());
-            statement.setString(3, cashregister.getBrand());
-            statement.setInt(4, cashregister.getRetailPrice());
-
-            statement.executeUpdate();
-            statement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    */
 
     /*
     public void addProduct(CashRegisterController.Data cashregister) {
