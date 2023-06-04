@@ -1,6 +1,4 @@
-
 package controller;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -61,8 +59,6 @@ public class CashRegisterController {
     public CashRegisterController() {
        cashRegisterService = new CashRegisterService();
         productService = new ProductService();
-
-
     }
 
     @FXML
@@ -151,7 +147,6 @@ public class CashRegisterController {
         }
     }
 
-
     @FXML
     void addData(ActionEvent actionEvent) {
         dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
@@ -187,8 +182,6 @@ public class CashRegisterController {
             alert.showAndWait();
         }
     }
-
-
 
     @FXML
     void deleteData(ActionEvent event) {
@@ -228,7 +221,4 @@ public class CashRegisterController {
         int absoluteBalance = Math.abs(balance); // Calculate absolute value
         balanceTextField.setText(Integer.toString(absoluteBalance));
     }
-
-
-
 }
