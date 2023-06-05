@@ -10,6 +10,7 @@ public class CashRegisterService {
         this.cashregisterRepository = new CashRegisterRepository();
     }
 
+
     public void addProduct(CashRegisterController.Data cashregister) {
         cashregisterRepository.addProduct(cashregister);
     }
