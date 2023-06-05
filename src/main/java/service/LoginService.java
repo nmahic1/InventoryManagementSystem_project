@@ -38,6 +38,7 @@ public class LoginService {
         // Ovdje možete dodati dodatnu poslovnu logiku, provjeru i validaciju
         // npr. provjeru duljine korisničkog imena/lozinke, enkripciju itd.
 
+
         return loginRepo.validateLogin(username, password);
     }
 }
