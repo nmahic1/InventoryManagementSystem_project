@@ -4,23 +4,59 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import repository.ProductRepository;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 public class ProductServiceTest {
 
     private ProductService productService;
     private ProductRepository productRepository;
 
+    @Mock
+    private ProductRepository productrepository;
+
     @BeforeEach
     public void setUp() {
         productRepository = new ProductRepository();
         productService = new ProductService();
+        MockitoAnnotations.openMocks(this);
     }
 
-  /*  @Test
+
+
+/*
+    @Test
+    public void testAddProduct() {
+        // Arrange
+        ProductController.Data product = new ProductController.Data(13, "coca cola", "Beverages", 2, 60, 3, 7777777, "drink");
+        ObservableList<ProductController.Data> expectedProducts = FXCollections.observableArrayList(product);
+
+        // Mock behavior of productRepository
+        doNothing().when(productrepository).addProduct(any(ProductController.Data.class));
+        when(productrepository.getAllProducts()).thenReturn(expectedProducts);
+
+        // Act
+        productService.addProduct(product);
+        ObservableList<ProductController.Data> actualProducts = productService.getAllProducts();
+
+        // Assert
+        assertEquals(expectedProducts, actualProducts);
+
+        // Verify that addProduct method was called on productRepository
+        verify(productrepository, times(1)).addProduct(product);
+    }
+
+ */
+
+    /*
+    @Test
     public void testAddProduct() {
         // Arrange
         ProductController.Data product = new ProductController.Data(13, "coca cola", "Beverages",2,60,3,7777777,"drink" );
@@ -31,13 +67,18 @@ public class ProductServiceTest {
         ObservableList<ProductController.Data> actualProducts = productService.getAllProducts();
 
         // Assert
-        assertEquals(expectedProducts, actualProducts);
-
+        assertEquals(expectedProducts.size(), actualProducts.size());
+        for (ProductController.Data expectedProduct : expectedProducts) {
+            assertTrue(actualProducts.contains(expectedProduct));
+        }
     }
 
-   */
 
-    /*
+     */
+
+
+/*
+
     @Test
     public void testUpdateProduct() {
         // Arrange
@@ -60,7 +101,9 @@ public class ProductServiceTest {
         assertEquals(updatedProduct.getDescription(), actualProduct.getDescription());
     }
 
-     */
+ */
+
+
 
 
 
@@ -97,8 +140,8 @@ public class ProductServiceTest {
 
      */
 
-    /*
-    @Test
+
+  /*  @Test
     public void testGetProductByBarcode_ExistingProduct() {
         // Arrange
         ProductController.Data existingProduct = new ProductController.Data(8, "coca cola", "Beverages",2,38,3,11223344,"drink" );
@@ -111,7 +154,9 @@ public class ProductServiceTest {
         assertEquals(existingProduct, actualProduct);
     }
 
-     */
+   */
+
+
 
     @Test
     public void testGetProductByBarcode_NonExistingProduct() {
