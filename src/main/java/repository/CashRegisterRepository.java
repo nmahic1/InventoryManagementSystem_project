@@ -92,6 +92,27 @@ public class CashRegisterRepository {
             e.printStackTrace();
         }
     }
+
+    //za testove dodano
+    public boolean containsProduct(CashRegisterController.Data cashregister) {
+        try (Connection connection = getConnection()) {
+            String query = "SELECT id FROM cashregister WHERE id = ?";
+
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, cashregister.getId());
+
+            ResultSet resultSet = statement.executeQuery();
+            boolean containsProduct = resultSet.next();
+
+            resultSet.close();
+            statement.close();
+
+            return containsProduct;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
 
 
