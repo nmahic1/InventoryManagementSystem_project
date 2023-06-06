@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProductControllerTest {
 
+    /*
     @Test
     void handlecashRegister() {
     }
@@ -29,4 +30,6 @@ class ProductControllerTest {
     @Test
     void deleteData() {
     }
+
+     */
 }
