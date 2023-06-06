@@ -44,42 +44,6 @@ public class ProductServiceTest {
         assertEquals(null, deletedProduct);
     }
 
-    /*
-    @Test
-    public void testGetAllProducts() {
-        // Arrange
-        ProductController.Data product1 = new ProductController.Data("Product1", 123, 10);
-        ProductController.Data product2 = new ProductController.Data("Product2", 456, 20);
-        productRepository.addProduct(product1);
-        productRepository.addProduct(product2);
-
-        // Act
-        ObservableList<ProductController.Data> actualProducts = productService.getAllProducts();
-        ObservableList<ProductController.Data> expectedProducts = FXCollections.observableArrayList(product1, product2);
-
-        // Assert
-        assertEquals(expectedProducts, actualProducts);
-    }
-
-     */
-
-
-  /*  @Test
-    public void testGetProductByBarcode_ExistingProduct() {
-        // Arrange
-        ProductController.Data existingProduct = new ProductController.Data(8, "coca cola", "Beverages",2,38,3,11223344,"drink" );
-        productRepository.addProduct(existingProduct);
-
-        // Act
-        ProductController.Data actualProduct = productService.getProductByBarcode(11223344);
-
-        // Assert
-        assertEquals(existingProduct, actualProduct);
-    }
-
-   */
-
-
 
     @Test
     public void testGetProductByBarcode_NonExistingProduct() {
