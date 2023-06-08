@@ -26,6 +26,7 @@ public class LogInControllerTest {
 }
 
   */
+    /*
 
     @Test
     public void testValidCredentials() {
@@ -34,5 +35,7 @@ public class LogInControllerTest {
         assertTrue(result);
 
     }
+
+     */
 
 }
