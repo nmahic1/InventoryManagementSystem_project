@@ -325,4 +325,23 @@ public class LoginServiceTest {
         assertTrue(isValid);
     }
 
+
+    @Test
+    public void testValidateLogin_InvalidCredentials_ReturnsFalse() {
+        // Arrange
+        String username = "nmahic";
+        String password = "123456";
+
+        // Mock behavior
+        when(loginRepo.validateLogin(username, password)).thenReturn(false);
+
+        // Act
+        boolean isValid = loginService.validateLogin(username, password);
+
+        // Assert
+        assertFalse(isValid);
+    }
+
+
+
 }
