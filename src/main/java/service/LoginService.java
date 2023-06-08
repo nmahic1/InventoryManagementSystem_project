@@ -19,6 +19,8 @@ public class LoginService {
 }
 */
 
+//prije patterna
+
 package service;
 
 import repository.LoginDBConnectionRepository;
@@ -42,3 +44,5 @@ public class LoginService {
         return loginRepo.validateLogin(username, password);
     }
 }
+
+
