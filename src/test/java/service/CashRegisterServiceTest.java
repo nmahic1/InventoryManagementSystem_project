@@ -1,5 +1,4 @@
 package service;
-
 import controller.CashRegisterController;
 import org.junit.Assert;
 import org.junit.Before;
