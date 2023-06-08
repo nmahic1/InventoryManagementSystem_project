@@ -119,5 +119,15 @@ public class CashRegisterServiceTest {
         verify(cashRegisterRepository, times(1)).addProduct(cashRegisterData);
     }
 
+    @Test
+    public void testDeleteProduct() {
+        // Arrange
+        CashRegisterController.Data cashRegisterData = new CashRegisterController.Data(12345123, 2);
 
+        // Act
+        cashRegisterService.deleteProduct(cashRegisterData);
+
+        // Assert
+        verify(cashRegisterRepository, times(1)).deleteProduct(cashRegisterData);
+    }
 }
