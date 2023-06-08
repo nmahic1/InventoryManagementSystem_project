@@ -6,7 +6,7 @@ public class CashRegisterService {
 
 
     private CashRegisterRepository cashregisterRepository;
-   // private CashRegisterRepository cashRegisterRepository;
+
 
     public CashRegisterService() {
         this.cashregisterRepository = new CashRegisterRepository();
