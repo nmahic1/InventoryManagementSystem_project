@@ -26,6 +26,10 @@ public class CashRegisterService {
     }
 
 
+    //za mockanje testova
+    public void setCashRegisterRepository(CashRegisterRepository cashRegisterRepository) {
+        this.cashregisterRepository = cashRegisterRepository;
+    }
 }
 
 
