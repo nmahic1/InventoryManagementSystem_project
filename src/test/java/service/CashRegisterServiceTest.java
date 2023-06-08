@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import repository.CashRegisterRepository;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CashRegisterServiceTest {
@@ -43,11 +45,39 @@ public class CashRegisterServiceTest {
 
         // Assert that the product is no longer in the repository
         CashRegisterRepository cashRegisterRepository = cashRegisterService.getCashRegisterRepository();
-        Assert.assertFalse(cashRegisterRepository.containsProduct(cashregister));
+        assertFalse(cashRegisterRepository.containsProduct(cashregister));
     }
 
     // Getter for CashRegisterRepository (for testing purposes)
     private CashRegisterRepository getCashRegisterRepository() {
         return cashRegisterService.getCashRegisterRepository();
     }
+
+    @Test
+    public void testGetCashRegisterRepository() {
+        // Arrange
+        CashRegisterRepository expectedRepository = cashRegisterService.getCashRegisterRepository();
+
+        // Act
+        CashRegisterRepository actualRepository = cashRegisterService.getCashRegisterRepository();
+
+        // Assert
+        assertEquals(expectedRepository, actualRepository);
+    }
+
+
+    @Test
+    public void testDeleteProduct_NonExistingProduct() {
+        // Arrange
+        CashRegisterController.Data cashregister = new CashRegisterController.Data(44444444, 3);
+
+        // Act
+        cashRegisterService.deleteProduct(cashregister);
+
+        // Assert
+        CashRegisterRepository cashRegisterRepository = cashRegisterService.getCashRegisterRepository();
+        assertFalse(cashRegisterRepository.containsProduct(cashregister));
+    }
+
+
 }
