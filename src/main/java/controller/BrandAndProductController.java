@@ -7,16 +7,14 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.stage.Stage;
 
 
-
+//ne koristi se
 public class BrandAndProductController {
 
        @FXML
