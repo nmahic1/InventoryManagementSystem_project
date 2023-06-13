@@ -1,5 +1,6 @@
 
 package repository;
+
 import controller.ProductController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -85,7 +86,7 @@ public class ProductRepository {
  */
 
 
-   public static void addProduct(ProductController.Data product) {
+    public static void addProduct(ProductController.Data product) {
         try (Connection connection = getConnection()) {
             String query = "INSERT INTO product ( brand, category, costPrice, retailPrice, quantity, barcode, description) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -162,7 +163,7 @@ public class ProductRepository {
                 String description = resultSet.getString("description");
 
 
-                ProductController.Data product = new ProductController.Data(id,brand, category,costPrice, retailPrice, quantity,  barcode, description);
+                ProductController.Data product = new ProductController.Data(id, brand, category, costPrice, retailPrice, quantity, barcode, description);
                 productList.add(product);
             }
 
