@@ -15,7 +15,6 @@ import java.io.IOException;
 
 import service.LoginService;
 
-// Model-View-Controller (MVC) se koristi
 
 public class LogInController {
     @FXML
@@ -66,4 +65,6 @@ public class LogInController {
         }
     }
 }
+
+
 
