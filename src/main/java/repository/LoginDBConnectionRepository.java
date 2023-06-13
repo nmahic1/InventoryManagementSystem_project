@@ -6,8 +6,6 @@ import java.io.FileInputStream;
 import java.util.Properties;
 
 public class LoginDBConnectionRepository {
-
-
     private Connection getConnection() {
 
         Connection databaseLink = null;
