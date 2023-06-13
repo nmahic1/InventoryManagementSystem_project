@@ -1,4 +1,5 @@
 //import java.util.*;
+//bez patterna
 /*
 public class InventoryApp {
     private static Scanner scanner = new Scanner(System.in);
