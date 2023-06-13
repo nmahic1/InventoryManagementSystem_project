@@ -1,10 +1,12 @@
 package service;
+
 import controller.CashRegisterController;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import repository.CashRegisterRepository;
+
 import java.util.ArrayList;
 import java.util.List;
 
