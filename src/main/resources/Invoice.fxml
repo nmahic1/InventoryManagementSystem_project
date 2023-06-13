@@ -5,12 +5,16 @@
 <?import javafx.scene.layout.BorderPane?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <TextArea layoutX="1.0" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" text="                       &#10;                                 *****************************Invoice*******************************&#10;                                 *******************************************************************&#10;                       &#10;                                               Product          Price          Quantity          total&#10;   &#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;                                                                                       Sub Total : &#10;                                                                                       Pay : &#10;                                                                                       Balance : &#10;                                  *******************************************************************&#10;&#10;                                  *******************************************************************&#10;                                  Thank you! Come again.&#10;                                  *******************************************************************" />
-         </children>
-      </AnchorPane>
-   </center>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <TextArea layoutX="1.0" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0"
+                          style="-fx-background-color: #FFFFFF;"
+                          text="                       &#10;                                 *****************************Invoice*******************************&#10;                                 *******************************************************************&#10;                       &#10;                                               Product          Price          Quantity          total&#10;   &#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;                                                                                       Sub Total : &#10;                                                                                       Pay : &#10;                                                                                       Balance : &#10;                                  *******************************************************************&#10;&#10;                                  *******************************************************************&#10;                                  Thank you! Come again.&#10;                                  *******************************************************************"/>
+            </children>
+        </AnchorPane>
+    </center>
 </BorderPane>
