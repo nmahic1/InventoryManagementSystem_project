@@ -1,4 +1,3 @@
-
 package controller;
 
 import javafx.collections.FXCollections;
@@ -16,7 +15,6 @@ import service.ProductService;
 import java.io.IOException;
 import java.util.Optional;
 
-
 public class ProductController {
 
     private ProductService productService;
@@ -25,9 +23,6 @@ public class ProductController {
     public Button deleteButton;
     @FXML
     public Button updateButton;
-
-    // @FXML
-    // private Menu brandAndProduct;
 
     @FXML
     private Menu cashRegister;
