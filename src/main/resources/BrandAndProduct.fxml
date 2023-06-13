@@ -15,62 +15,71 @@
 <?import javafx.scene.text.Font?>
 
 <!--ne koristi se-->
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BrandAndProductController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.BrandAndProductController">
     <center>
-        <AnchorPane prefHeight="380.0" prefWidth="602.0" style="-fx-background-color: #544d50;" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="380.0" prefWidth="602.0" style="-fx-background-color: #544d50;"
+                    BorderPane.alignment="CENTER">
             <children>
                 <AnchorPane layoutX="499.0" layoutY="-81.0" prefHeight="481.0" prefWidth="102.0">
                     <children>
                         <ImageView fitHeight="86.0" fitWidth="105.0" layoutX="-3.0" layoutY="82.0" pickOnBounds="true">
                             <image>
-                                <Image url="@../../ImageIMS/istockphoto-1138644570-612x612.jpg" />
+                                <Image url="@../../ImageIMS/istockphoto-1138644570-612x612.jpg"/>
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="328.0" fitWidth="105.0" layoutX="-3.0" layoutY="153.0" pickOnBounds="true">
+                        <ImageView fitHeight="328.0" fitWidth="105.0" layoutX="-3.0" layoutY="153.0"
+                                   pickOnBounds="true">
                             <image>
-                                <Image url="@../../ImageIMS/Capture.PNG" />
+                                <Image url="@../../ImageIMS/Capture.PNG"/>
                             </image>
                         </ImageView>
                     </children>
                 </AnchorPane>
-                <TableView fx:id="tableView" layoutX="261.0" layoutY="48.0" prefHeight="324.0" prefWidth="226.0" style="-fx-background-color: #a8a3a0;">
+                <TableView fx:id="tableView" layoutX="261.0" layoutY="48.0" prefHeight="324.0" prefWidth="226.0"
+                           style="-fx-background-color: #a8a3a0;">
                     <columns>
-                        <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
-                        <TableColumn fx:id="dataColumnBrand" prefWidth="75.0" text="Category" />
-                        <TableColumn fx:id="dataColumnCategory" prefWidth="75.0" text="Brand" />
+                        <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID"/>
+                        <TableColumn fx:id="dataColumnBrand" prefWidth="75.0" text="Category"/>
+                        <TableColumn fx:id="dataColumnCategory" prefWidth="75.0" text="Brand"/>
                     </columns>
                 </TableView>
-                <TextField fx:id="brand" layoutX="95.0" layoutY="183.0" prefHeight="26.0" prefWidth="144.0" />
+                <TextField fx:id="brand" layoutX="95.0" layoutY="183.0" prefHeight="26.0" prefWidth="144.0"/>
                 <Label layoutX="29.0" layoutY="152.0" text="Brand" textFill="WHITE">
                     <font>
-                        <Font size="14.0" />
+                        <Font size="14.0"/>
                     </font>
                 </Label>
                 <Label layoutX="28.0" layoutY="186.0" text="Category" textFill="WHITE">
                     <font>
-                        <Font size="14.0" />
+                        <Font size="14.0"/>
                     </font>
                 </Label>
-                <TextField fx:id="category" layoutX="95.0" layoutY="149.0" prefHeight="26.0" prefWidth="144.0" />
-                <Button layoutX="33.0" layoutY="241.0" mnemonicParsing="false" onAction="#addData" style="-fx-background-color: #ef8f00;" text="Add" textFill="WHITE" />
-                <Button fx:id="deleteButton" layoutX="101.0" layoutY="241.0" mnemonicParsing="false" onAction="#deleteData" style="-fx-background-color: #ef8f00;" text="Delete" textFill="WHITE" />
-                <Button fx:id="updateButton" layoutX="179.0" layoutY="241.0" mnemonicParsing="false" onAction="#updateData" style="-fx-background-color: #ef8f00;" text="Update" textFill="WHITE" />
+                <TextField fx:id="category" layoutX="95.0" layoutY="149.0" prefHeight="26.0" prefWidth="144.0"/>
+                <Button layoutX="33.0" layoutY="241.0" mnemonicParsing="false" onAction="#addData"
+                        style="-fx-background-color: #ef8f00;" text="Add" textFill="WHITE"/>
+                <Button fx:id="deleteButton" layoutX="101.0" layoutY="241.0" mnemonicParsing="false"
+                        onAction="#deleteData" style="-fx-background-color: #ef8f00;" text="Delete" textFill="WHITE"/>
+                <Button fx:id="updateButton" layoutX="179.0" layoutY="241.0" mnemonicParsing="false"
+                        onAction="#updateData" style="-fx-background-color: #ef8f00;" text="Update" textFill="WHITE"/>
 
                 <MenuBar layoutX="22.0" layoutY="14.0" style="-fx-background-color: #ef8f00;">
                     <menus>
                         <Menu fx:id="product" mnemonicParsing="false" text="Product" onAction="#handleProduct">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Go to Product" />
+                                <MenuItem mnemonicParsing="false" text="Go to Product"/>
                             </items>
                         </Menu>
-                        <Menu fx:id="cashRegister" mnemonicParsing="false" text="Cash Register" onAction="#handlecashRegister">
+                        <Menu fx:id="cashRegister" mnemonicParsing="false" text="Cash Register"
+                              onAction="#handlecashRegister">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Go to Cash Register" />
+                                <MenuItem mnemonicParsing="false" text="Go to Cash Register"/>
                             </items>
                         </Menu>
                         <Menu fx:id="logOut" mnemonicParsing="false" text="Log Out" onAction="#logout">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Exit" />
+                                <MenuItem mnemonicParsing="false" text="Exit"/>
                             </items>
                         </Menu>
                     </menus>
