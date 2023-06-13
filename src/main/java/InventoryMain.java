@@ -4,5 +4,6 @@ public class InventoryMain {
         IMSApp.observers.add(new InventoryPrinter());
         IMSApp.productInputStrategy = new ConsoleProductInputStrategy();
         IMSApp.main(args);
+
     }
 }
