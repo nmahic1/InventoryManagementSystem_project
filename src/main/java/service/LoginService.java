@@ -21,6 +21,7 @@ public class LoginService {
 
 //prije patterna
 
+//Dependency Injection koristi konstruktor injekciju kako bi dobavio objekt LoginDBConnectionRepository i omogućio pristup bazi podataka.
 package service;
 
 import repository.LoginDBConnectionRepository;
