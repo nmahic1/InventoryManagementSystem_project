@@ -15,7 +15,6 @@ import java.io.IOException;
 
 import service.LoginService;
 
-
 public class LogInController {
     @FXML
     TextField usernameField;
