@@ -1,5 +1,6 @@
 import java.util.*;
 
+//imaju dva patterna observer i inventory
 public class IMSApp {
 
     private static Scanner scanner = new Scanner(System.in);
