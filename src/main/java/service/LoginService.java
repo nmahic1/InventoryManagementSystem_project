@@ -34,7 +34,7 @@ public class LoginService {
     }
 
     public LoginService(LoginDBConnectionRepository loginRepo) {
-        this.loginRepo=loginRepo;
+        this.loginRepo = loginRepo;
     }
 
     public boolean validateLogin(String username, String password) {
