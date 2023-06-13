@@ -1,4 +1,5 @@
 package service;
+
 import controller.ProductController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,7 +34,7 @@ public class ProductServiceTest {
     @Test
     public void testDeleteProduct() {
         // Arrange
-        ProductController.Data product = new ProductController.Data(8, "coca cola", "Beverages",2,38,3,11223344,"drink" );
+        ProductController.Data product = new ProductController.Data(8, "coca cola", "Beverages", 2, 38, 3, 11223344, "drink");
         productRepository.addProduct(product);
 
         // Act
