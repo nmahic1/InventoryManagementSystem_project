@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
+<!--ne koristi se-->
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BrandAndProductController">
     <center>
         <AnchorPane prefHeight="380.0" prefWidth="602.0" style="-fx-background-color: #544d50;" BorderPane.alignment="CENTER">
