@@ -18,7 +18,6 @@ import java.util.Optional;
 public class ProductController {
 
     private ProductService productService;
-
     @FXML
     public Button deleteButton;
     @FXML
