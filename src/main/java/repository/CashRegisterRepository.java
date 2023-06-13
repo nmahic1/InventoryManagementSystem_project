@@ -1,5 +1,7 @@
 package repository;
+
 import controller.CashRegisterController;
+
 import java.io.FileInputStream;
 import java.util.Properties;
 import java.sql.*;
