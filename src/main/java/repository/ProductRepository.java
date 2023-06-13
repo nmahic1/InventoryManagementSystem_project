@@ -1,4 +1,3 @@
-
 package repository;
 
 import controller.ProductController;
@@ -12,33 +11,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
 import java.util.Properties;
 
 public class ProductRepository {
 
-
-   /* private static Connection getConnection() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/ims?useSSL=false";
-        String username = "root";
-        String password = "12345";
-        return DriverManager.getConnection(url, username, password);
-    }
-
-    */
-
     //konfiguracija sa properties
     private static Connection getConnection() {
-      /*  Connection databaseLink = null;
-        String databaseName = "ims";
-        String databaseUser = "root";
-        String databasePassword = "12345";
-        String url = "jdbc:mysql://localhost:3306/ims?useSSL=false&" + databaseName;
-
-
-       */
 
         Connection databaseLink = null;
 
@@ -61,31 +39,6 @@ public class ProductRepository {
         return databaseLink;
     }
 
-/*
-    private static Properties properties;
-
-    public ProductRepository() {
-        if (properties == null) {
-            properties = new Properties();
-            try (InputStream inputStream = new FileInputStream("config.properties")) {
-                properties.load(inputStream);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private static Connection getConnection() throws SQLException {
-        String url = properties.getProperty("db.url");
-        String username = properties.getProperty("db.username");
-        String password = properties.getProperty("db.password");
-        return DriverManager.getConnection(url, username, password);
-    }
-
-
- */
-
-
     public static void addProduct(ProductController.Data product) {
         try (Connection connection = getConnection()) {
             String query = "INSERT INTO product ( brand, category, costPrice, retailPrice, quantity, barcode, description) " +
@@ -107,7 +60,6 @@ public class ProductRepository {
             e.printStackTrace();
         }
     }
-
 
     public static void updateProduct(ProductController.Data product) {
         try (Connection connection = getConnection()) {
