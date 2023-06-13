@@ -1,4 +1,5 @@
 package controller;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -35,11 +36,8 @@ public class CashRegisterController {
     private TextField quantity;
     @FXML
     private TextField barcode;
-
-    public Button payinvoice;
     @FXML
     private TableView<Data> tableView;
-
     @FXML
     private TableColumn<Data, Integer> dataColumnBarCode;
     @FXML
@@ -57,7 +55,7 @@ public class CashRegisterController {
     private ObservableList<ProductController> productList = FXCollections.observableArrayList();
 
     public CashRegisterController() {
-       cashRegisterService = new CashRegisterService();
+        cashRegisterService = new CashRegisterService();
         productService = new ProductService();
     }
 
@@ -87,7 +85,6 @@ public class CashRegisterController {
         private String brand;
         private int retailPrice;
         private int price;
-
         private int id;
 
         public Data(int barcode, int quantity) {
