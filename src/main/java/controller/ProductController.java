@@ -17,18 +17,17 @@ import java.io.IOException;
 import java.util.Optional;
 
 
-
 public class ProductController {
 
     private ProductService productService;
 
     @FXML
     public Button deleteButton;
-   @FXML
-   public Button updateButton;
+    @FXML
+    public Button updateButton;
 
-   // @FXML
-   // private Menu brandAndProduct;
+    // @FXML
+    // private Menu brandAndProduct;
 
     @FXML
     private Menu cashRegister;
@@ -94,7 +93,7 @@ public class ProductController {
     }
 
     @FXML
-    void handlecashRegister(javafx.event.ActionEvent actionEvent) throws IOException{
+    void handlecashRegister(javafx.event.ActionEvent actionEvent) throws IOException {
         // Code to handle exit menu item
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/CashRegister.fxml"));
         Parent root = loader.load();
@@ -108,7 +107,7 @@ public class ProductController {
     }
 
     @FXML
-    void logout(javafx.event.ActionEvent actionEvent) throws IOException{
+    void logout(javafx.event.ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/LogIn.fxml"));
         Parent root = loader.load();
 
@@ -134,7 +133,7 @@ public class ProductController {
         private String category;
 
 
-        public Data(int id, String brand, String category,int costprice, int retailprice, int quantity,  int barcode, String description) {
+        public Data(int id, String brand, String category, int costprice, int retailprice, int quantity, int barcode, String description) {
             this.id = id;
             this.quantity = quantity;
             this.costprice = costprice;
@@ -144,7 +143,6 @@ public class ProductController {
             this.brand = brand;
             this.category = category;
         }
-
 
 
         public int getId() {
@@ -209,7 +207,9 @@ public class ProductController {
             return category;
         }
 
-        public void setCategory(String data) { this.category = data;}
+        public void setCategory(String data) {
+            this.category = data;
+        }
 
 
     }
@@ -341,7 +341,7 @@ public class ProductController {
             ProductController.Data selectedData = tableView.getSelectionModel().getSelectedItem();
 
             productService.deleteProduct(selectedData);
-           // ProductService.deleteProduct(selectedData);
+            // ProductService.deleteProduct(selectedData);
 
             tableView.getItems().remove(selectedIndex);
         } else {
