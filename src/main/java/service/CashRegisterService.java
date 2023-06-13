@@ -5,9 +5,7 @@ import repository.CashRegisterRepository;
 
 public class CashRegisterService {
 
-
     private CashRegisterRepository cashregisterRepository;
-
 
     public CashRegisterService() {
         this.cashregisterRepository = new CashRegisterRepository();
@@ -25,7 +23,6 @@ public class CashRegisterService {
     public void deleteProduct(CashRegisterController.Data cashregister) {
         cashregisterRepository.deleteProduct(cashregister);
     }
-
 
     //za mockanje testova
     public void setCashRegisterRepository(CashRegisterRepository cashRegisterRepository) {
