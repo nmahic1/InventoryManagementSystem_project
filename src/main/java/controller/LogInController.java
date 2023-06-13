@@ -1,5 +1,4 @@
 package controller;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,6 +12,8 @@ import javafx.scene.Parent;
 import java.io.IOException;
 
 import service.LoginService;
+
+// Model-View-Controller (MVC) se koristi
 
 public class LogInController {
     @FXML
