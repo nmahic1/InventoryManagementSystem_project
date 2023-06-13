@@ -1,68 +1,14 @@
-/*package repository;
-import java.sql.Connection;
-import java.sql.DriverManager;
-
-public class LoginDBConnectionRepository {
-    public Connection databaseLink;
-
-    public Connection getConnection(){
-        String databaseName ="ims";
-        String databaseUser ="root";
-        String databasePassword ="12345";
-        String url="jdbc:mysql://localhost:3306/ims?useSSL=false&" + databaseName;
-
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            databaseLink = DriverManager.getConnection(url, databaseUser, databasePassword);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-        return databaseLink;
-    }
-
-}
-*/
-/*LoginDBConnectionRepository je zadužen za komunikaciju s bazom podataka i
-provjeru prijave. LoginService služi kao posrednik između kontrolera i
-repozitorija te može dodati poslovnu logiku i validaciju ako je potrebno.
- LogInController upravlja korisničkim interakcijama i koristi LoginService za provjeru prijave.*/
 package repository;
 
 import java.sql.*;
 
 import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
-
 
 public class LoginDBConnectionRepository {
 
 
-  /*  private Properties properties;
-
-    public LoginDBConnectionRepository() {
-        properties = new Properties();
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("src/main/resources/config.properties")) {
-            properties.load(inputStream);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-   */
-
     private Connection getConnection() {
-      /*  Connection databaseLink = null;
-        String databaseName = "ims";
-        String databaseUser = "root";
-        String databasePassword = "12345";
-        String url = "jdbc:mysql://localhost:3306/ims?useSSL=false&" + databaseName;
-
-
-       */
 
         Connection databaseLink = null;
 
