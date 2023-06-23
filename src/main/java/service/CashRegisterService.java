@@ -3,6 +3,10 @@ package service;
 import controller.CashRegisterController;
 import repository.CashRegisterRepository;
 
+/**
+ * Klasa CashRegisterService pruža funkcionalnosti za manipulaciju kasom (blagajnom).
+ * Omogućava dodavanje i brisanje proizvoda iz blagajne.
+ */
 public class CashRegisterService {
 
     private CashRegisterRepository cashregisterRepository;
