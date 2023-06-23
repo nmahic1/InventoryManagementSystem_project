@@ -299,34 +299,74 @@ class Product {
         this.price = price;
     }
 
+    /**
+     * Getter za brand proizvoda.
+     *
+     * @return Brand proizvoda
+     */
     public String getBrand() {
         return brand;
     }
 
+    /**
+     * Setter za brand proizvoda.
+     *
+     * @param brand Novi brand proizvoda
+     */
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
+    /**
+     * Getter za kategoriju proizvoda.
+     *
+     * @return Kategorija proizvoda
+     */
     public String getCategory() {
         return category;
     }
 
+    /**
+     * Setter za kategoriju proizvoda.
+     *
+     * @param category Nova kategorija proizvoda
+     */
     public void setCategory(String category) {
         this.category = category;
     }
 
+    /**
+     * Getter za količinu proizvoda.
+     *
+     * @return Količina proizvoda
+     */
     public int getQuantity() {
         return quantity;
     }
 
+    /**
+     * Setter za količinu proizvoda.
+     *
+     * @param quantity Nova količina proizvoda
+     */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
+    /**
+     * Getter za cijenu proizvoda.
+     *
+     * @return Cijena proizvoda
+     */
     public double getPrice() {
         return price;
     }
 
+    /**
+     * Setter za cijenu proizvoda.
+     *
+     * @param price Nova cijena proizvoda
+     */
     public void setPrice(double price) {
         this.price = price;
     }
