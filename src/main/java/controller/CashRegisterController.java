@@ -303,7 +303,13 @@ public class CashRegisterController {
         }
     }
 
-
+    /**
+     * Metoda za izračunavanje subtotala, iznosa za plaćanje i preostalog salda.
+     * Subtotal se izračunava kao zbroj količine pomnožene s maloprodajnom cijenom za svaki proizvod u kasi.
+     * Iznos za plaćanje se dobiva iz polja za unos plaćanja, a ako nije valjani broj, postavlja se na 0.
+     * Preostalo saldo se izračunava kao razlika iznosa za plaćanje i subtotala.
+     * Pozitivna vrijednost saldoa predstavlja višak plaćanja, a negativna vrijednost predstavlja iznos koji treba dodatno platiti.
+     */
     @FXML
     void calculateSubtotal() {
         int subtotalPrice = 0;
