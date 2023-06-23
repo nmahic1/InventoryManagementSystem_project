@@ -15,6 +15,9 @@ import service.ProductService;
 import java.io.IOException;
 import java.util.Optional;
 
+/**
+ * Kontroler klasa za funkcionalnost dodavanja, brisanja i mijenjanja proizvoda
+ */
 public class ProductController {
 
     private ProductService productService;
@@ -82,6 +85,9 @@ public class ProductController {
 
     private ObservableList<ProductController.Data> dataListProduct = FXCollections.observableArrayList();
 
+    /**
+     * Konstruktor, inicijalizaciju objekta prilikom njegovog kreiranja.
+     */
     public ProductController() {
         this.productService = new ProductService();
     }
