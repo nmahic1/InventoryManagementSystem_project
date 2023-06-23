@@ -119,6 +119,12 @@ public class CashRegisterRepository {
         }
     }
 
+    /**
+     * Provjerava da li kasa sadrži određeni proizvod.
+     *
+     * @param cashregister Podaci o proizvodu za provjeru
+     * @return true ako kasa sadrži proizvod, false inače
+     */
     //za testove dodano
     public boolean containsProduct(CashRegisterController.Data cashregister) {
         try (Connection connection = getConnection()) {
