@@ -177,6 +177,11 @@ public class IMSApp {
         }
     }
 
+    /**
+     * Metoda za dobavljanje strategije unosa proizvoda.
+     *
+     * @return Strategija unosa proizvoda
+     */
     public static ProductInputStrategy getProductInputStrategy() {
         return productInputStrategy;
     }
