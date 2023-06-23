@@ -168,6 +168,9 @@ public class IMSApp {
         }
     }
 
+    /**
+     * Metoda koja obavještava observeje o promjeni podataka.
+     */
     private static void notifyObservers() {
         for (InventoryObserver observer : observers) {
             observer.update(productsByCategory);
