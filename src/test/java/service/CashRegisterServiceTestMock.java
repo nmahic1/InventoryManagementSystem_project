@@ -9,6 +9,9 @@ import repository.CashRegisterRepository;
 
 import static org.mockito.Mockito.*;
 
+/**
+ * Testna klasa za CashRegisterService sa korištenjem Mock objekata.
+ */
 public class CashRegisterServiceTestMock {
     @Mock
     private CashRegisterRepository cashRegisterRepository;
@@ -21,6 +24,9 @@ public class CashRegisterServiceTestMock {
         cashRegisterService.setCashRegisterRepository(cashRegisterRepository);
     }
 
+    /**
+     * Test slučaj za dodavanje proizvoda u kasu koristeći Mock objekat.
+     */
     @Test
     public void testAddProduct() {
         // Arrange
@@ -33,6 +39,9 @@ public class CashRegisterServiceTestMock {
         verify(cashRegisterRepository, times(1)).addProduct(cashRegisterData);
     }
 
+    /**
+     * Test slučaj za brisanje proizvoda iz kase koristeći Mock objekat.
+     */
     //deleting with mock
     @Test
     public void testDeleteProduct() {
