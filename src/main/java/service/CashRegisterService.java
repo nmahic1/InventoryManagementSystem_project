@@ -11,6 +11,10 @@ public class CashRegisterService {
 
     private CashRegisterRepository cashregisterRepository;
 
+    /**
+     * Konstruktor koji inicijalizira CashRegisterService objekat.
+     * Kreira novu instancu CashRegisterRepository.
+     */
     public CashRegisterService() {
         this.cashregisterRepository = new CashRegisterRepository();
     }
