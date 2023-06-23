@@ -348,6 +348,7 @@ public class ProductController {
     @FXML
     void addData(ActionEvent actionEvent) {
 
+        // Postavljanje vrijednosti za stupce u tabeli
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         dataColumnQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         dataColumnCostPrice.setCellValueFactory(new PropertyValueFactory<>("costPrice"));
@@ -357,6 +358,7 @@ public class ProductController {
         dataColumnCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         dataColumnDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
 
+        // Dobijanje unesenih podataka
         String dataB = brand.getText();
         int dataQ = Integer.parseInt(quantity.getText());
         int dataCP = Integer.parseInt(costprice.getText());
@@ -366,15 +368,15 @@ public class ProductController {
         String dataD = description.getText();
         id++;
 
-
+        // Kreiranje novog proizvoda
         ProductController.Data newProduct = new ProductController.Data(id, dataB, dataC, dataCP, dataRP, dataQ, dataBC, dataD);
         productService.addProduct(newProduct);
 
-
+        // Ažuriranje prikaza u tabeli
         ObservableList<ProductController.Data> allProducts = productService.getAllProducts();
         tableView.setItems(allProducts);
 
-
+        // Čišćenje unesenih podataka
         quantity.clear();
         costprice.clear();
         retailprice.clear();
@@ -384,12 +386,22 @@ public class ProductController {
         //category.clear();
     }
 
+    /**
+     * Metoda koja se poziva prilikom ažuriranja podataka o odabranom proizvodu.
+     * Otvara dijaloge za unos novih vrijednosti za marku, kategoriju, količinu,
+     * nabavnu cijenu, prodajnu cijenu, barkod i opis proizvoda.
+     * Ako su unesene nove vrijednosti, ažurira podatke odabranog proizvoda i osvježava prikaz u tabeli.
+     *
+     * @param event događaj koji je pokrenuo metodu
+     */
+
     @FXML
     void updateData(ActionEvent event) {
         int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
             ProductController.Data selectedData = tableView.getSelectionModel().getSelectedItem();
 
+            // Dijalozi za unos novih vrijednosti
             TextInputDialog brandDialog = new TextInputDialog(selectedData.getBrand());
             brandDialog.setTitle("Update Brand");
             brandDialog.setHeaderText(null);
@@ -425,6 +437,7 @@ public class ProductController {
             descriptionDialog.setHeaderText(null);
             descriptionDialog.setContentText("Enter description:");
 
+            // Prikazivanje dijaloga i dobijanje rezultata unosa
             Optional<String> brandResult = brandDialog.showAndWait();
             Optional<String> categoryResult = categoryDialog.showAndWait();
             Optional<String> quantityResult = quantityDialog.showAndWait();
