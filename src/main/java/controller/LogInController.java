@@ -48,6 +48,13 @@ public class LogInController {
             errorLabel.setText("Please enter username and password");
         }
     }
+    /**
+     * Validira prijavu korisnika na osnovu unesenog korisničkog imena i lozinke.
+     * Ako je prijava uspješna, otvara se novi prozor sa sadržajem iz FXML datoteke "Product.fxml".
+     * U suprotnom, ispisuje se poruka o neuspjeloj prijavi.
+     *
+     * @throws IOException ako se javi greška prilikom učitavanja FXML datoteke
+     */
 
 
     public void validateLogin() throws IOException {
