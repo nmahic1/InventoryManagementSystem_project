@@ -278,6 +278,13 @@ public class CashRegisterController {
         }
     }
 
+    /**
+     * Metoda za brisanje podataka o proizvodu iz kase.
+     * Briše selektirane podatke iz tablice i iz kase.
+     * Ako nijedan podatak nije selektiran, prikazuje upozorenje.
+     *
+     * @param event događaj koji je pokrenuo akciju brisanja podataka
+     */
     @FXML
     void deleteData(ActionEvent event) {
         int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
@@ -295,6 +302,7 @@ public class CashRegisterController {
             alert.showAndWait();
         }
     }
+
 
     @FXML
     void calculateSubtotal() {
