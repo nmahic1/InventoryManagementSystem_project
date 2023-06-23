@@ -1,6 +1,11 @@
 import java.util.*;
 
 //imaju dva patterna observer i inventory
+/**
+ * IMSApp je glavna klasa aplikacije Inventory Management System (IMS).
+ * Omogućava dodavanje, uređivanje, brisanje i ispis proizvoda pomoću korisničkog interfejsa preko konzole.
+ * Implementira Observer i Inventory pattern.
+ */
 public class IMSApp {
 
     private static Scanner scanner = new Scanner(System.in);
@@ -8,6 +13,11 @@ public class IMSApp {
     public static ProductInputStrategy productInputStrategy;
     public static List<InventoryObserver> observers = new ArrayList<>();
 
+    /**
+     * Glavna metoda koja pokreće IMS aplikaciju.
+     *
+     * @param args Argumenti iz komandne linije
+     */
     public static void main(String[] args) {
         observers.add(new InventoryPrinter());
         productInputStrategy = new ConsoleProductInputStrategy();
