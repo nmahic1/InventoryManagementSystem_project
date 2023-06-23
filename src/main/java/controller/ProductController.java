@@ -114,6 +114,14 @@ public class ProductController {
         //isto
     }
 
+    /**
+     * Metoda koja se poziva prilikom akcije odjave korisnika.
+     * Učitava FXML datoteku za prikaz prijave korisnika i otvara novu scenu s drugim prozorom.
+     *
+     * @param actionEvent objekat tipa ActionEvent koji predstavlja akciju odjave korisnika
+     * @throws IOException ako se javi greška prilikom učitavanja FXML datoteke ili otvaranja nove scene
+     */
+
     @FXML
     void logout(javafx.event.ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/LogIn.fxml"));
