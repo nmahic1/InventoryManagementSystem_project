@@ -273,6 +273,10 @@ class InventoryPrinter implements InventoryObserver {
     }
 }
 
+/**
+ * Klasa Product predstavlja proizvod u inventaru.
+ * Sadrži informacije o brandu, kategoriji, količini i cijeni proizvoda.
+ */
 class Product {
     private String brand;
     private String category;
