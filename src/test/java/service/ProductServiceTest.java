@@ -8,7 +8,9 @@ import org.mockito.MockitoAnnotations;
 import repository.ProductRepository;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
+/**
+ * Testna klasa za ProductService.
+ */
 public class ProductServiceTest {
 
     private ProductService productService;
@@ -25,6 +27,9 @@ public class ProductServiceTest {
     }
 
 
+    /**
+     * Test slučaj za provjeru brisanja proizvoda.
+     */
     @Test
     public void testDeleteProduct() {
         // Arrange
@@ -40,6 +45,9 @@ public class ProductServiceTest {
     }
 
 
+    /**
+     * Test slučaj za dobavljanje proizvoda po barkodu kada proizvod ne postoji.
+     */
     @Test
     public void testGetProductByBarcode_NonExistingProduct() {
         // Arrange
