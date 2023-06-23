@@ -238,6 +238,9 @@ class ConsoleProductInputStrategy implements ProductInputStrategy {
     }
 }
 
+/**
+ * Sučelje InventoryObserver definira metodu za ažuriranje inventara.
+ */
 interface InventoryObserver {
     void update(Map<String, List<Product>> productsByCategory);
 }
