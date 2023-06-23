@@ -56,6 +56,12 @@ public class ProductService {
         return productRepository.getAllProducts();
     }
 
+    /**
+     * Dohvaća proizvod na temelju zadatog bar koda.
+     *
+     * @param barcode Bar kod proizvoda
+     * @return Podaci o proizvodu (brand, category, costPrice, retailPrice, quantity, barcode, description)
+     */
     public ProductController.Data getProductByBarcode(int barcode) {
         return productRepository.getProductByBarcode(barcode);
     }
