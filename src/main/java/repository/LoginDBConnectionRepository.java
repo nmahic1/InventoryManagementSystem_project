@@ -10,6 +10,11 @@ import java.util.Properties;
  * Omogućava provjeru ispravnosti korisničkog imena i lozinke.
  */
 public class LoginDBConnectionRepository {
+    /**
+     * Dobavlja konekciju sa bazom podataka na osnovu konfiguracije.
+     *
+     * @return Konekcija sa bazom podataka
+     */
     private Connection getConnection() {
 
         Connection databaseLink = null;
