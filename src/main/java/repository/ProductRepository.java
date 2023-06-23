@@ -96,6 +96,11 @@ public class ProductRepository {
         }
     }
 
+    /**
+     * Briše proizvod iz baze podataka.
+     *
+     * @param product Podaci o proizvodu koji se briše
+     */
     public static void deleteProduct(ProductController.Data product) {
         try (Connection connection = getConnection()) {
             String query = "DELETE FROM product WHERE id=?";
