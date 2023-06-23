@@ -9,6 +9,9 @@ import repository.CashRegisterRepository;
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Testna klasa za CashRegisterService.
+ */
 public class CashRegisterServiceTest {
 //dodati testove
 
@@ -19,6 +22,9 @@ public class CashRegisterServiceTest {
         cashRegisterService = new CashRegisterService();
     }
 
+    /**
+     * Test slučaj za dodavanje proizvoda u kasu.
+     */
     @Test
     public void testAddProduct() {
         CashRegisterController.Data cashregister = new CashRegisterController.Data(44444444, 3);
