@@ -115,6 +115,11 @@ public class ProductRepository {
         }
     }
 
+    /**
+     * Dohvaća sve proizvode iz baze podataka.
+     *
+     * @return Lista svih proizvoda
+     */
     public static ObservableList<ProductController.Data> getAllProducts() {
         ObservableList<ProductController.Data> productList = FXCollections.observableArrayList();
 
