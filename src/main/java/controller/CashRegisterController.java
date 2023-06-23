@@ -215,10 +215,20 @@ public class CashRegisterController {
             this.price = this.retailPrice * this.quantity;
         }
 
+        /**
+         * Metoda za postavljanje identifikatora proizvoda.
+         *
+         * @param id identifikator proizvoda
+         */
         public void setId(int id) {
             this.id = id;
         }
 
+        /**
+         * Metoda za dobijanje identifikatora proizvoda.
+         *
+         * @return identifikator proizvoda
+         */
         public int getId() {
             return id;
         }
