@@ -100,6 +100,11 @@ public class CashRegisterRepository {
         }
     }
 
+    /**
+     * Briše proizvod iz kase.
+     *
+     * @param cashregister Podaci o proizvodu za brisanje
+     */
     public void deleteProduct(CashRegisterController.Data cashregister) {
         try (Connection connection = getConnection()) {
             String query = "DELETE FROM cashregister WHERE id=?";
