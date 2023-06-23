@@ -47,6 +47,11 @@ public class ProductService {
         productRepository.deleteProduct(product);
     }
 
+    /**
+     * Vraća sve proizvode iz repozitorija.
+     *
+     * @return Lista proizvoda
+     */
     public ObservableList<ProductController.Data> getAllProducts() {
         return productRepository.getAllProducts();
     }
