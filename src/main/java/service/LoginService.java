@@ -4,6 +4,10 @@ package service;
 
 import repository.LoginDBConnectionRepository;
 
+/**
+ * Klasa LoginService pruža funkcionalnosti za provjeru i validaciju korisničkih prijava.
+ * Omogućava provjeru korisničkog imena i lozinke koristeći LoginDBConnectionRepository za pristup bazi podataka.
+ */
 public class LoginService {
     private LoginDBConnectionRepository loginRepo;
 
