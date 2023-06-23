@@ -40,6 +40,15 @@ public class LogInController {
         this.loginService = new LoginService();
     }
 
+    /**
+     * Metoda koja se poziva prilikom akcije prijave (login) korisnika.
+     * Provjerava unesena korisnička imena i lozinke te poziva metodu za validaciju prijave.
+     * Ako su oba polja za unos popunjena, poziva se metoda za validaciju prijave.
+     * U suprotnom, postavlja se odgovarajuća poruka greške.
+     *
+     * @param e objekat tipa ActionEvent koji predstavlja akciju prijave
+     * @throws IOException ako se javi greška prilikom izvršavanja metode za validaciju prijave
+     */
 
     public void login(ActionEvent e) throws IOException {
         if (!usernameField.getText().isBlank() && !passwordField.getText().isBlank()) {
