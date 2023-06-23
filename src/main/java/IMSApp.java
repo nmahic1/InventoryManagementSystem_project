@@ -187,6 +187,9 @@ public class IMSApp {
     }
 }
 
+/**
+ * Sučelje ProductInputStrategy definira metodu za dodavanje proizvoda.
+ */
 interface ProductInputStrategy {
     void addProduct(Map<String, List<Product>> productsByCategory, Scanner scanner);
 }
