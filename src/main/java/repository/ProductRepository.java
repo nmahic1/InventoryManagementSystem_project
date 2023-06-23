@@ -43,6 +43,11 @@ public class ProductRepository {
         return databaseLink;
     }
 
+    /**
+     * Dodaje proizvod u bazu podataka.
+     *
+     * @param product Podaci o proizvodu koji se dodaje
+     */
     public static void addProduct(ProductController.Data product) {
         try (Connection connection = getConnection()) {
             String query = "INSERT INTO product ( brand, category, costPrice, retailPrice, quantity, barcode, description) " +
