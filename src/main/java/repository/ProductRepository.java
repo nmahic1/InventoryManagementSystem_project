@@ -152,7 +152,6 @@ public class ProductRepository {
         return productList;
     }
 
-
     /**
      * Dohvaća proizvod iz baze podataka na osnovu bar koda.
      *
