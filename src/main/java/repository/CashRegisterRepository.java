@@ -40,7 +40,12 @@ public class CashRegisterRepository {
         return databaseLink;
     }
 
-
+    /**
+     * Metoda za dobavljanje brenda proizvoda na osnovu barkoda iz tabele proizvoda.
+     *
+     * @param barcode Barkod proizvoda
+     * @return Brend proizvoda
+     */
     // Metoda za preuzimanje branda iz tabele product na osnovu barcode-a
     private String getProductBrand(int barcode) {
         String brand = null;
