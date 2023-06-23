@@ -20,6 +20,11 @@ public class ProductService {
         this.productRepository = new ProductRepository();
     }
 
+    /**
+     * Dodaje novi proizvod u repozitorij.
+     *
+     * @param product Podaci o proizvodu (brand, category, costPrice, retailPrice, quantity, barcode, description)
+     */
     public void addProduct(ProductController.Data product) {
         productRepository.addProduct(product);
     }
