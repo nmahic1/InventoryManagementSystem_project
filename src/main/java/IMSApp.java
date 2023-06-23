@@ -123,6 +123,10 @@ public class IMSApp {
         }
     }
 
+    /**
+     * Metoda za brisanje postojećeg proizvoda.
+     * Korisnik unosi kategoriju i indeks proizvoda koji želi obrisati.
+     */
     private static void deleteProduct() {
         scanner.nextLine(); // Clear the line after previous input
         System.out.println("Enter the category of the product you want to delete:");
