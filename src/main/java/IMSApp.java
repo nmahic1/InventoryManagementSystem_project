@@ -200,6 +200,11 @@ interface ProductInputStrategy {
      */
     void addProduct(Map<String, List<Product>> productsByCategory, Scanner scanner);
 }
+
+/**
+ * ConsoleProductInputStrategy je implementacija ProductInputStrategy sučelja.
+ * Koristi korisnički unos preko konzole za dodavanje proizvoda.
+ */
 class ConsoleProductInputStrategy implements ProductInputStrategy {
     private static int indexCounter = 1; // Promenjena vrednost na 0 za početni indeks
 
