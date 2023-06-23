@@ -67,6 +67,11 @@ public class CashRegisterRepository {
         return brand;
     }
 
+    /**
+     * Dodaje proizvod u kasu.
+     *
+     * @param cashregister Podaci o proizvodu za dodavanje
+     */
     public void addProduct(CashRegisterController.Data cashregister) {
         try (Connection connection = getConnection()) {
             String brand = getProductBrand(cashregister.getBarcode());
