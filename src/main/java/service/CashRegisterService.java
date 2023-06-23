@@ -47,6 +47,12 @@ public class CashRegisterService {
         cashregisterRepository.deleteProduct(cashregister);
     }
 
+    /**
+     * Postavlja CashRegisterRepository objekat koji se koristi za pristup podacima blagajne.
+     * Koristi se za mockanje testova.
+     *
+     * @param cashRegisterRepository CashRegisterRepository objekat
+     */
     //za mockanje testova
     public void setCashRegisterRepository(CashRegisterRepository cashRegisterRepository) {
         this.cashregisterRepository = cashRegisterRepository;
