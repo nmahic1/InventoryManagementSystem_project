@@ -11,6 +11,10 @@ import repository.LoginDBConnectionRepository;
 public class LoginService {
     private LoginDBConnectionRepository loginRepo;
 
+    /**
+     * Konstruktor koji inicijalizira LoginService objekat.
+     * Kreira novu instancu LoginDBConnectionRepository.
+     */
     public LoginService() {
         this.loginRepo = new LoginDBConnectionRepository();
     }
