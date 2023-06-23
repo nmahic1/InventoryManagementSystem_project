@@ -208,6 +208,9 @@ public class CashRegisterController {
             this.price = price;
         }
 
+        /**
+         * Privatna metoda koja ažurira ukupnu cijenu proizvoda na osnovu maloprodajne cijene i količine.
+         */
         private void updatePrice() {
             this.price = this.retailPrice * this.quantity;
         }
