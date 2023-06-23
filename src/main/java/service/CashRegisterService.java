@@ -20,6 +20,11 @@ public class CashRegisterService {
     }
 
     //dodano za testove
+    /**
+     * Vraća CashRegisterRepository objekat koji se koristi za pristup podacima blagajne.
+     *
+     * @return CashRegisterRepository objekat
+     */
     public CashRegisterRepository getCashRegisterRepository() {
         return cashregisterRepository;
     }
