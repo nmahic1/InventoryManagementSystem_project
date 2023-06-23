@@ -52,6 +52,11 @@ public class IMSApp {
         System.out.println("Thank you for using our application!");
     }
 
+    /**
+     * Metoda za prijavu korisnika.
+     * Traži korisničko ime i lozinku od korisnika.
+     * Implementirajte logiku za provjeru korisničkih podataka.
+     */
     private static void login() {
         System.out.println("Welcome! Please log in.");
         System.out.print("Username: ");
