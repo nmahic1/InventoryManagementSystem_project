@@ -10,6 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
+/**
+ * Testna klasa za LoginService sa korištenjem Mock objekata.
+ */
 public class LoginServiceTest {
     @Mock
     private LoginDBConnectionRepository loginRepo;
@@ -21,6 +24,9 @@ public class LoginServiceTest {
         loginService = new LoginService(loginRepo);
     }
 
+    /**
+     * Test slučaj za provjeru ispravnosti prijave sa validnim korisničkim podacima.
+     */
     @Test
     public void testValidateLogin_ValidCredentials_ReturnsTrue() {
         // Arrange
@@ -37,7 +43,9 @@ public class LoginServiceTest {
         assertTrue(isValid);
     }
 
-
+    /**
+     * Test slučaj za provjeru ispravnosti prijave sa neispravnim korisničkim podacima.
+     */
     @Test
     public void testValidateLogin_InvalidCredentials_ReturnsFalse() {
         // Arrange
@@ -54,6 +62,9 @@ public class LoginServiceTest {
         assertFalse(isValid);
     }
 
+    /**
+     * Test slučaj za provjeru ispravnosti prijave sa praznim korisničkim podacima.
+     */
     @Test
     public void testValidateLogin_BlankCredentials_ReturnsFalse() {
         // Arrange
