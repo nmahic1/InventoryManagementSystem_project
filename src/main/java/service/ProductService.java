@@ -4,6 +4,10 @@ import controller.ProductController;
 import javafx.collections.ObservableList;
 import repository.ProductRepository;
 
+/**
+ * Klasa ProductService pruža funkcionalnosti za upravljanje proizvodima.
+ * Omogućava dodavanje, ažuriranje, brisanje i dohvaćanje proizvoda iz repozitorija.
+ */
 public class ProductService {
 
     private ProductRepository productRepository;
