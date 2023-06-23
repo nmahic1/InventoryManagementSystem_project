@@ -70,6 +70,11 @@ public class ProductRepository {
         }
     }
 
+    /**
+     * Ažurira podatke proizvoda u bazi podataka.
+     *
+     * @param product Podaci o proizvodu koji se ažurira
+     */
     public static void updateProduct(ProductController.Data product) {
         try (Connection connection = getConnection()) {
             String query = "UPDATE product SET brand=?, category=?, costPrice=?, retailPrice=?, quantity=?, barcode=?, description=? WHERE id=?";
