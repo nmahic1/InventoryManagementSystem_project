@@ -234,6 +234,14 @@ public class CashRegisterController {
         }
     }
 
+    /**
+     * Metoda za dodavanje podataka o proizvodu u kasu.
+     * Podaci se uzimaju iz unesenih vrijednosti za barkod i količinu.
+     * Ako proizvod sa zadatim barkodom postoji, dodaje se u kasu sa odgovarajućom količinom i izračunatom cijenom.
+     * Ako proizvod ne postoji, prikazuje se upozorenje.
+     *
+     * @param actionEvent događaj koji je pokrenuo akciju dodavanja podataka
+     */
     @FXML
     void addData(ActionEvent actionEvent) {
         dataColumnBarCode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
