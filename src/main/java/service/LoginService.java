@@ -19,6 +19,11 @@ public class LoginService {
         this.loginRepo = new LoginDBConnectionRepository();
     }
 
+    /**
+     * Konstruktor koji koristi Dependency Injection za injekciju LoginDBConnectionRepository objekta.
+     *
+     * @param loginRepo LoginDBConnectionRepository objekat
+     */
     public LoginService(LoginDBConnectionRepository loginRepo) {
         this.loginRepo = loginRepo;
     }
