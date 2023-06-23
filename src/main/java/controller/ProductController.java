@@ -469,6 +469,12 @@ public class ProductController {
         }
     }
 
+    /**
+     * Metoda koja se poziva prilikom brisanja odabranog proizvoda iz tabele.
+     * Provjerava da li je odabran proizvod, a zatim ga briše iz liste proizvoda i osvježava prikaz u tabeli.
+     *
+     * @param event događaj koji je pokrenuo metodu
+     */
     @FXML
     void deleteData(ActionEvent event) {
         int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
