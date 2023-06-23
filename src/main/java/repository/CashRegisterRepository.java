@@ -12,6 +12,11 @@ import java.sql.*;
  */
 public class CashRegisterRepository {
 
+    /**
+     * Dobavlja konekciju sa bazom podataka na osnovu konfiguracije.
+     *
+     * @return Konekcija sa bazom podataka
+     */
     private Connection getConnection() {
 
         Connection databaseLink = null;
