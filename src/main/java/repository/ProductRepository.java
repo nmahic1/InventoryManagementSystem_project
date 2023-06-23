@@ -152,6 +152,13 @@ public class ProductRepository {
         return productList;
     }
 
+
+    /**
+     * Dohvaća proizvod iz baze podataka na osnovu bar koda.
+     *
+     * @param barcode Bar kod proizvoda
+     * @return Podaci o proizvodu ako je pronađen, null inače
+     */
     public static ProductController.Data getProductByBarcode(int barcode) {
         try (Connection connection = getConnection()) {
             String query = "SELECT * FROM product WHERE barcode = ?";
