@@ -250,6 +250,10 @@ interface InventoryObserver {
     void update(Map<String, List<Product>> productsByCategory);
 }
 
+/**
+ * InventoryPrinter je implementacija InventoryObserver sučelja.
+ * Ispisuje promjene u inventaru nakon ažuriranja.
+ */
 class InventoryPrinter implements InventoryObserver {
     @Override
     public void update(Map<String, List<Product>> productsByCategory) {
