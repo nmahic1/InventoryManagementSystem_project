@@ -29,6 +29,11 @@ public class CashRegisterService {
         return cashregisterRepository;
     }
 
+    /**
+     * Dodaje proizvod u blagajnu.
+     *
+     * @param cashregister Podaci o proizvodu koji se dodaje
+     */
     public void addProduct(CashRegisterController.Data cashregister) {
         cashregisterRepository.addProduct(cashregister);
     }
