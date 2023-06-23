@@ -29,6 +29,11 @@ public class ProductService {
         productRepository.addProduct(product);
     }
 
+    /**
+     * Ažurira postojeći proizvod u repozitoriju.
+     *
+     * @param product Podaci o proizvodu (brand, category, costPrice, retailPrice, quantity, barcode, description)
+     */
     public void updateProduct(ProductController.Data product) {
         productRepository.updateProduct(product);
     }
