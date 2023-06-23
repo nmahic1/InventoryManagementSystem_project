@@ -283,6 +283,15 @@ class Product {
     private int quantity;
     private double price;
 
+
+    /**
+     * Konstruktor za inicijalizaciju proizvoda.
+     *
+     * @param brand    Brand proizvoda
+     * @param category Kategorija proizvoda
+     * @param quantity Količina proizvoda
+     * @param price    Cijena proizvoda
+     */
     public Product(String brand, String category, int quantity, double price) {
         this.brand = brand;
         this.category = category;
