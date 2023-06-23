@@ -326,6 +326,12 @@ public class ProductController {
     }
 
     //postavljanje odabranog polja iz liste u polje category
+    /**
+     * Metoda koja se poziva prilikom odabira kategorije iz padajućeg menija.
+     * Postavlja odabranu kategoriju u tekstualno polje za kategoriju.
+     *
+     * @param actionEvent događaj koji je pokrenuo metodu
+     */
     @FXML
     void selectCategory(ActionEvent actionEvent) {
         MenuItem selectedItem = (MenuItem) actionEvent.getSource();
@@ -333,7 +339,12 @@ public class ProductController {
         category.setText(selectedCategory);
     }
 
-
+    /**
+     * Metoda koja se poziva prilikom dodavanja novih podataka o proizvodu.
+     * Prikazuje unesene podatke u tabeli i ažurira prikaz.
+     *
+     * @param actionEvent događaj koji je pokrenuo metodu
+     */
     @FXML
     void addData(ActionEvent actionEvent) {
 
