@@ -135,6 +135,10 @@ public class ProductController {
 
     }
 
+    /**
+     * Klasa koja predstavlja podatke o određenom proizvodu.
+     */
+
     public static class Data {
         private int id;
         private int quantity;
@@ -148,6 +152,18 @@ public class ProductController {
 
         private String category;
 
+        /**
+         * Konstruktor za inicijalizaciju objekta klase Data.
+         *
+         * @param id           identifikator proizvoda
+         * @param brand        marka proizvoda
+         * @param category     kategorija proizvoda
+         * @param costprice    nabavna cijena proizvoda
+         * @param retailprice  prodajna cijena proizvoda
+         * @param quantity     količina proizvoda
+         * @param barcode      barkod proizvoda
+         * @param description  opis proizvoda
+         */
 
         public Data(int id, String brand, String category, int costprice, int retailprice, int quantity, int barcode, String description) {
             this.id = id;
@@ -161,68 +177,147 @@ public class ProductController {
         }
 
 
+        /**
+         * Vraća identifikator proizvoda.
+         *
+         * @return identifikator proizvoda
+         */
+
         public int getId() {
             return id;
         }
 
+        /**
+         * Postavlja identifikator proizvoda.
+         *
+         * @param id identifikator proizvoda
+         */
         public void setId(int id) {
             this.id = id;
         }
 
-
+        /**
+         * Vraća količinu proizvoda.
+         *
+         * @return količina proizvoda
+         */
         public int getQuantity() {
             return quantity;
         }
 
+        /**
+         * Vraća nabavnu cijenu proizvoda.
+         *
+         * @return nabavna cijena proizvoda
+         */
         public int getCostPrice() {
             return costprice;
         }
 
+        /**
+         * Vraća prodajnu cijenu proizvoda.
+         *
+         * @return prodajna cijena proizvoda
+         */
         public int getRetailPrice() {
             return retailprice;
         }
 
+        /**
+         * Vraća barkod proizvoda.
+         *
+         * @return barkod proizvoda
+         */
         public int getBarcode() {
             return barcode;
         }
 
+        /**
+         * Vraća opis proizvoda.
+         *
+         * @return opis proizvoda
+         */
         public String getDescription() {
             return description;
         }
 
-
+        /**
+         * Postavlja količinu proizvoda.
+         *
+         * @param data količina proizvoda
+         */
         public void setQuantity(int data) {
             this.quantity = data;
         }
 
+        /**
+         * Postavlja nabavnu cijenu proizvoda.
+         *
+         * @param data nabavna cijena proizvoda
+         */
         public void setCostPrice(int data) {
             this.costprice = data;
         }
 
+        /**
+         * Postavlja prodajnu cijenu proizvoda.
+         *
+         * @param data prodajna cijena proizvoda
+         */
         public void setRetailPrice(int data) {
             this.retailprice = data;
         }
 
+        /**
+         * Postavlja barkod proizvoda.
+         *
+         * @param data barkod proizvoda
+         */
         public void setBarcode(int data) {
             this.barcode = data;
         }
 
+        /**
+         * Postavlja opis proizvoda.
+         *
+         * @param data opis proizvoda
+         */
         public void setDescription(String data) {
             this.description = data;
         }
 
+        /**
+         * Vraća marku proizvoda.
+         *
+         * @return marka proizvoda
+         */
         public String getBrand() {
             return brand;
         }
 
+        /**
+         * Postavlja marku proizvoda.
+         *
+         * @param data marka proizvoda
+         */
         public void setBrand(String data) {
             this.brand = data;
         }
 
+        /**
+         * Vraća kategoriju proizvoda.
+         *
+         * @return kategorija proizvoda
+         */
         public String getCategory() {
             return category;
         }
 
+        /**
+         * Postavlja kategoriju proizvoda.
+         *
+         * @param data kategorija proizvoda
+         */
         public void setCategory(String data) {
             this.category = data;
         }
