@@ -38,6 +38,11 @@ public class CashRegisterService {
         cashregisterRepository.addProduct(cashregister);
     }
 
+    /**
+     * Briše proizvod iz blagajne.
+     *
+     * @param cashregister Podaci o proizvodu koji se briše
+     */
     public void deleteProduct(CashRegisterController.Data cashregister) {
         cashregisterRepository.deleteProduct(cashregister);
     }
