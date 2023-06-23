@@ -38,6 +38,13 @@ public class LoginDBConnectionRepository {
         return databaseLink;
     }
 
+    /**
+     * Validira korisničku prijavu na osnovu korisničkog imena i lozinke.
+     *
+     * @param username Korisničko ime
+     * @param password Lozinka
+     * @return true ako je prijava ispravna, false inače
+     */
     public boolean validateLogin(String username, String password) {
         Connection connectDB = getConnection();
         boolean isValidLogin = false;
