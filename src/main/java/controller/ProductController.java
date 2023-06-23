@@ -92,6 +92,14 @@ public class ProductController {
         this.productService = new ProductService();
     }
 
+
+    /**
+     * Metoda koja se poziva prilikom akcije otvaranja blagajne.
+     * Učitava FXML datoteku za prikaz blagajne i otvara novu scenu s drugim prozorom.
+     *
+     * @param actionEvent objekat tipa ActionEvent koji predstavlja akciju otvaranja blagajne
+     * @throws IOException ako se javi greška prilikom učitavanja FXML datoteke ili otvaranja nove scene
+     */
     @FXML
     void handlecashRegister(javafx.event.ActionEvent actionEvent) throws IOException {
         // Code to handle exit menu item
