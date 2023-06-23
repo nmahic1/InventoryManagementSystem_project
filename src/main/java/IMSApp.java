@@ -148,6 +148,10 @@ public class IMSApp {
         }
     }
 
+    /**
+     * Metoda za ispis svih proizvoda.
+     * Prikazuje sve proizvode po kategorijama.
+     */
     private static void printProducts() {
         System.out.println("Products:");
         for (String category : productsByCategory.keySet()) {
