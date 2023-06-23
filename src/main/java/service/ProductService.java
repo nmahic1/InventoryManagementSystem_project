@@ -38,6 +38,11 @@ public class ProductService {
         productRepository.updateProduct(product);
     }
 
+    /**
+     * Briše proizvod iz repozitorija.
+     *
+     * @param product Podaci o proizvodu (brand, category, costPrice, retailPrice, quantity, barcode, description)
+     */
     public void deleteProduct(ProductController.Data product) {
         productRepository.deleteProduct(product);
     }
