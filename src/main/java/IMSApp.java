@@ -68,6 +68,11 @@ public class IMSApp {
         System.out.println("Logged in as " + username);
     }
 
+    /**
+     * Metoda koja prikazuje glavni meni korisničkog interfejsa.
+     *
+     * @return Izabrana opcija
+     */
     private static int displayMenu() {
         System.out.println("-----------");
         System.out.println("Menu:");
