@@ -15,6 +15,9 @@ import java.io.IOException;
 
 import service.LoginService;
 
+/**
+ * Kontroler klasa za funkcionalnost prijave
+ */
 public class LogInController {
     @FXML
     TextField usernameField;
@@ -30,9 +33,13 @@ public class LogInController {
 
     private LoginService loginService;
 
+    /**
+     * Konstruktor, inicijalizaciju objekta prilikom njegovog kreiranja.
+     */
     public LogInController() {
         this.loginService = new LoginService();
     }
+
 
     public void login(ActionEvent e) throws IOException {
         if (!usernameField.getText().isBlank() && !passwordField.getText().isBlank()) {
@@ -41,6 +48,7 @@ public class LogInController {
             errorLabel.setText("Please enter username and password");
         }
     }
+
 
     public void validateLogin() throws IOException {
         String username = usernameField.getText();
