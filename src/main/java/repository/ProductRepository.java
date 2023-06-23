@@ -13,6 +13,10 @@ import java.sql.SQLException;
 import java.io.FileInputStream;
 import java.util.Properties;
 
+/**
+ * Klasa ProductRepository pruža funkcionalnosti za manipulaciju podacima proizvoda u bazi podataka.
+ * Omogućava dodavanje, ažuriranje, brisanje i dohvatanje proizvoda.
+ */
 public class ProductRepository {
 
     //konfiguracija sa properties
