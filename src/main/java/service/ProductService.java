@@ -12,6 +12,10 @@ public class ProductService {
 
     private ProductRepository productRepository;
 
+    /**
+     * Konstruktor koji inicijalizira ProductService objekat.
+     * Kreira novu instancu ProductRepository.
+     */
     public ProductService() {
         this.productRepository = new ProductRepository();
     }
