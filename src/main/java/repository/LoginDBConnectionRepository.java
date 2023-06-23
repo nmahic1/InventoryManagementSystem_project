@@ -5,6 +5,10 @@ import java.sql.*;
 import java.io.FileInputStream;
 import java.util.Properties;
 
+/**
+ * Klasa LoginDBConnectionRepository pruža funkcionalnosti za validaciju korisničkih prijava putem baze podataka.
+ * Omogućava provjeru ispravnosti korisničkog imena i lozinke.
+ */
 public class LoginDBConnectionRepository {
     private Connection getConnection() {
 
