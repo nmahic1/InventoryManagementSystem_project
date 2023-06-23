@@ -36,6 +36,9 @@ public class CashRegisterServiceTest {
         Assert.assertTrue(cashRegisterRepository.containsProduct(cashregister));
     }
 
+    /**
+     * Test slučaj za brisanje proizvoda iz kase.
+     */
     @Test
     public void testDeleteProduct() {
         CashRegisterController.Data cashregister = new CashRegisterController.Data(44444444, 3);
@@ -56,6 +59,9 @@ public class CashRegisterServiceTest {
         return cashRegisterService.getCashRegisterRepository();
     }
 
+    /**
+     * Test slučaj za dobijanje CashRegisterRepository iz CashRegisterService.
+     */
     @Test
     public void testGetCashRegisterRepository() {
         // Arrange
@@ -69,6 +75,9 @@ public class CashRegisterServiceTest {
     }
 
 
+    /**
+     * Test slučaj za brisanje nepostojećeg proizvoda iz kase.
+     */
     @Test
     public void testDeleteProduct_NonExistingProduct() {
         // Arrange
