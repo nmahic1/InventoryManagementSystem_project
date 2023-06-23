@@ -28,6 +28,13 @@ public class LoginService {
         this.loginRepo = loginRepo;
     }
 
+    /**
+     * Validira korisničku prijavu provjeravajući korisničko ime i lozinku.
+     *
+     * @param username Korisničko ime
+     * @param password Lozinka
+     * @return true ako je prijava uspješna, false ako prijava nije uspješna
+     */
     public boolean validateLogin(String username, String password) {
         // Ovdje možete dodati dodatnu poslovnu logiku, provjeru i validaciju
         // npr. provjeru duljine korisničkog imena/lozinke, enkripciju itd.
