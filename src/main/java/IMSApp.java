@@ -85,6 +85,11 @@ public class IMSApp {
         return scanner.nextInt();
     }
 
+    /**
+     * Metoda za uređivanje postojećeg proizvoda.
+     * Korisnik unosi kategoriju i indeks proizvoda koji želi urediti.
+     * Zatim unosi nove detalje o proizvodu (brand, quantity, price).
+     */
     private static void editProduct() {
         scanner.nextLine(); // Clear the line after previous input
         System.out.println("Enter the category of the product you want to edit:");
