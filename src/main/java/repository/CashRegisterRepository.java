@@ -6,6 +6,10 @@ import java.io.FileInputStream;
 import java.util.Properties;
 import java.sql.*;
 
+/**
+ * Klasa CashRegisterRepository je odgovorna za rukovanje operacijama baze podataka koje se odnose na kasu.
+ * Pruža metode za dodavanje i brisanje proizvoda iz tabele kase.
+ */
 public class CashRegisterRepository {
 
     private Connection getConnection() {
